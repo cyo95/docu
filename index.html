@@ -1425,6 +1425,49 @@ function durText(meses) {
 }
 
 
+
+// ── Visual layout helpers for numbered clauses ──
+// Renders a numbered clause: bold number on left, normal body text indented
+function pdfClausula(doc, num, body, y) {
+  if (y + 8 > 280) { doc.addPage(); y = 22; }
+  y += 3; // breathing space before each clause
+  // Number in bold
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9.5);
+  doc.text(num, 20, y);
+  doc.setTextColor(0, 0, 0);
+  // Body in normal weight, indented at 27mm
+  doc.setFont('helvetica', 'normal');
+  var lines = doc.splitTextToSize(body, 163); // 190 - 27
+  lines.forEach(function(l) {
+    if (y + 5 > 280) { doc.addPage(); y = 22; }
+    doc.text(l, 27, y);
+    y += 5.2;
+  });
+  return y;
+}
+
+// Renders sub-items A) B) C)... indented under a clause
+function pdfSubItems(doc, items, y) {
+  items.forEach(function(item) {
+    var lbl  = item[0]; // e.g. "A)"
+    var text = item[1];
+    if (y + 6 > 280) { doc.addPage(); y = 22; }
+    y += 1;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    doc.text(lbl, 27, y);
+    doc.setFont('helvetica', 'normal');
+    var lines = doc.splitTextToSize(text, 155); // 190 - 35
+    lines.forEach(function(l) {
+      if (y + 5 > 280) { doc.addPage(); y = 22; }
+      doc.text(l, 35, y);
+      y += 5.2;
+    });
+  });
+  return y + 1;
+}
+
 function pdfTemporada() {
   var doc = makePDFBase();
   var ard = getArrendadorData();
@@ -1519,35 +1562,89 @@ function pdfTemporada() {
   y = pdfP(doc, 'En caso de que el arrendatario permanezca en la vivienda una vez finalizado el contrato sin autorizaci\xf3n expresa y por escrito del arrendador, dicha ocupaci\xf3n tendr\xe1 la consideraci\xf3n de no autorizada.', y);
   y = pdfP(doc, 'Durante dicho per\xedodo, el arrendatario abonar\xe1 al arrendador, en concepto de indemnizaci\xf3n por los perjuicios derivados de la ocupaci\xf3n indebida y la indisponibilidad del inmueble, una cantidad diaria equivalente al 150 % del importe diario de la renta pactada, sin que ello implique pr\xf3rroga, t\xe1cita reconducti\xf3n o renovaci\xf3n del contrato.', y);
   y = pdfP(doc, 'La referida cantidad tendr\xe1 car\xe1cter estrictamente indemnizatorio, no constituyendo en ning\xfan caso renta contractual, y se devengar\xe1 desde el d\xeda siguiente al de la finalizaci\xf3n del contrato hasta la efectiva entrega de las llaves y restituci\xf3n de la posesi\xf3n al arrendador.', y);
+  y += 3;
+
+  // ── Cláusula 2 ──
+  y = pdfClausula(doc, '2.', 'El ARRENDATARIO manifiesta que su domicilio habitual es el que se ha indicado en el encabezamiento de este documento, constituyendo su vivienda particular, por lo que su cambio de residencia es temporal, al ser el motivo de ARRENDAMIENTO de la vivienda, la estancia por ' + mot + '.', y);
+
+  // ── Cláusula 3 ──
+  y = pdfClausula(doc, '3.', 'El objeto de este contrato se alquila exclusivamente para el destino a vivienda temporal del arrendatario, no pudiendo instalar en \xe9l, comercio, industria, ni siquiera manual, ni oficina o despacho profesional.', y);
+
+  // ── Cláusula 4 ──
+  y = pdfClausula(doc, '4.', 'Es objeto del arrendamiento exclusivamente, la superficie situada dentro de las paredes de la vivienda, quedando especialmente excluida la fachada, partes laterales de la entrada, la azotea y vest\xedbulo escalera.', y);
+  y = pdfP(doc, 'En consecuencia, el arrendamiento a que este contrato se refiere no dar\xe1 derecho a entrar ni usar la azotea o terrado de la finca.', y, 27);
   y += 1;
-  y = pdfP(doc, '2. El ARRENDATARIO manifiesta que su domicilio habitual es el que se ha indicado en el encabezamiento de este documento, constituyendo su vivienda particular, por lo que su cambio de residencia es temporal, al ser el motivo de ARRENDAMIENTO de la vivienda, la estancia por ' + mot + '.', y, 20, 9.5, true);
-  y = pdfP(doc, '3. El objeto de este contrato se alquila exclusivamente para el destino a vivienda temporal del arrendatario, no pudiendo instalar en \xe9l, comercio, industria, ni siquiera manual, ni oficina o despacho profesional.', y, 20, 9.5, true);
-  y = pdfP(doc, '4. Es objeto del arrendamiento exclusivamente, la superficie situada dentro de las paredes de la vivienda, quedando especialmente excluida la fachada, partes laterales de la entrada, la azotea y vest\xedbulo escalera.\n\nEn consecuencia, el arrendamiento a que este contrato se refiere no dar\xe1 derecho a entrar ni usar la azotea o terrado de la finca.', y, 20, 9.5, true);
-  y = pdfP(doc, '5. El ARRENDATARIO declara conocer las caracter\xedsticas y estado de conservaci\xf3n de la vivienda y aceptarlas expresamente y se obliga a conservarla en perfecto estado. (ANEXO 1)', y, 20, 9.5, true);
-  y = pdfP(doc, '6. Est\xe1n permitidas las mascotas siempre y cuando respeten las normas establecidas en la comunidad de vecinos.', y, 20, 9.5, true);
-  y = pdfP(doc, '7. Son a cargo del arrendatario los consumos de agua y luz. Los suministros tendr\xe1n que estar a nombre del arrendatario, este siempre responder\xe1 ante cualquier gasto de suministros que haya mientras ocupe el piso.', y, 20, 9.5, true);
-  y = pdfP(doc, '8. Son de cuenta y cargo del arrendatario los gastos ocasionados por los desperfectos que se produzcan por mal uso, ya sean cristales, cerraduras, dem\xe1s \xfatiles y utensilios de las instalaciones y su adecuado mantenimiento, los gastos de conservaci\xf3n y reparaci\xf3n de las instalaciones de agua, gas, electricidad, calefacci\xf3n, cocina, ba\xf1o, bidet, waters, lavabos, calentador, antena T.V. y en particular todos los desag\xfces, atascos, arreglo de cocina, fregaderos, lavaderos, aire acondicionado, y sus tuber\xedas, como tambi\xe9n la conservaci\xf3n, reparaci\xf3n, y sustituci\xf3n de persianas, en caso de existir tales utensilios e instalaciones.\n\nSer\xe1n de cuenta del arrendatario cuantas reparaciones hayan de realizarse siempre y cuando se trate de desperfectos ocasionados por \xe9l mismo, por las personas de quien sea responsable, o por cualquier circunstancia no imputable al arrendador.', y, 20, 9.5, true);
-  y = pdfP(doc, '9. El arrendatario se hace directa y exclusivamente responsable, y exime de toda responsabilidad a la propiedad y al Administrador, por los da\xf1os que puedan ocasionarse a personas o cosas y sean derivados de instalaciones para servicios y suministros de la vivienda arrendada.\n\nEl arrendatario asumir\xe1 la responsabilidad directa y exclusiva de cuantos da\xf1os directos o indirectos puedan originarse en la vivienda arrendada (tanto inmuebles, como instalaciones y servicios), como consecuencia de un uso anormal o excesivamente intenso del mismo, responsabilidad que, igualmente, se har\xe1 extensiva a los da\xf1os o perjuicios que puedan originarse a terceras personas, derivados de la actividad desarrollada o del uso arrendaticio.', y, 20, 9.5, true);
-  y = pdfP(doc, '10. El arrendatario no podr\xe1 practicar obras de clase alguna en la vivienda sin previo permiso por escrito de la propiedad o del Administrador. En todo caso las obras as\xed autorizadas ser\xe1n de cargo y cuenta del arrendatario, y quedar\xe1n en beneficio de la finca, sin derecho a indemnizaci\xf3n, o reclamaci\xf3n, en momento alguno. El permiso municipal, ser\xe1 tambi\xe9n, de cuenta y cargo del arrendatario, as\xed como la direcci\xf3n t\xe9cnica o facultativa en su caso.', y, 20, 9.5, true);
-  y = pdfP(doc, '11. El arrendatario aporta la fianza por un importe de ' + euroText(g('t_fianza')) + ' por transferencia bancaria en este acto.', y, 20, 9.5, true);
-  y = pdfP(doc, '12. Esta fianza se retornar\xe1 en el momento de la recisi\xf3n del contrato, siempre y cuando el arrendatario este al corriente de pago de la renta y suministros, y entregue el piso en las mismas condiciones que se le entreg\xf3, tanto de pintura como de limpieza, etc.\u2026.', y, 20, 9.5, true);
-  y = pdfP(doc, '13. Queda facultado el ADMINISTRADOR, para hacer entrega a quien pueda sucederle en el cargo, o al propietario de la finca, de la fianza percibida.', y, 20, 9.5, true);
-  y = pdfP(doc, '14. ITP: De conformidad con el art\xedculo 8 del Real Decreto Legislativo 1/1993, de 24 de septiembre, por el que se aprueba el Texto Refundido de la Ley del Impuesto sobre Transmisiones Patrimoniales y Actos Jur\xeddicos Documentados, el Arrendatarios se obliga a pagar el Impuesto sobre Transmisiones Patrimoniales en el momento de la firma del contrato, el importe de ITP por todo el plazo de duraci\xf3n inicial y calculado al 0.5% de la estancia total, lo que resulta s.e.u.o: ' + euroText(g('t_itp')), y, 20, 9.5, true);
-  y = pdfP(doc, '15. El arrendatario adem\xe1s se obliga:', y, 20, 9.5, true);
-  y = pdfP(doc, 'A) A satisfacer los gastos derivados del presente contrato, tales como timbre, gesti\xf3n, Registro, honorarios del Administrador por su formalizaci\xf3n y tramitaci\xf3n, as\xed como la totalidad de los que por cualquier causa se ocasionaren por raz\xf3n de sus pr\xf3rrogas.', y);
-  y = pdfP(doc, 'B) A abonar el coste de las peque\xf1as reparaciones que exija el desgaste por el uso ordinario de la vivienda.', y);
-  y = pdfP(doc, 'C) A no ceder, traspasar o subarrendar total o parcialmente la vivienda objeto de este contrato, ni destinarla total o parcialmente a hospedaje.', y);
-  y = pdfP(doc, 'D) A entregar la vivienda en el momento de la renuncia del contrato en el mismo estado en que se entreg\xf3. De no ser as\xed, se descontar\xe1 de la fianza la factura de la empresa de limpieza.', y);
-  y = pdfP(doc, 'E) A no tener o manipular en la vivienda materias explosivas, inflamables, inc\xf3modas o insalubres, y observar en todo momento las disposiciones vigentes.', y);
-  y = pdfP(doc, 'F) A poner en conocimiento del arrendador en el plazo m\xe1s breve posible, la necesidad de llevar a cabo las reparaciones necesarias para conservar la vivienda en condiciones de habitabilidad.', y);
-  y = pdfP(doc, 'G) A permitir el acceso a la vivienda, al propietario, al Administrador, y a los operarios o industriales mandados por cualquiera de ambos, para la realizaci\xf3n, inspecci\xf3n y comprobaci\xf3n de cualquier clase de obras o reparaciones que afecten al inmueble.', y);
-  y = pdfP(doc, '16. En caso de hallarse esta vivienda integrada en un inmueble en R\xe9gimen de Comunidad en Propiedad Horizontal, el arrendatario se obliga a cumplir en todo momento las normas Estatutarias y Reglamentarias que la Comunidad de Propietarios tenga establecidas o establezca, en orden a la utilizaci\xf3n de los servicios, elementos comunes y buen r\xe9gimen de convivencia.', y, 20, 9.5, true);
-  y = pdfP(doc, '17. Queda expresamente prohibido subarrendar, y vivir en el piso cualquier otra persona que no sea titular del arrendamiento. Su incumplimiento provocar\xe1 la nulidad del contrato de arrendamiento.', y, 20, 9.5, true);
-  y = pdfP(doc, '18. A efectos de recibir cualquier notificaci\xf3n vinculada con los derechos y obligaciones reconocidos en este contrato, se designa como tel\xe9fono: 93 4878700 y correo electr\xf3nico: iaranda@guinotprunera.com del administrador de fincas del arrendador, y el del arrendatario,\n\nTel\xe9fono_____________________________\n\nde la vivienda arrendada.', y, 20, 9.5, true);
-  y = pdfP(doc, '19. Capital Value Real Estate S.L es el Responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos ser\xe1n tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org\xe1nica 3/2018, de 5 de diciembre (LOPDGDD). Dicho tratamiento se realizar\xe1 exclusivamente para la ejecuci\xf3n del contrato y los datos se conservar\xe1n durante no m\xe1s tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia. Est\xe1 prevista la cesi\xf3n de datos al administrador de fincas Guinot Prunera por ser necesarios para lograr la finalidad del tratamiento, o por obligaci\xf3n legal', y, 20, 9.5, true);
-  y = pdfP(doc, '20. Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a Capital Value Real Estate Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: capitalvalue@capitalvalue.com y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().', y, 20, 9.5, true);
-  y = pdfP(doc, '21. Las partes contratantes podr\xe1n someter a la resoluci\xf3n por \xe1rbitros nombrados por el Colegio de Administradores de Fincas de Barcelona-L\xe9rida o por arbitraje institucional de este, con arreglo a su Reglamento, todo litigio, discrepancia, cuesti\xf3n o reclamaci\xf3n que surja en la interpretaci\xf3n o ejecuci\xf3n del presente contrato; y en cuyo caso har\xe1n constar expresamente su compromiso de cumplir el laudo arbitral que se dicte.', y, 20, 9.5, true);
-  y = pdfP(doc, '22. La finca ARRENDADA est\xe1 dotada de los muebles y enseres necesarios para una habitabilidad correcta, encontr\xe1ndose los mismos en buen estado de conservaci\xf3n. Cualquier anomal\xeda al respecto se ha de poner en conocimiento del arrendador en un plazo m\xe1ximo de 48 horas. Se adjunta inventario fotogr\xe1fico del mobiliario, electrodom\xe9sticos y enseres. El ARRENDATARIO ser\xe1 responsable de su mal uso, rotura, deterioro o p\xe9rdida, y deber\xe1 proceder, en su caso, a reponerlos, repararlos y abonarlos.', y, 20, 9.5, true);
+
+  // ── Cláusula 5 ──
+  y = pdfClausula(doc, '5.', 'El ARRENDATARIO declara conocer las caracter\xedsticas y estado de conservaci\xf3n de la vivienda y aceptarlas expresamente y se obliga a conservarla en perfecto estado. (ANEXO 1)', y);
+
+  // ── Cláusula 6 ──
+  y = pdfClausula(doc, '6.', 'Est\xe1n permitidas las mascotas siempre y cuando respeten las normas establecidas en la comunidad de vecinos.', y);
+
+  // ── Cláusula 7 ──
+  y = pdfClausula(doc, '7.', 'Son a cargo del arrendatario los consumos de agua y luz. Los suministros tendr\xe1n que estar a nombre del arrendatario, este siempre responder\xe1 ante cualquier gasto de suministros que haya mientras ocupe el piso.', y);
+
+  // ── Cláusula 8 ──
+  y = pdfClausula(doc, '8.', 'Son de cuenta y cargo del arrendatario los gastos ocasionados por los desperfectos que se produzcan por mal uso, ya sean cristales, cerraduras, dem\xe1s \xfatiles y utensilios de las instalaciones y su adecuado mantenimiento, los gastos de conservaci\xf3n y reparaci\xf3n de las instalaciones de agua, gas, electricidad, calefacci\xf3n, cocina, ba\xf1o, bidet, waters, lavabos, calentador, antena T.V. y en particular todos los desag\xfces, atascos, arreglo de cocina, fregaderos, lavaderos, aire acondicionado, y sus tuber\xedas, como tambi\xe9n la conservaci\xf3n, reparaci\xf3n, y sustituci\xf3n de persianas, en caso de existir tales utensilios e instalaciones.', y);
+  y = pdfP(doc, 'Ser\xe1n de cuenta del arrendatario cuantas reparaciones hayan de realizarse siempre y cuando se trate de desperfectos ocasionados por \xe9l mismo, por las personas de quien sea responsable, o por cualquier circunstancia no imputable al arrendador.', y, 27);
+  y += 1;
+
+  // ── Cláusula 9 ──
+  y = pdfClausula(doc, '9.', 'El arrendatario se hace directa y exclusivamente responsable, y exime de toda responsabilidad a la propiedad y al Administrador, por los da\xf1os que puedan ocasionarse a personas o cosas y sean derivados de instalaciones para servicios y suministros de la vivienda arrendada.', y);
+  y = pdfP(doc, 'El arrendatario asumir\xe1 la responsabilidad directa y exclusiva de cuantos da\xf1os directos o indirectos puedan originarse en la vivienda arrendada (tanto inmuebles, como instalaciones y servicios), como consecuencia de un uso anormal o excesivamente intenso del mismo, responsabilidad que, igualmente, se har\xe1 extensiva a los da\xf1os o perjuicios que puedan originarse a terceras personas, derivados de la actividad desarrollada o del uso arrendaticio.', y, 27);
+  y += 1;
+
+  // ── Cláusula 10 ──
+  y = pdfClausula(doc, '10.', 'El arrendatario no podr\xe1 practicar obras de clase alguna en la vivienda sin previo permiso por escrito de la propiedad o del Administrador. En todo caso las obras as\xed autorizadas ser\xe1n de cargo y cuenta del arrendatario, y quedar\xe1n en beneficio de la finca, sin derecho a indemnizaci\xf3n, o reclamaci\xf3n, en momento alguno. El permiso municipal, ser\xe1 tambi\xe9n, de cuenta y cargo del arrendatario, as\xed como la direcci\xf3n t\xe9cnica o facultativa en su caso.', y);
+
+  // ── Cláusula 11 ──
+  y = pdfClausula(doc, '11.', 'El arrendatario aporta la fianza por un importe de ' + euroText(g('t_fianza')) + ' por transferencia bancaria en este acto.', y);
+
+  // ── Cláusula 12 ──
+  y = pdfClausula(doc, '12.', 'Esta fianza se retornar\xe1 en el momento de la recisi\xf3n del contrato, siempre y cuando el arrendatario este al corriente de pago de la renta y suministros, y entregue el piso en las mismas condiciones que se le entreg\xf3, tanto de pintura como de limpieza, etc.\u2026.', y);
+
+  // ── Cláusula 13 ──
+  y = pdfClausula(doc, '13.', 'Queda facultado el ADMINISTRADOR, para hacer entrega a quien pueda sucederle en el cargo, o al propietario de la finca, de la fianza percibida.', y);
+
+  // ── Cláusula 14 ──
+  y = pdfClausula(doc, '14.', 'ITP: De conformidad con el art\xedculo 8 del Real Decreto Legislativo 1/1993, de 24 de septiembre, por el que se aprueba el Texto Refundido de la Ley del Impuesto sobre Transmisiones Patrimoniales y Actos Jur\xeddicos Documentados, el Arrendatarios se obliga a pagar el Impuesto sobre Transmisiones Patrimoniales en el momento de la firma del contrato, el importe de ITP por todo el plazo de duraci\xf3n inicial y calculado al 0.5% de la estancia total, lo que resulta s.e.u.o: ' + euroText(g('t_itp')), y);
+
+  // ── Cláusula 15 ──
+  y = pdfClausula(doc, '15.', 'El arrendatario adem\xe1s se obliga:', y);
+  var sub15 = [
+    ['A)', 'A satisfacer los gastos derivados del presente contrato, tales como timbre, gesti\xf3n, Registro, honorarios del Administrador por su formalizaci\xf3n y tramitaci\xf3n, as\xed como la totalidad de los que por cualquier causa se ocasionaren por raz\xf3n de sus pr\xf3rrogas.'],
+    ['B)', 'A abonar el coste de las peque\xf1as reparaciones que exija el desgaste por el uso ordinario de la vivienda.'],
+    ['C)', 'A no ceder, traspasar o subarrendar total o parcialmente la vivienda objeto de este contrato, ni destinarla total o parcialmente a hospedaje.'],
+    ['D)', 'A entregar la vivienda en el momento de la renuncia del contrato en el mismo estado en que se entreg\xf3. De no ser as\xed, se descontar\xe1 de la fianza la factura de la empresa de limpieza.'],
+    ['E)', 'A no tener o manipular en la vivienda materias explosivas, inflamables, inc\xf3modas o insalubres, y observar en todo momento las disposiciones vigentes.'],
+    ['F)', 'A poner en conocimiento del arrendador en el plazo m\xe1s breve posible, la necesidad de llevar a cabo las reparaciones necesarias para conservar la vivienda en condiciones de habitabilidad.'],
+    ['G)', 'A permitir el acceso a la vivienda, al propietario, al Administrador, y a los operarios o industriales mandados por cualquiera de ambos, para la realizaci\xf3n, inspecci\xf3n y comprobaci\xf3n de cualquier clase de obras o reparaciones que afecten al inmueble.']
+  ];
+  y = pdfSubItems(doc, sub15, y);
+
+  // ── Cláusula 16 ──
+  y = pdfClausula(doc, '16.', 'En caso de hallarse esta vivienda integrada en un inmueble en R\xe9gimen de Comunidad en Propiedad Horizontal, el arrendatario se obliga a cumplir en todo momento las normas Estatutarias y Reglamentarias que la Comunidad de Propietarios tenga establecidas o establezca, en orden a la utilizaci\xf3n de los servicios, elementos comunes y buen r\xe9gimen de convivencia.', y);
+
+  // ── Cláusula 17 ──
+  y = pdfClausula(doc, '17.', 'Queda expresamente prohibido subarrendar, y vivir en el piso cualquier otra persona que no sea titular del arrendamiento. Su incumplimiento provocar\xe1 la nulidad del contrato de arrendamiento.', y);
+
+  // ── Cláusula 18 ──
+  y = pdfClausula(doc, '18.', 'A efectos de recibir cualquier notificaci\xf3n vinculada con los derechos y obligaciones reconocidos en este contrato, se designa como tel\xe9fono: 93 4878700 y correo electr\xf3nico: iaranda@guinotprunera.com del administrador de fincas del arrendador, y el del arrendatario,', y);
+  y = pdfP(doc, 'Tel\xe9fono_____________________________', y, 27);
+  y = pdfP(doc, 'de la vivienda arrendada.', y, 27);
+  y += 1;
+
+  // ── Cláusula 19 ──
+  y = pdfClausula(doc, '19.', 'Capital Value Real Estate S.L es el Responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos ser\xe1n tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org\xe1nica 3/2018, de 5 de diciembre (LOPDGDD). Dicho tratamiento se realizar\xe1 exclusivamente para la ejecuci\xf3n del contrato y los datos se conservar\xe1n durante no m\xe1s tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia. Est\xe1 prevista la cesi\xf3n de datos al administrador de fincas Guinot Prunera por ser necesarios para lograr la finalidad del tratamiento, o por obligaci\xf3n legal', y);
+
+  // ── Cláusula 20 ──
+  y = pdfClausula(doc, '20.', 'Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a Capital Value Real Estate Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: capitalvalue@capitalvalue.com y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().', y);
+
+  // ── Cláusula 21 ──
+  y = pdfClausula(doc, '21.', 'Las partes contratantes podr\xe1n someter a la resoluci\xf3n por \xe1rbitros nombrados por el Colegio de Administradores de Fincas de Barcelona-L\xe9rida o por arbitraje institucional de este, con arreglo a su Reglamento, todo litigio, discrepancia, cuesti\xf3n o reclamaci\xf3n que surja en la interpretaci\xf3n o ejecuci\xf3n del presente contrato; y en cuyo caso har\xe1n constar expresamente su compromiso de cumplir el laudo arbitral que se dicte.', y);
+
+  // ── Cláusula 22 ──
+  y = pdfClausula(doc, '22.', 'La finca ARRENDADA est\xe1 dotada de los muebles y enseres necesarios para una habitabilidad correcta, encontr\xe1ndose los mismos en buen estado de conservaci\xf3n. Cualquier anomal\xeda al respecto se ha de poner en conocimiento del arrendador en un plazo m\xe1ximo de 48 horas. Se adjunta inventario fotogr\xe1fico del mobiliario, electrodom\xe9sticos y enseres. El ARRENDATARIO ser\xe1 responsable de su mal uso, rotura, deterioro o p\xe9rdida, y deber\xe1 proceder, en su caso, a reponerlos, repararlos y abonarlos.', y);
 
   y = pdfSec(doc, '23. SISTEMA DE ALARMA', y);
   y = pdfP(doc, 'La vivienda objeto del presente contrato dispone de un sistema de alarma contratado con la empresa Securitas Direct Espa\xf1a S.A.U., cuya instalaci\xf3n se encuentra en funcionamiento en el inmueble arrendado.', y);
