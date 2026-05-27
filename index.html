@@ -316,6 +316,36 @@ main{max-width:820px;margin:0 auto;padding:36px 24px 80px;}
           </button>
         </div>
       </div>
+      <div class="doc-card" style="border-top-color:var(--cv-done)">
+        <div class="doc-card-body" onclick="startDoc('liquidacion')">
+          <div class="doc-icon icon-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cv-done)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 9h8M8 13h5M8 17h3"/><path d="M16 13l2 2 4-4" stroke-width="1.8"/></svg>
+          </div>
+          <h3>Liquidación Inicial</h3>
+          <p>Documento de cobro al inicio del arrendamiento: alquiler proporcional, fianza, ITP y reserva.</p>
+          <span class="doc-badge badge-green">Liquidación · Inicio</span>
+        </div>
+        <div class="card-footer">
+          <button class="btn-start" onclick="startDoc('liquidacion')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            Rellenar documento
+          </button>
+          <button class="btn-tpl-card" onclick="toggleTplMenu('tpl-liq', event)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Plantilla
+          </button>
+        </div>
+        <div class="tpl-sub-row" id="tpl-liq">
+          <button class="btn-tpl-sub" onclick="event.stopPropagation();tplLiquidacion('doc')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Word
+          </button>
+          <button class="btn-tpl-sub" onclick="event.stopPropagation();tplLiquidacion('pdf')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -349,6 +379,14 @@ main{max-width:820px;margin:0 auto;padding:36px 24px 80px;}
   <div class="section" id="doc-aval">
     <div class="back-link" onclick="goHome()">← Volver al inicio</div>
     <div id="aval-steps"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       LIQUIDACIÓN INICIAL
+  ══════════════════════════════════════════ -->
+  <div class="section" id="doc-liquidacion">
+    <div class="back-link" onclick="goHome()">← Volver al inicio</div>
+    <div id="liquidacion-steps"></div>
   </div>
 
 </main>
@@ -470,6 +508,7 @@ function getStepNames(type) {
   if (type === 'larga')     return ['Inmueble','Arrendatarios','Contrato','Fianza','Resumen'];
   if (type === 'rescision') return ['Datos','Resumen'];
   if (type === 'aval')      return ['Contrato','Avalista','Arrendatario','Resumen'];
+  if (type === 'liquidacion') return ['Datos','Importes','Resumen'];
   return [];
 }
 
@@ -553,6 +592,7 @@ function renderDoc(type) {
   if (type === 'larga')     renderLarga(currentStep);
   if (type === 'rescision') renderRescision(currentStep);
   if (type === 'aval')      renderAval(currentStep);
+  if (type === 'liquidacion') renderLiquidacion(currentStep);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -573,6 +613,8 @@ function renderTemporada(step) {
       field('t_loc','Localidad','text','Barcelona',true) +
       field('t_cp','Código Postal','text','08008',true) +
       field('t_cat','Referencia Catastral','text','Ej: 9872023VH5797S0001WX',true,'','full') +
+      field('t_indice','Índice de Referencia de Renta','text','Ej: entre 419,33 y 584,77',false,'Rango publicado por la Administración','full') +
+      field('t_id_informe','Id. Informe','text','',false,'','full') +
       '</div></div>' +
       '<div class="card"><div class="card-title">Sociedad arrendadora</div><div class="grid grid-2">' +
       '<div class="field full"><label>Arrendador <span class="req">*</span></label>' +
@@ -648,10 +690,20 @@ function renderTemporada(step) {
       field('t_ibi','IBI mensual (€)','number','Ej: 45.00',true,'IBI prorrateado') +
       field('t_bas','Tasa de basuras mensual (€)','number','Ej: 8.00',true) +
       field('t_lim','Limpieza zonas comunes mensual (€)','number','Ej: 15.00',true) +
-      field('t_itp','ITP estimado (€)','number','Ej: 0.00',false,'0,5% de la renta total del contrato') +
       '</div>' +
       '<div class="calc-result" id="t_totRes"><div style="display:flex;justify-content:space-between"><span>Total gastos (sin renta):</span><span><span id="t_gast">—</span> €/mes</span></div>' +
       '<div class="total-row" style="margin-top:8px"><span>TOTAL MENSUAL</span><span class="amount"><span id="t_tot">—</span> €/mes</span></div></div>' +
+      '</div>' +
+      '<div class="card"><div class="card-title">ITP — Impuesto sobre Transmisiones Patrimoniales</div>' +
+      '<div class="grid">' +
+      '<div class="field full"><label>Importe ITP (calculado automáticamente)</label>' +
+      '<div class="calc-result" style="margin-top:4px">' +
+      'Fórmula: renta mensual × nº meses × 0,5% &nbsp;—&nbsp; <a href="https://atc.gencat.cat/es/tributs/itpajd/" target="_blank" style="color:var(--cv-orange);font-size:.75rem">ATC Catalunya</a><br>' +
+      '<span id="t_itp_formula" style="font-weight:600;font-size:.95rem;color:var(--cv-text)">Rellena la renta y la duración para calcular</span>' +
+      '</div>' +
+      '<input type="hidden" id="t_itp">' +
+      '</div>' +
+      '</div></div>' +
       '</div>' +
       btnRow(3, TOTAL_T, 'prevT(3)', 'nextT(3)', false);
 
@@ -728,6 +780,21 @@ function calcTotT() {
   var el2 = document.getElementById('t_tot');
   if (el1) el1.textContent = gas.toFixed(2);
   if (el2) el2.textContent = (r+gas).toFixed(2);
+  // ITP: renta mensual × nº meses × 0,5% (Agencia Tributaria de Catalunya)
+  // t_dur puede estar guardado en DATA del paso anterior
+  var dur = parseFloat(g('t_dur')) || 0;
+  var itpEl = document.getElementById('t_itp');
+  var itpLabel = document.getElementById('t_itp_formula');
+  if (r > 0 && dur > 0) {
+    var itp = r * dur * 0.005;
+    if (itpEl) itpEl.value = itp.toFixed(2);
+    if (itpLabel) itpLabel.textContent = r.toFixed(2) + ' € × ' + dur + ' meses × 0,5% = ' + itp.toFixed(2) + ' €';
+  } else {
+    if (itpEl) itpEl.value = '';
+    if (itpLabel && r === 0 && dur === 0) itpLabel.textContent = 'Rellena la renta y la duración para calcular';
+    else if (itpLabel && r === 0) itpLabel.textContent = 'Introduce la renta mensual para calcular';
+    else if (itpLabel && dur === 0) itpLabel.textContent = 'La duración se ha introducido en el paso Condiciones';
+  }
 }
 
 function toggleTitulares(prefix) {
@@ -1219,15 +1286,16 @@ function pdfHdr(doc, t1, t2) {
   doc.setTextColor(0, 0, 0);
 }
 
-function pdfFoot(doc) {
+function pdfFoot(doc, arrendatario, piso) {
   var n = doc.internal.getNumberOfPages();
+  var footLeft = (arrendatario || '') + (piso ? '  ·  ' + piso : '');
   for (var i = 1; i <= n; i++) {
     doc.setPage(i);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(7.5);
     doc.setTextColor(150, 130, 100);
-    doc.text('Página ' + i + ' de ' + n, 105, 293, { align: 'center' });
-    doc.text('Capital Value Real Estate S.L.', 20, 293);
+    doc.text('Página ' + i + ' de ' + n, 190, 293, { align: 'right' });
+    if (footLeft) doc.text(footLeft, 20, 293);
   }
 }
 
@@ -1500,6 +1568,8 @@ function pdfTemporada() {
   y = pdfKV(doc, 'C\xf3digo Postal', g('t_cp'), y);
   y = pdfKV(doc, 'Provincia', 'BARCELONA', y);
   y = pdfKV(doc, 'Ref. Catastral', g('t_cat'), y);
+  if (g('t_indice')) y = pdfKV(doc, 'Índice de Referencia', g('t_indice'), y);
+  if (g('t_id_informe')) y = pdfKV(doc, 'Id. Informe', g('t_id_informe'), y);
   y = pdfKV(doc, 'Fecha Firma', dateText(g('t_firma')), y);
 
   // ── CONTRATANTES ──
@@ -1676,7 +1746,7 @@ function pdfTemporada() {
   y += 4;
   y = pdfP(doc, 'ANEXO 2 \u2013 SITUACI\xd3N DE TEMPORALIDAD DEL INQUILINO Y DOCUMENTO NACIONAL DE IDENTIDAD.', y, 20, 9, true);
 
-  pdfFoot(doc);
+  pdfFoot(doc, g('t_nom'), g('t_piso'));
   doc.save('Contrato_Temporada_' + g('t_nom').replace(/\s+/g,'_') + '.pdf');
 }
 
@@ -1709,6 +1779,8 @@ function docTemporada() {
     '<p>C\xf3digo Postal: <b>' + g('t_cp') + '</b></p>' +
     '<p>Provincia: BARCELONA</p>' +
     '<p>Ref. Catastral: <b>' + g('t_cat') + '</b></p>' +
+    (g('t_indice') ? '<p>\xcdndice de Referencia: <b>' + g('t_indice') + '</b></p>' : '') +
+    (g('t_id_informe') ? '<p>Id. Informe: <b>' + g('t_id_informe') + '</b></p>' : '') +
     '<p>Fecha Firma: <b>' + dateText(g('t_firma')) + '</b></p>' +
     '<h2>IDENTIFICACI\xd3N DE LOS CONTRATANTES</h2>' +
     '<p><b>ARRENDADOR:</b></p>' +
@@ -1958,7 +2030,7 @@ function pdfLarga(){
   doc.text(`Fdo.: ${g('l_nom')}`,110,y);y+=5;
   if(dosDos&&g('l_nom2'))doc.text(`Fdo.: ${g('l_nom2')}`,110,y);
 
-  pdfFoot(doc);
+  pdfFoot(doc, g('l_nom'), g('l_dir'));
   doc.save(`Contrato_Vivienda_${g('l_nom').replace(/\s+/g,'_')}.pdf`);
 }
 
@@ -2109,7 +2181,7 @@ function pdfRescision(){
   doc.setFont('helvetica','normal');doc.setFontSize(9);
   doc.text(`Nombre: ${g('r_nom')}`,20,y);y+=5;
   doc.text(`DNI/NIE: ${g('r_nif')}`,20,y);
-  pdfFoot(doc);
+  pdfFoot(doc, g('r_nom'), g('r_pisoC') + ' ' + g('r_pisoN'));
   doc.save(`Rescision_${g('r_nom').replace(/\s+/g,'_')}.pdf`);
 }
 
@@ -2185,7 +2257,7 @@ function pdfAval(){
   y+=2;doc.setFont('helvetica','normal');doc.setFontSize(8);
   doc.text('Fdo.: ___________________________',25,y);
   doc.text('Fdo.: ___________________________',120,y);
-  pdfFoot(doc);
+  pdfFoot(doc, g('a_ar_nom'), g('a_piso'));
   doc.save(`Aval_Solidario_${g('a_ar_nom').replace(/\s+/g,'_')}.pdf`);
 }
 
@@ -2238,6 +2310,8 @@ var FAKE_DATA = {
   t_loc:            'Barcelona',
   t_cp:             '08015',
   t_cat:            '7843201DF3807A0003KL',
+  t_indice:         '',
+  t_id_informe:     '',
   t_arrendador_tipo:'cv',
   t_sl:             '',
   t_cif:            '',
@@ -2265,7 +2339,7 @@ var FAKE_DATA = {
   t_ibi:            '27.30',
   t_bas:            '0',
   t_lim:            '13.50',
-  t_itp:            '52.25',
+  t_itp:            '', // calculado automáticamente: renta x meses x 0.5%
   t_banco_titular:  '',
   t_banco_nombre:   '',
   t_banco_cta:      '',
@@ -2422,6 +2496,453 @@ document.addEventListener('click', function(e) {
   }
 });
 
+
+
+// ═══════════════════════════════════════════════════════
+//  LIQUIDACIÓN INICIAL — FORMULARIO + PDF + DOC
+// ═══════════════════════════════════════════════════════
+
+var TOTAL_LIQ = 3;
+
+var LIQ_EMPRESAS = {
+  colson: {
+    nombre: 'COLSON RESOURCE SL',
+    cif: 'B66149998',
+    dir: 'Av Pau Casals 4 2-2 08021 Barcelona',
+    tel: '611062285',
+    email: 'colsonsl@outlook.com'
+  },
+  cv: {
+    nombre: 'CAPITAL VALUE REAL ESTATE SL',
+    cif: 'B66743873',
+    dir: 'Av Pau Casals 4 2-2 08021 Barcelona',
+    tel: '611062285',
+    email: 'ipo@capitalvalue.com'
+  }
+};
+
+function getLiqEmpresa() {
+  var v = g('liq_empresa');
+  return LIQ_EMPRESAS[v] || LIQ_EMPRESAS['cv'];
+}
+
+function renderLiquidacion(step) {
+  var cont = document.getElementById('liquidacion-steps');
+  if (!cont) return;
+  updateProgress(step, TOTAL_LIQ);
+  var html = '';
+
+  if (step === 0) {
+    html = '<div class="section-title">Datos del Documento</div>' +
+      '<div class="section-sub">Información general de la liquidación inicial.</div>' +
+      '<div class="card"><div class="card-title">Empresa emisora</div><div class="grid">' +
+      '<div class="field full"><label>Empresa <span class="req">*</span></label>' +
+      '<select id="liq_empresa" required>' +
+      '<option value="">— Selecciona —</option>' +
+      '<option value="cv">CAPITAL VALUE REAL ESTATE SL — CIF B66743873</option>' +
+      '<option value="colson">COLSON RESOURCE SL — CIF B66149998</option>' +
+      '</select></div>' +
+      '</div></div>' +
+      '<div class="card"><div class="card-title">Datos del arrendamiento</div><div class="grid grid-2">' +
+      field('liq_edificio','Edificio / Dirección','text','Ej: BORDETA 23',true) +
+      field('liq_piso','Piso','text','Ej: 3-1',true) +
+      field('liq_inquilino','Inquilino','text','Nombre completo',true,'','full') +
+      field('liq_fecha','Fecha de firma','date','',true) +
+      '</div></div>' +
+      '<div class="card"><div class="card-title">Cuenta bancaria</div><div class="grid">' +
+      field('liq_cuenta','Número de cuenta (IBAN)','text','Ej: ES11 0128 0500 1501 0016 8995',true,'Aparecerá destacada en el documento','full') +
+      '</div></div>' +
+      btnRow(0, TOTAL_LIQ, '', 'nextLiq(0)', false);
+
+  } else if (step === 1) {
+    html = '<div class="section-title">Importes</div>' +
+      '<div class="section-sub">Introduce los importes de cada concepto. El subtotal y total se calculan automáticamente.</div>' +
+      '<div class="card"><div class="card-title">Conceptos de cobro</div><div class="grid">' +
+      '<div class="field full"><label>ALQUILER + IBI + LIMP proporcional (€) <span class="req">*</span></label>' +
+      '<input type="number" id="liq_alquiler" placeholder="Ej: 517.64" step="0.01" min="0" required oninput="calcLiq()">' +
+      '<span class="hint">Importe ya calculado por ti — incluye alquiler, IBI y limpieza proporcional</span></div>' +
+      '<div class="field full"><label>Fianza (€) <span class="req">*</span></label>' +
+      '<input type="number" id="liq_fianza" placeholder="Ej: 1617.36" step="0.01" min="0" required oninput="calcLiq()">' +
+      '</div>' +
+      '<div class="field full"><label>Impuesto Transmisiones Patrimoniales — ITP (€) <span class="req">*</span></label>' +
+      '<input type="number" id="liq_itp" placeholder="Ej: 32.35" step="0.01" min="0" required oninput="calcLiq()">' +
+      '</div>' +
+      '</div></div>' +
+      '<div class="card"><div class="card-title">Conceptos adicionales (opcionales)</div><div class="grid">' +
+      '<div class="field full"><label>Descripción línea adicional 1</label>' +
+      '<input type="text" id="liq_extra1_desc" placeholder="Ej: Seguro de hogar" oninput="calcLiq()"></div>' +
+      '<div class="field full"><label>Importe línea adicional 1 (€)</label>' +
+      '<input type="number" id="liq_extra1_importe" placeholder="0.00" step="0.01" oninput="calcLiq()"></div>' +
+      '<div class="field full"><label>Descripción línea adicional 2</label>' +
+      '<input type="text" id="liq_extra2_desc" placeholder="Ej: Gastos de gestión" oninput="calcLiq()"></div>' +
+      '<div class="field full"><label>Importe línea adicional 2 (€)</label>' +
+      '<input type="number" id="liq_extra2_importe" placeholder="0.00" step="0.01" oninput="calcLiq()"></div>' +
+      '</div></div>' +
+      '<div class="card"><div class="card-title">Reserva (descuento)</div><div class="grid">' +
+      '<div class="field full"><label>Reserva entregada (€) — introduce valor negativo para descontar</label>' +
+      '<input type="number" id="liq_reserva" placeholder="Ej: -200.00" step="0.01" oninput="calcLiq()">' +
+      '<span class="hint">Si el cliente entregó una reserva de 200€, escribe -200. Se restará del subtotal.</span></div>' +
+      '</div></div>' +
+      '<div class="calc-result" id="liq_calc_result" style="margin-top:0">' +
+      '<div style="display:flex;justify-content:space-between;padding:3px 0"><span>Subtotal:</span><span id="liq_subtotal_txt" style="font-weight:600">—</span></div>' +
+      '<div style="display:flex;justify-content:space-between;padding:3px 0;color:var(--cv-muted)"><span>Reserva:</span><span id="liq_reserva_txt">—</span></div>' +
+      '<div class="total-row" style="margin-top:8px"><span>TOTAL A PAGAR</span><span class="amount" id="liq_total_txt">—</span></div>' +
+      '</div>' +
+      btnRow(1, TOTAL_LIQ, 'prevLiq(1)', 'nextLiq(1)', false);
+
+  } else if (step === 2) {
+    var emp = getLiqEmpresa();
+    var alq = parseFloat(g('liq_alquiler'))||0;
+    var fian = parseFloat(g('liq_fianza'))||0;
+    var itp = parseFloat(g('liq_itp'))||0;
+    var ex1i = parseFloat(g('liq_extra1_importe'))||0;
+    var ex2i = parseFloat(g('liq_extra2_importe'))||0;
+    var res = parseFloat(g('liq_reserva'))||0;
+    var subtotal = alq + fian + itp + ex1i + ex2i;
+    var total = subtotal + res;
+    html = '<div class="section-title">Resumen de la Liquidación</div>' +
+      '<div class="section-sub">Revisa todos los datos antes de descargar.</div>' +
+      '<div class="summary-block"><h3>Empresa</h3>' +
+      '<div class="summary-row"><span class="k">Nombre</span><span class="v">' + emp.nombre + ' — CIF ' + emp.cif + '</span></div>' +
+      '<div class="summary-row"><span class="k">Dirección</span><span class="v">' + emp.dir + '</span></div>' +
+      '<div class="summary-row"><span class="k">Contacto</span><span class="v">' + emp.tel + ' · ' + emp.email + '</span></div>' +
+      '</div>' +
+      '<div class="summary-block"><h3>Arrendamiento</h3>' +
+      '<div class="summary-row"><span class="k">Edificio / Piso</span><span class="v">' + g('liq_edificio') + ' — ' + g('liq_piso') + '</span></div>' +
+      '<div class="summary-row"><span class="k">Inquilino</span><span class="v">' + g('liq_inquilino') + '</span></div>' +
+      '<div class="summary-row"><span class="k">Fecha firma</span><span class="v">' + fmtDate(g('liq_fecha')) + '</span></div>' +
+      '<div class="summary-row"><span class="k">Cuenta bancaria</span><span class="v">' + g('liq_cuenta') + '</span></div>' +
+      '</div>' +
+      '<div class="summary-block"><h3>Importes</h3>' +
+      '<div class="summary-row"><span class="k">Alquiler + IBI + Limp proporcional</span><span class="v">' + alq.toFixed(2) + ' €</span></div>' +
+      '<div class="summary-row"><span class="k">Fianza</span><span class="v">' + fian.toFixed(2) + ' €</span></div>' +
+      '<div class="summary-row"><span class="k">ITP</span><span class="v">' + itp.toFixed(2) + ' €</span></div>' +
+      (ex1i ? '<div class="summary-row"><span class="k">' + (g('liq_extra1_desc')||'Adicional 1') + '</span><span class="v">' + ex1i.toFixed(2) + ' €</span></div>' : '') +
+      (ex2i ? '<div class="summary-row"><span class="k">' + (g('liq_extra2_desc')||'Adicional 2') + '</span><span class="v">' + ex2i.toFixed(2) + ' €</span></div>' : '') +
+      '<div class="summary-row"><span class="k">Subtotal</span><span class="v">' + subtotal.toFixed(2) + ' €</span></div>' +
+      (res !== 0 ? '<div class="summary-row"><span class="k">Reserva</span><span class="v">' + res.toFixed(2) + ' €</span></div>' : '') +
+      '<div class="total-row"><span>TOTAL</span><span class="amount">' + total.toFixed(2) + ' €</span></div>' +
+      '</div>' +
+      '<div class="btn-row" style="justify-content:center;margin-top:28px;flex-wrap:wrap;gap:16px;">' +
+      '<button class="btn btn-secondary" onclick="prevLiq(2)">← Modificar datos</button>' +
+      '<div class="download-group"><div class="download-label">Descargar como:</div>' +
+      '<div class="download-btns">' +
+      '<button class="btn btn-doc" onclick="docLiquidacion()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Word (.doc)</button>' +
+      '<button class="btn btn-pdf" onclick="pdfLiquidacion()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PDF</button>' +
+      '</div></div></div>';
+    cont.innerHTML = html;
+    return;
+  }
+
+  cont.innerHTML = html;
+  setTimeout(function() { calcLiq(); }, 30);
+}
+
+function calcLiq() {
+  var alq  = parseFloat(g('liq_alquiler'))||0;
+  var fian = parseFloat(g('liq_fianza'))||0;
+  var itp  = parseFloat(g('liq_itp'))||0;
+  var ex1  = parseFloat(g('liq_extra1_importe'))||0;
+  var ex2  = parseFloat(g('liq_extra2_importe'))||0;
+  var res  = parseFloat(g('liq_reserva'))||0;
+  var sub  = alq + fian + itp + ex1 + ex2;
+  var tot  = sub + res;
+  var elSub = document.getElementById('liq_subtotal_txt');
+  var elRes = document.getElementById('liq_reserva_txt');
+  var elTot = document.getElementById('liq_total_txt');
+  if (elSub) elSub.textContent = sub.toFixed(2) + ' \u20ac';
+  if (elRes) elRes.textContent = res !== 0 ? res.toFixed(2) + ' \u20ac' : '0,00 \u20ac';
+  if (elTot) elTot.textContent = tot.toFixed(2) + ' \u20ac';
+}
+
+function nextLiq(from) {
+  var reqs = {
+    0: ['liq_empresa','liq_edificio','liq_piso','liq_inquilino','liq_fecha','liq_cuenta'],
+    1: ['liq_alquiler','liq_fianza','liq_itp']
+  };
+  if (!validateRequired(reqs[from] || [])) return;
+  saveCurrentFields();
+  currentStep = from + 1; renderLiquidacion(currentStep);
+  setTimeout(restoreFields, 40);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevLiq(from) {
+  saveCurrentFields();
+  currentStep = from - 1; renderLiquidacion(currentStep);
+  setTimeout(restoreFields, 40);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── PDF ──────────────────────────────────────────────────────
+function pdfLiquidacion() {
+  var doc = makePDFBase();
+  var emp  = getLiqEmpresa();
+  var alq  = parseFloat(g('liq_alquiler'))||0;
+  var fian = parseFloat(g('liq_fianza'))||0;
+  var itp  = parseFloat(g('liq_itp'))||0;
+  var ex1d = g('liq_extra1_desc');
+  var ex1i = parseFloat(g('liq_extra1_importe'))||0;
+  var ex2d = g('liq_extra2_desc');
+  var ex2i = parseFloat(g('liq_extra2_importe'))||0;
+  var res  = parseFloat(g('liq_reserva'))||0;
+  var sub  = alq + fian + itp + ex1i + ex2i;
+  var tot  = sub + res;
+
+  // ── Header bar ──
+  doc.setFillColor(44, 51, 64);
+  doc.rect(0, 0, 210, 42, 'F');
+
+  // Company info (left)
+  doc.setTextColor(255,255,255);
+  doc.setFont('helvetica','bold'); doc.setFontSize(11);
+  doc.text(emp.nombre, 15, 13);
+  doc.setFont('helvetica','normal'); doc.setFontSize(8);
+  doc.setTextColor(200,210,220);
+  doc.text('CIF ' + emp.cif, 15, 20);
+  doc.text(emp.dir, 15, 26);
+  doc.text(emp.tel + '   ' + emp.email, 15, 32);
+
+  // Title (right)
+  doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.setTextColor(232, 119, 34);
+  doc.text('LIQUIDACI\xd3N INICIAL', 195, 15, {align:'right'});
+  doc.setFont('helvetica','normal'); doc.setFontSize(8.5);
+  doc.setTextColor(200,210,220);
+  doc.text('DEL ARRENDAMIENTO', 195, 22, {align:'right'});
+
+  // Orange accent line
+  doc.setDrawColor(232,119,34); doc.setLineWidth(0.8);
+  doc.line(0, 42, 210, 42);
+
+  var y = 52;
+  doc.setTextColor(0,0,0);
+
+  // ── Info row: Edificio | Piso | Inquilino | Fecha ──
+  doc.setFillColor(245,246,248);
+  doc.rect(10, y-4, 190, 14, 'F');
+  doc.setDrawColor(220,220,225); doc.setLineWidth(0.3);
+  doc.rect(10, y-4, 190, 14);
+
+  var cols = [
+    {label:'Edificio', val: g('liq_edificio'), x:14},
+    {label:'Piso',     val: g('liq_piso'),     x:72},
+    {label:'Inquilino',val: g('liq_inquilino'),x:105},
+    {label:'Fecha firma', val: fmtDate(g('liq_fecha')), x:162}
+  ];
+  cols.forEach(function(col) {
+    doc.setFont('helvetica','bold'); doc.setFontSize(6.5);
+    doc.setTextColor(130,130,140);
+    doc.text(col.label.toUpperCase(), col.x, y);
+    doc.setFont('helvetica','bold'); doc.setFontSize(9);
+    doc.setTextColor(30,35,50);
+    doc.text(col.val, col.x, y+6);
+  });
+  y += 20;
+
+  // ── Table header ──
+  doc.setFillColor(44,51,64);
+  doc.rect(10, y, 190, 9, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(8);
+  doc.setTextColor(255,255,255);
+  doc.text('CANT.', 14, y+6);
+  doc.text('DESCRIPCI\xd3N', 32, y+6);
+  doc.text('IMPORTE', 188, y+6, {align:'right'});
+  y += 9;
+
+  // ── Table rows ──
+  var rows = [
+    {cant:'1', desc:'ALQUILER + IBI + LIMP proporcional', importe: alq},
+    {cant:'1', desc:'Fianza', importe: fian},
+    {cant:'1', desc:'Impuesto Transmisiones Patrimoniales', importe: itp}
+  ];
+  if (ex1i) rows.push({cant:'1', desc: ex1d || 'Adicional 1', importe: ex1i});
+  if (ex2i) rows.push({cant:'1', desc: ex2d || 'Adicional 2', importe: ex2i});
+
+  var rowH = 9;
+  rows.forEach(function(row, idx) {
+    var bg = idx % 2 === 0 ? [255,255,255] : [248,249,251];
+    doc.setFillColor(bg[0],bg[1],bg[2]);
+    doc.rect(10, y, 190, rowH, 'F');
+    doc.setDrawColor(230,232,236); doc.setLineWidth(0.2);
+    doc.line(10, y+rowH, 200, y+rowH);
+
+    doc.setFont('helvetica','normal'); doc.setFontSize(8.5);
+    doc.setTextColor(44,51,64);
+    doc.text(String(row.cant), 14, y+6);
+    doc.text(row.desc, 32, y+6);
+    doc.setFont('helvetica','bold');
+    doc.text(row.importe.toFixed(2) + ' \u20ac', 188, y+6, {align:'right'});
+    y += rowH;
+  });
+
+  // Empty rows (pad to at least 8 total rows for visual balance)
+  var emptyRows = Math.max(0, 8 - rows.length);
+  for (var e = 0; e < emptyRows; e++) {
+    var bg2 = (rows.length + e) % 2 === 0 ? [255,255,255] : [248,249,251];
+    doc.setFillColor(bg2[0],bg2[1],bg2[2]);
+    doc.rect(10, y, 190, rowH, 'F');
+    doc.setDrawColor(230,232,236); doc.setLineWidth(0.2);
+    doc.line(10, y+rowH, 200, y+rowH);
+    y += rowH;
+  }
+
+  // ── Totals block ──
+  y += 4;
+  var totRows = [
+    {label:'Subtotal', val: sub, bold:false},
+    {label:'Reserva',  val: res, bold:false, muted: res === 0},
+    {label:'Total',    val: tot, bold:true, accent:true}
+  ];
+  totRows.forEach(function(tr) {
+    if (tr.accent) {
+      doc.setFillColor(44,51,64);
+      doc.rect(115, y-1, 85, 9, 'F');
+      doc.setFont('helvetica','bold'); doc.setFontSize(9);
+      doc.setTextColor(232,119,34);
+      doc.text(tr.label.toUpperCase(), 120, y+5.5);
+      doc.setTextColor(255,255,255);
+      doc.text(tr.val.toFixed(2) + ' \u20ac', 196, y+5.5, {align:'right'});
+      y += 11;
+    } else {
+      doc.setFillColor(245,246,248);
+      doc.rect(115, y-1, 85, 8, 'F');
+      doc.setFont('helvetica', tr.bold ? 'bold':'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(tr.muted ? 150 : 44, tr.muted ? 150 : 51, tr.muted ? 160 : 64);
+      doc.text(tr.label, 120, y+5);
+      doc.setFont('helvetica', tr.bold ? 'bold':'normal');
+      doc.setTextColor(44,51,64);
+      doc.text(tr.val.toFixed(2) + ' \u20ac', 196, y+5, {align:'right'});
+      y += 9;
+    }
+  });
+
+  // ── Account box ──
+  y += 12;
+  doc.setFillColor(232,119,34);
+  doc.rect(10, y, 190, 20, 'F');
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.5);
+  doc.setTextColor(255,255,255);
+  doc.text('El pago se realiza en la cuenta:', 105, y+6, {align:'center'});
+  doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text(g('liq_cuenta'), 105, y+14, {align:'center'});
+
+  // ── Footer ──
+  y += 28;
+  doc.setFillColor(44,51,64);
+  doc.rect(10, y, 190, 10, 'F');
+  doc.setFont('helvetica','italic'); doc.setFontSize(9);
+  doc.setTextColor(200,210,220);
+  doc.text('\xa1Gracias por su confianza!', 105, y+6.5, {align:'center'});
+
+  // Page number
+  doc.setFont('helvetica','normal'); doc.setFontSize(7);
+  doc.setTextColor(150,150,160);
+  doc.text(g('liq_inquilino') + '  \xb7  ' + g('liq_edificio') + ' ' + g('liq_piso'), 15, 293);
+  doc.text('Pág. 1 de 1', 195, 293, {align:'right'});
+
+  doc.save('Liquidacion_' + g('liq_inquilino').replace(/\s+/g,'_') + '.pdf');
+}
+
+// ── DOC ──────────────────────────────────────────────────────
+function docLiquidacion() {
+  var emp  = getLiqEmpresa();
+  var alq  = parseFloat(g('liq_alquiler'))||0;
+  var fian = parseFloat(g('liq_fianza'))||0;
+  var itp  = parseFloat(g('liq_itp'))||0;
+  var ex1d = g('liq_extra1_desc');
+  var ex1i = parseFloat(g('liq_extra1_importe'))||0;
+  var ex2d = g('liq_extra2_desc');
+  var ex2i = parseFloat(g('liq_extra2_importe'))||0;
+  var res  = parseFloat(g('liq_reserva'))||0;
+  var sub  = alq + fian + itp + ex1i + ex2i;
+  var tot  = sub + res;
+
+  var extraRows = '';
+  if (ex1i) extraRows += '<tr><td>1</td><td>' + (ex1d||'Adicional 1') + '</td><td style="text-align:right">' + ex1i.toFixed(2) + ' \u20ac</td></tr>';
+  if (ex2i) extraRows += '<tr><td>1</td><td>' + (ex2d||'Adicional 2') + '</td><td style="text-align:right">' + ex2i.toFixed(2) + ' \u20ac</td></tr>';
+
+  var html = '<table style="width:100%;border-collapse:collapse;margin-bottom:20pt">' +
+    '<tr style="background:#2c3340">' +
+    '<td style="padding:10pt 14pt;color:#e87722;font-size:13pt;font-weight:bold;width:60%">' + emp.nombre + '</td>' +
+    '<td style="padding:10pt 14pt;color:#e87722;font-size:14pt;font-weight:bold;text-align:right">LIQUIDACI\xd3N INICIAL<br><span style="font-size:9pt;color:#c8d0d8">DEL ARRENDAMIENTO</span></td>' +
+    '</tr>' +
+    '<tr style="background:#3d4758"><td colspan="2" style="padding:6pt 14pt;color:#c8d0d8;font-size:8pt">' +
+    'CIF ' + emp.cif + ' &nbsp;\xb7&nbsp; ' + emp.dir + ' &nbsp;\xb7&nbsp; ' + emp.tel + ' &nbsp;\xb7&nbsp; ' + emp.email + '</td></tr>' +
+    '</table>' +
+    '<table style="width:100%;border-collapse:collapse;margin-bottom:16pt;background:#f5f6f8">' +
+    '<tr style="background:#e8eaed"><th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">EDIFICIO</th>' +
+    '<th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">PISO</th>' +
+    '<th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">INQUILINO</th>' +
+    '<th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">FECHA FIRMA</th></tr>' +
+    '<tr><td style="padding:7pt 10pt;font-weight:bold">' + g('liq_edificio') + '</td>' +
+    '<td style="padding:7pt 10pt;font-weight:bold">' + g('liq_piso') + '</td>' +
+    '<td style="padding:7pt 10pt;font-weight:bold">' + g('liq_inquilino') + '</td>' +
+    '<td style="padding:7pt 10pt;font-weight:bold">' + fmtDate(g('liq_fecha')) + '</td></tr>' +
+    '</table>' +
+    '<table style="width:100%;border-collapse:collapse;margin-bottom:8pt">' +
+    '<tr style="background:#2c3340"><th style="padding:7pt 10pt;color:white;text-align:left;font-size:8pt;width:12%">CANT.</th>' +
+    '<th style="padding:7pt 10pt;color:white;text-align:left;font-size:8pt">DESCRIPCI\xd3N</th>' +
+    '<th style="padding:7pt 10pt;color:white;text-align:right;font-size:8pt;width:20%">IMPORTE</th></tr>' +
+    '<tr style="background:white"><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">1</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">ALQUILER + IBI + LIMP proporcional</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8;text-align:right;font-weight:bold">' + alq.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr style="background:#f8f9fb"><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">1</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">Fianza</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8;text-align:right;font-weight:bold">' + fian.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr style="background:white"><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">1</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">Impuesto Transmisiones Patrimoniales</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8;text-align:right;font-weight:bold">' + itp.toFixed(2) + ' \u20ac</td></tr>' +
+    extraRows +
+    '<tr><td colspan="2" style="padding:6pt 10pt;text-align:right;background:#f5f6f8;border-top:1pt solid #ddd">Subtotal</td><td style="padding:6pt 10pt;text-align:right;background:#f5f6f8;border-top:1pt solid #ddd">' + sub.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr><td colspan="2" style="padding:6pt 10pt;text-align:right;background:#f5f6f8;color:#999">Reserva</td><td style="padding:6pt 10pt;text-align:right;background:#f5f6f8;color:#999">' + res.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr style="background:#2c3340"><td colspan="2" style="padding:8pt 10pt;text-align:right;color:#e87722;font-weight:bold;font-size:11pt">TOTAL</td><td style="padding:8pt 10pt;text-align:right;color:white;font-weight:bold;font-size:11pt">' + tot.toFixed(2) + ' \u20ac</td></tr>' +
+    '</table>' +
+    '<table style="width:100%;border-collapse:collapse;margin-top:20pt">' +
+    '<tr style="background:#e87722"><td style="padding:10pt 14pt;text-align:center;color:white">' +
+    '<div style="font-size:8pt;margin-bottom:4pt">El pago se realiza en la cuenta:</div>' +
+    '<div style="font-size:14pt;font-weight:bold;letter-spacing:2pt">' + g('liq_cuenta') + '</div>' +
+    '<div style="font-size:8pt;margin-top:2pt;opacity:.85">TRANSFERENCIA INMEDIATA</div>' +
+    '</td></tr>' +
+    '<tr style="background:#2c3340"><td style="padding:8pt 14pt;text-align:center;color:#c8d0d8;font-style:italic;font-size:9pt">\xa1Gracias por su confianza!</td></tr>' +
+    '</table>';
+
+  downloadDoc(html, 'Liquidacion_' + g('liq_inquilino').replace(/\s+/g,'_'));
+}
+
+// ── PLANTILLA ──────────────────────────────────────────────────────
+function tplLiquidacion(fmt) {
+  var savedData = {};
+  Object.keys(DATA).forEach(function(k) { savedData[k] = DATA[k]; });
+  var savedDosDos = dosDos;
+  var fake = {
+    liq_empresa: 'cv',
+    liq_edificio: 'BORDETA 23',
+    liq_piso: '3-1',
+    liq_inquilino: 'INQUILINO EJEMPLO',
+    liq_fecha: '2026-06-01',
+    liq_cuenta: 'ES11 0128 0500 1501 0016 8995',
+    liq_alquiler: '517.64',
+    liq_fianza: '1617.36',
+    liq_itp: '32.35',
+    liq_extra1_desc: '',
+    liq_extra1_importe: '',
+    liq_extra2_desc: '',
+    liq_extra2_importe: '',
+    liq_reserva: ''
+  };
+  Object.keys(fake).forEach(function(k) { DATA[k] = fake[k]; });
+  var origGetEl = document.getElementById.bind(document);
+  document.getElementById = function(id) {
+    var el = origGetEl(id);
+    if (el) return el;
+    if (fake[id] !== undefined) return { value: fake[id], id: id };
+    return null;
+  };
+  try {
+    if (fmt === 'pdf') pdfLiquidacion();
+    else docLiquidacion();
+  } catch(e) { alert('Error: ' + e.message); }
+  document.getElementById = origGetEl;
+  Object.keys(DATA).forEach(function(k) { delete DATA[k]; });
+  Object.keys(savedData).forEach(function(k) { DATA[k] = savedData[k]; });
+  dosDos = savedDosDos;
+}
 
 </script>
 </body>
