@@ -1766,24 +1766,29 @@ function pdfTemporada() {
   y += 4;
   y = pdfFirmas(doc, y, 'EL ARRENDADOR', 'EL ARRENDATARIO', ard.sl, g('t_nom') + (dosDos && g('t_nom2') ? ' / ' + g('t_nom2') : ''));
 
-  // ══════ ANEXO 1 ══════
-  if (y + 25 > 280) { doc.addPage(); y = 22; }
-  y += 4;
-  y = pdfP(doc, 'Anexo 1', y, 20, 10, true);
-  y = pdfP(doc, 'INVENTARIO COCINA:', y, 20, 9, true);
+
+  // ══════ ANEXO 1 — página propia ══════
+  doc.addPage();
+  pdfHdr(doc, 'Contrato de Arrendamiento — Uso Distinto Vivienda (Temporada)', 'Anexo 1');
+  y = 28;
+  y = pdfP(doc, 'Anexo 1', y, 20, 11, true);
   y += 2;
+  y = pdfP(doc, 'INVENTARIO COCINA:', y, 20, 9, true);
+  y += 3;
   doc.setDrawColor(150,150,150); doc.setLineWidth(0.3);
   doc.rect(20, y, 170, 14);
   doc.setFont('helvetica','bold'); doc.setFontSize(8.5);
   doc.text('- Lavadora Puesta en marcha.    - Nevera Puesta en marcha.', 25, y + 5);
   doc.rect(20, y + 7, 170, 7);
-  y += 20;
-  y += 4;
-  y = pdfP(doc, 'ANEXO 2 \u2013 SITUACI\xd3N DE TEMPORALIDAD DEL INQUILINO Y DOCUMENTO NACIONAL DE IDENTIDAD.', y, 20, 9, true);
 
-  // Extra blank page for situación temporal documents
+  // ══════ ANEXO 2 — página propia ══════
   doc.addPage();
-  // Footer will be applied by pdfFoot to all pages including this one
+  pdfHdr(doc, 'Contrato de Arrendamiento — Uso Distinto Vivienda (Temporada)', 'Anexo 2');
+  y = 28;
+  y = pdfP(doc, 'ANEXO 2 – SITUACIÓN DE TEMPORALIDAD DEL INQUILINO Y DOCUMENTO NACIONAL DE IDENTIDAD.', y, 20, 11, true);
+
+  // Página en blanco para pegar documentos de situación temporal
+  doc.addPage();
   pdfFoot(doc, g('t_nom'), g('t_piso'));
   doc.save('Contrato_Temporada_' + g('t_nom').replace(/\s+/g,'_') + '.pdf');
 }
