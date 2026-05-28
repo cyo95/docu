@@ -2356,8 +2356,8 @@ var FAKE_DATA = {
   t_loc:            'Barcelona',
   t_cp:             '08015',
   t_cat:            '7843201DF3807A0003KL',
-  t_indice:         '',
-  t_id_informe:     '',
+  t_indice:         'entre 812,33 y 1.048,92',
+  t_id_informe:     'INF-2026-04872',
   t_arrendador_tipo:'cv',
   t_sl:             '',
   t_cif:            '',
@@ -2366,12 +2366,13 @@ var FAKE_DATA = {
   t_nif:            '39876543M',
   t_dom:            'CARRER DEL ROSER, 22 3R 1A - SABADELL',
   t_tel:            '634 987 215',
-  t_ema:            '',
-  t_nom2:           '',
-  t_nac2:           '',
-  t_nif2:           '',
-  t_dom2:           '',
-  t_tel2:           '',
+  t_ema:            'laura.font@email.com',
+  t_nom2:           'MARC VILA SOLER',
+  t_nac2:           'ESPA\xd1OLA',
+  t_nif2:           '52341876T',
+  t_dom2:           'CARRER DEL ROSER, 22 3R 1A - SABADELL',
+  t_tel2:           '612 043 891',
+  t_ema2:           'marc.vila@email.com',
   t_ini:            '2026-07-01',
   t_fin:            '2027-05-31',
   t_dur:            '11',
@@ -2382,14 +2383,14 @@ var FAKE_DATA = {
   t_firma:          '2026-06-25',
   t_renta:          '950.00',
   t_fianza_meses:   '2',
-  t_fianza:         '', // calculado: renta x meses
+  t_fianza:         '1900.00',
   t_ibi:            '27.30',
-  t_bas:            '0',
+  t_bas:            '6.50',
   t_lim:            '13.50',
-  t_itp:            '', // calculado automáticamente: renta x meses x 0.5%
-  t_banco_titular:  '',
-  t_banco_nombre:   '',
-  t_banco_cta:      '',
+  t_itp:            '52.25',
+  t_banco_titular:  'Capital Value Real Estate SL',
+  t_banco_nombre:   'CaixaBank',
+  t_banco_cta:      'ES76 2100 4815 3402 1234 5678',
   // Larga
   l_desc:    'Piso primero, puerta primera',
   l_dir:     'Carrer de Provença 88',
@@ -2496,11 +2497,15 @@ function runWithFakeData(fn) {
 }
 
 function tplTemporada(fmt) {
+  // Save and set dosDos=true since fake data has 2 arrendatarios
+  var savedDosDos = dosDos;
+  dosDos = true;
   if (fmt === 'pdf') {
     runWithFakeData(pdfTemporada);
   } else {
     runWithFakeData(docTemporada);
   }
+  dosDos = savedDosDos;
 }
 
 function tplLarga(fmt) {
