@@ -28,8 +28,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cv-light);color:var(--cv-
 /* ─── HEADER ─── */
 header{background:var(--cv-dark);padding:0 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;height:72px;border-bottom:3px solid var(--cv-orange);}
 .header-left{display:flex;align-items:center;gap:20px;}
-.header-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.01em;white-space:nowrap;line-height:1;}
-.header-logo span{color:var(--cv-orange);font-style:italic;}
+.header-logo{height:44px;width:auto;display:block;}
 .header-divider{width:1px;height:36px;background:rgba(255,255,255,.15);}
 .header-tagline{color:rgba(255,255,255,.45);font-size:.72rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;}
 #clock{font-family:'DM Sans',sans-serif;color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:.06em;line-height:1;}
@@ -161,7 +160,7 @@ main{max-width:820px;margin:0 auto;padding:36px 24px 80px;}
   .doc-grid{grid-template-columns:1fr;}
   .grid-2,.grid-3{grid-template-columns:1fr;}
   header{padding:0 16px;height:64px;}
-  .header-logo{font-size:1rem;}
+  .header-logo{height:36px;}
   .progress-wrap{padding:0 8px;}
   .step-tab{font-size:.56rem;padding:10px 3px;}
   #clock{font-size:1.1rem;}
@@ -173,7 +172,7 @@ main{max-width:820px;margin:0 auto;padding:36px 24px 80px;}
 
 <header>
   <div class="header-left">
-    <div class="header-logo">CAPITAL <span>VALUE</span></div>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAEAAr4DASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAYHAQgCBAUD/8QAVBAAAgEDAgQBBwYJBwkGBwEAAAECAwQRBQYHEiExEwgUFiJBUZFSVGFxgbEVFzI1QnN0kqEjJDQ3U8HhJUNEYnKCorLRJjM2VZPSGFdjlLPC0/D/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQIDBAUG/8QANxEBAAIBAQYEBQEGBgMAAAAAAAECEQMEBRMhU9ESMUGRIjJRYZJxFBZSgaGxBhUjYqLhQsHw/9oADAMBAAIRAxEAPwDcsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANpLLAA4VK1OnSlVnLEIrLeD42F/aX1OVS1reJGLw3ytdftQHZBx54+/wDgZ5l7wMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8L+q6FlWrRWXCDkl7z7564OnrVWnT0q5nOSS8Nr+BS8zFZmFqRE2iJVVrm99TrzqUFHw6WeWSyefpW673S6j8Co/DfrSXvPHv6NSV3WlCm5Kcm0fGtb3PJ61PCUcHwurvnekak+GOX6Pr9LdO7J0/inn+q89pavPWNNjdyhjLPZSeftIlwxqZ23GCa54y6r7CWxb6dOh9rsupfU0KXtGJmOb5XaqVprWrXyhzAB0MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPqgAPheVY0LWdVvCgskH3Pr0L3SpUqM+vN7PaTHWLR32n1bfm5OaLSKr1nSLrSKijVi+ST6MtEQrMy6EE+XMo9TMer9aPQ5Pr1z1OPV9G8Fsfp7K5t9Xu7R1eOmeN4ksQbeEWDomo0NRtlUpTTeSqLCznf31OyprPP3ZZm2NBholLlhUc3LuvcVtEYxCYmZnm90AFVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPosgPogODSclLP2EZ3dpN/q9aFKi1Gkn1eOxJkk8vH1GVhdezAg9DYTS9e//wCE5z2DSa6Xzz/sk2z9I6MnKMILp21b/TdUp3FKt4kE/cTiLliPNHr7R1SeX9Qx6ybQmSIcwAQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7AcFzc2X0RnmTbRl57ZPE3HuC10eSpTeazjzKPvA9rLx0WRjPdYK8ud8Xsn/I23KvrPlHe+pppulle7JbCuVkZecGXn2Mhei71dxcwo3VDw+d8sXn2kzhhpSS7lVnIAAAA2kssADCawn7zOeuAAMRkpZw+wcox7vH1jIyDg61FL/vYfvIzCcZxUotNP3AcgAABhyS9oUovs84eAMgBvAABNGMrOMgZAyY5lnAGQMowpRazlAZBhtLGX3Dkl7QMgxzL3mFOLzh9ugHIGMrDeew5o4Tz0YGQYclnGRzL3gZBxc4ppZ7mVJPswMgxlZxkKUXnD7PAGQY5l7wmn7QMgAADGUYc4KXK5JPv1YHIHHnh8uPxMqUX2af1AZBhtLuG0u7SAyDjzw+XH4mVKL7ST+pgZBjmWce0OcF3lFfaBkHHnh8uPxM80cZz0AyAYckllsDIMc8PlR+IUot4Uk39DAyAH0AA488M4cknjPcc8Plx+IHIGOZdOvcy2l3YAGOeHyo/EKUX2kn9oGQceeCeHJJ4z3HPD5cfiByBjnh8qPxMc8PlR+IHIGFKLeFJN/WZAAAAAAAAAAAAAAAAAAADH6X2Fa8R5qprkF8mngsrPrfYVXviopa/NdXhewmFZeIDlCFSf5NOb/3WZdOpF+tSqfusvlRz0+XLf20vdVRc1q+a2py98UUpSk4V6TlGSxUT6oubTHzafbyXVOmitl4dkAFVgMBgcMScuvRIzJpprGenYSfTGeuCLcTt00do7RutUnNRqKDjQz+lPHRCOfJEziMvH4pcT9B2HZqNzVjc6hPpTtov72a87g407+3JeTt9JdSzoN+rShT5+vuyRfbGk63xR35KM5Tq1K9Txa8m+lODfU3A2Bw+2/tHTqdtZWdKdZL+UqyWW5faa/DTzZfFfyat07jjPKHnkXcqOO+P7iVcH+I3ER78tNC16pWqW9SSjLmpYx1NpnSgspUabWPko6VXR9Nq3dO9nY0lcQxiSik0V8cEaWPV6RiWeV4WWOZHX1K9oWFhXva8uWlQpupN/QijbKj/ACluJeq7YrWmj7du1RvZ4qVGkn09xHvJ+4r7g1Teb0rc1949OvDFLKUcTb6EJ01VuJnHZVZwdS1oXfNjOU6SkY4y6FPh7xXoXunQdC3UldU2n0fXsbRFcYc/it4s+jc9vun7EG30+lHhbE1yhuHadjqsKinKrRi6mPZLHVHu80ccq9xjLoic80C4365qe39hXOoaTc+BcxbxLGfYayWHFzine04q21WpczUeZqFFPBsV5SePxZXKXbmefgypPIyp0p61fxqQhUSoPHNHOOqNa48LC+bWxCN0+LnFiyj4ta6ryp5zJO3x/cTbh95RNzK+pWW6LT1Kk1F1s45fpwbEajpWm3ttK3urChUpT6SXIjU/ymdgadtTVKWo6SvBt7v1JQ9zZFZiyLRevPLbPTr2hqFpSvrGoq1tWipRkn7Ga/8AlPb83VtXdNvaaFqTtqM7VTlFQT65JZ5KOrV9S4ezoXFRt2td0oJ9fVSKu8svK3nZ49X+Zrr9pFY+LC9rz4MwvnhprGp6rwyoanfV/Gu5W/Nz8uOuDXTWuJHFmhrmoULW4uI29O4kofyGenwNiOBCzw10ttdXRjn4E181tnlytKD6/wBmiPFFbJ8M2q01rcUeLMYyqVbu4pQhHmc3Q6fcfC24ucT7yao2OqTup8vPJRpLobP8aaFGHDbWJU7ejGSt54agvca8eSNGFXf9SFWEKi8zcsSWeuTSsxMZY2rMTjLoLifxfjNpXFzyuOMeb/4F4+TZuHdOvaDeVdzzqSqxruMeeHL0LYdrb91a0X/uIQo06UX4VCFNflPlSXUzm0NopMernyvmaxhYwiifKX4k6rtitaaTt+6ULqWJ1GllpF3ahdUbCyr39xLlpUabqT+hI07sVW4m8dvFlF1LWlc+tHunRUu5OnGZzJqzyxCb+T/xY1/VN4S0Tc2oeNSq080nKKXrN9EbK9VLDXq4NMeM+iVOHfFS0u9Pi6NCMlc08dms9jbPZOs0tw7U0/VYTVSVWlGU8PtLHUWj1Rp5j4Ze2lHvHuiH8ZdXv9E2Le6hptTwrinBuEsdngmS79faivfKAx+LLUUuvqS+4rHm0t5K28mHfu6t17nubXXNRdeELdzxypdcmxeFzZSyan+Rpj0yu8L/AEN/ebYYwkksk3jFlNOc1cgA+xVo4p4XX3kO4j+e0KVK5takoxziWCZdcY+g8zctn55o1enjMlBuIFWPUtSWJK5lhrK6k54dalUu7WpRrzcqkXnqV5FSi5059JU3jBIdg33m2tqDWI1Y8q+svMKRKzeqTXd56ET4i6nWs7SlSoTcZykste4luej5erXQq/fV553rLiperTXK/oZFUy8parqMYtO7l9BPuH6unYSr3VaU3N9MormnCdatSox6uUlFFxaNb+aaZQotYkoLP1iSHO9uFb2devLpyJ4Kou9b1K4u61SFaShzNLqTTiLqDttOVtB4nVfVFdQWPUb7LmYrBMu3+EtSSa84lnHvJ5w+1SV7ZSt68uarB+0rrlcZrmypNZS+g9vZ1+rHWoKTxGq8P7SZhEStT24PO3HVlR0W5nB4koPD9x6HNHpLPRroedubH4Dum/7NlF1Wx1TU2su9l1XuJLw5vby51arTuLh1Ixp5SaIdT9aL5unuJZwzb/DNVY/zX95e0M4lYoAKNFd7/u7u31mNOhVcE4ewjj1LUorKuZZz7z3OJL/y/Tx2VJZIxNNRfK85eUXiFJlcG35Tno9tUqvmnKCeTnr85w0e6nTlyyjTbT9x89ux/wAiWbzl+EsnLX0/wLd/q2UnzSquGqannrey6r3Eh4fX95ca1Ojc3LnHkyk13IlHrnPTHYk3Dht6/LMf80aYVy++/wC8u7fWY06FWUE4ewjy1LUYxyrmXxPa4lZev0ljC8JZIzJcql19uSKwmZdz8J6i+vnsk/cPwvqeP6XLKJRpuzqF5p1vdSuOWU4pvodl7EtnLmV0/wB0ZgxLzNiX19X17krXLnBwTx9pY5GtC2tR0q/87hcOTaxjBJSLStESAAqkAAAAAAAAAAAAAAwAOP5SaZ5UtC03zt3VWkp1G+jZ6zeGvpH6WG8gdela2kPyaMF/unOVvRkseHTa93Kj64yOVDKMPMu9F0y5j/KW8U0/Yd+3pQo0oUqaxGMcI59X2ftHX2+8ZThyAAANZTQD7AcX0S+DNdvLI1StCw0/S6c8QdSNSSNiFnm6dsGtflk2dWT06+jF+FzRpuX0+4tp/MpqfK9XyO9FoQ0C+1qUF4zrypRl9BsAlh/T7SjvJAv6NTZV5YqS8SF1KXL9GC8E0pZfcX+ZGl8rmGYcksZfcSaSKtHHPVx967lQeVJu5be2M7ChV5bi9fhSS78jXct6WIrmk0orq2/YaY8d9wvefFBaequbGhV81cvZFp9y2nXMs9S2IWR5IO05WumXW5rqOKtbNGm2u675JD5VW1Y6zsmGp06PNc2clKpJd+RLqSbY24dnaBtaw0ulqtBOhRjGePlJdz0Nb3Xs3V9Iu9Lr6vQ8O5pSpy9vdE8/EiIjw4VJ5H27HXs7rbV1U9eDdakm/wBHtg2K5ZNdXg0Z2zqS2VxaVxZXHNZQu/C512dLPc3f027pahY295R9ajXpqpGS+kakI0pzGFeeUjn8Wlyse1/cVB5HFxQtdavpXVanRTotJyklnqW95SiT4Z3Lazhv7maqcOtobg3fUlS20pwrU4ZqYqcvQtX5UXnF4bx32v6NZW0rmvqdvTox6yfOman+UpxAsN3a1T0/SY+cW9s1JTXTLX0GFwI4j1p8txKq4N9c3HT7ywuHnk6UNPuqGo7i1DzqpTkpKhy4x9oiIqTNr8sYSjyWtCr6Pw/lWuIShK7q+LFNexoqnyy1jetnLv8AzJL+JtXbW1O2t6Vtb01So0klCK9yNVfLMf8A2zs0l/oaz8SKT4rrXjw0XvwI/q00r9TH7id+xkE4Ef1aaV+pj9xO/Yyk/MvX5UM42f1a6x+zT+4108kH+sWt+xP7zYvjZ/VrrH7NP7jXPyQunESt+xP7zSvySyv88NwBLszDkk8ZDlFR5m0kvazJuqDyod3LbuyHY29VRu72XhOK7qDXci/kgbTdnpN3uW8hmvVm6UG11ce+StuPWvvefFJWHiJWltU81k89Fh9zY/Ym4Nnbe2rYaZS1WhHwaMYz695JdTXExXEMImJvlF/Kt2rDWdmQ1ShR5rm2mpTku6ppdSP+R/uxV9PudsXVTNam3WpZf6PbBa+tbq2fq+kXemV9YoeHc0pU5fQmjUfbupLYvFyN3YXPPZK78Dmj2dLPcViZriS0xFsw3obUm/lYK98oLm/FjqGF+g8/AnWm3dG/sLe/otOnXgpwa9qZB/KCeeGmo4f6EvuM6+bW3ko/yM//ABld/sb+82zNTPIza9M7xe3zN/ebZcyzgtqfMrpfKyAmmsoxzLm5faUaMmJxU4uMuzWGZAFRbptVY67Wp4xGo20dPT6srW+oVV3hUTJhxMsc06d9GP5PRshEpZipe9GkM5XHK6S0h3if+a5/4FRXtZ3N3XrSf5c2yXVNU/7C9J+vnw8fYQpfk4fT1csiITL3dkWKvNdhzLMKcef7S0+iWPYkRLhvYeDp0ruccTnLEX74nubiv42GlVq0pcr5WoP6SsphXW9r7z/XZQX/AHdH1ftR52lUVc6nQorrmoubp+ifCrUnUlKrN5nUlzM9Hb9/R07UfO6tBS5Y9Ovc0Vl6e/dPp2V3bzpdIuCj2I3KbhUjVpflQeSR7l3LQ1iyjBWvLOM89/YRuK6trpEiCVubbvI32k29bOXGCUvrMbm66Fd5+Q2iK8M7/FatYVJYTTlFEq3On+AbrC7U2VnzWhUcPyV9RK+Gf55rfqmRSD9VfSsEs4Zr/LNb9Uy1lY81igJ5Bm0VpxH/AD9H9V/eRl/kok3EdP8ADkX/APSIzLpBP7DSGcrg27+ZLX9UjluD8yXf6pnDbkk9EtXn/NpHPcH5ku/1TKT5rQp2PYk3Dj8/z/VEZh1i2uyeCTcN+uvz/VmisOXEn8/U/wBURhrMsfQSfiT+fqf6ojDaUsvtgVJSSx3be2drTtqdBSUI47n29N9R5cu3Sefeeba7Y1a5owuKNDMJrMXzew+q2lrTm07fKX+siMQnMpVs3cFzrFepCtS5VH6SUkO2Hol/pdxWnd0eRSzjrkmJSVoAAQkAAAAAAAAAAAAAA1lYAA4tdl7jjOpTh1nUivrZ876o6NrWqp45YNlSahqt7d3FZSuJRhzPAiEZW1O/tIflXEPifNanYt484hn6ynHzy/KrT+LCyv05v/eZbwo8S6Y16M3iFWHX/WR9VhJdclKKvXoy5qVaaaXTqyzNh3dW70XxK0nKSnjLImCJSEAELAYD7AcSueP+1Jbr2JXjbw5rm0zWpr2tpFiuXRZ6GHKLeGk4v+Iicc0TXMNJuB+96uwd28t/Fqzqy8G5T/Qk31eDc3SNSstXsaV7p9xC5oVUpwlF9kUbxx4Hfha6ra/taChdVMuvbLtUfdvPsKc0fcHELhzdOhShdWqg8Olyuaa+s1mItzhjWZ0+Ut4X0/Kz36IZ/Ryo569zUdeUTvKNNU3p9Vz+V4f+B3OH/E3fm6uIWnULypXjYyqxjOPg4WM9uxXhytxqr3407kpbX2HfXcpYrV6cqFF5/Sa6GqfC3YWrcSb26cLt0IdZ1KvL+mTnyttxXmrbgtttadTrzt6CUpONN48RPsW95O21o7a2DQlUpclzdtVptrr1XYtHw1yrMeK2JVP/APDNq0fVjuWrj6n/ANQ/Jn1hLK3NVT9/K/8AqbR4Yllp9CvElbg1aTcV+FWq7A0yjfV72V1TrzVLxOXs37S//Jh3atwbHjp9xV5rmwfhJPu4pdyUcYtux3HsK/s5Q56lKlKpRjjL50uhrJ5Pes6ls/iPTtLq2uFRucWtROm8KTfct81UY8FuTYHylP6srr6/7mVN5F357v8A9Q/vRbflIRlV4aXMaUJTbfRRWfYyp/Iyo16WtXzq0KtNeC168Gvb9JFfkkmP9SJbShjIyZ5bHuNS/LL/APGlp+xr72bZ59hqf5YtKtX3nayoUKtRK0UW4wb65L05Sz1IzHJevAj+rTSv1MfuJ37GQTgTmPDbTIyjKMo0opqSw+xOnJdveUn5l48kN42f1a6x+zT+41z8kP8ArErfsT+82M415fDfV4xjKUnbzSUVl9jXbyR6NelxArVK1vWpw8zazKDXXJpX5JZXj44bdTeEuntITxq3NS2vsK+uJS5a1xCVGj1w+ZroTfOWaqeVpuC+1fcFvoFhSuJ29BKbcabx4ifYrWMr3tivJBuFvD7U+JN7d1oXMrfGZTq4z65YC8mbWF673NVcu2MP/qWt5Om2Vt3h9RlUpYuLySrTbWGsosuCec9sdMFrXx5KV0s1zLV5eTNrKxJ7oqpqXyX2+JCOK/CrVOH9jTvp30rmnXn4fM49mzdvv3WCGcZNuU9y7Bv7OcOapRpyq0ljOZJdCK6ibaUIt5MO7HruyI2Fepz3NlLwkm+vKl3Pa8oT+rTUEumacuv2Gufk863qO0OIsLG6triFG5kraadN4y337Gx3H1Sq8NNRjShKo3TlhRWW+hMx8SYnNOaj/I0z6YXeFn+Zvr9ptel06rqaD7C3LuXZl157otvcQqzpckl4Lf8AcTP8d/E99f5ZZ9nm/wDgTak2lSmpFatxsNr3GMt+w1A0/jVxMq6rZ29aNd0qlWMZPwMdPgbZ6FcVbnRrO4rt+LUpRlPp7WjO1ZhrXUizvgZDaIys8vctpG80evTa6qLaKiScHKEl1hLBdtRKScZfkyWCpd3WvmWuVKfI1CeWsItEqS6Pi1XbO35n4fNz4MUaTuLilSj3nJRPm23LopYS9x7+xLJX2uRqOL8OlHmy1+ki2UQsbSLZWunW9CKxywWfrIhxMv3zUrCD905E2rVY0aU6sniMVlv3FP69fO+1mvWfNJJuMensKVleYdTKistZ64R94WN5JKULWUlLsZ0y3881GhRgm/XWVgt61pQoUqVBU4+rBZ6FpsrFVRqw1J9PM5LB16sKkarozjySSy0XVyw7ckXl+4rfiLZ+aalG4hTxGaxlL2keJOHjaHdysNTo1k8euub6izteqxr7cr1o/kzot/wKkqvCTUZZa9xPdGv1ebKuaTbc6VNrDXsSJkhA6WEljsSHYt/aadqdWtdT5U4NZI5TaeOkkvZ0OTlFt5hL68FlFq+leifOv+FiO6tFnNQjdZcnhdCqeZe6XwOVr1vKKxL8tewr4YW8UpbxJo/zmheU1mEoLqRLrGD655l0LU1DS6eq6BSoSWJKC5X9hW+q6VeaVceHVpy5V2aWSIkmEv2juKyp6dG0vq3LKCwso5bu3FZy052tlW55VFh4RAeaK9Z5cs+7Bnm5ZeIsvp2JwZYjFJZbwo9WS/hhbSlfVrzHqcriiOaXpd5qNaKo0ZOE36zfTCLT0DTaWl2MKFNdcdfrFpghCOJP5+p/qiMS798dO5JeJUktcpvrjw8dF7SM5Wc4ljt2JhErL0LcGl0NJtqNa7SnCCT9U7y3LovXF4vgyp8pdfWb92DGVnOJJ+7DI8Kcrdtdf0q6uI0KF0pVG0ksHqFT7Lx6RUXyyxmPf38yLYKzGFonIACEgAAAAAAAAAAAAAAAOlrT5NIupe6kynPWlOTeOrLh12lWraTcUKEeapODUV7yvLfZusTxKpT5Hj5SLxKkw8H62JRTT9YlVPZGoS/LrpfYZlsW99lz/AnMIxKKSaSzn2FhcMarnpFSHPnFR+w8Oex9RjnFVS+BJNj6ReaVQq07qOMybXUrKawkwAKrhif5D+ocyxnJ09W1Oz02yq3V1VUIQi5dfaVvetKza04iFqVm9orWMzL56nqFrptnK6uqqp0orrkij4laDlyjKbpp4T5H1Z4MaGp7+1qNWalQ0qm8x/10T232xo1KjCgrGnywXT6T5um1bdt9ptsmK6ceU2zm33j7PbtsuxbFWK7Vm1584ieVft+rw/xl6ByrE6if6tnVvN8bPuoNXFrCq5rDzQ7/AMCWejmj/MaXwHo5o67WNL4G/A3x1ae091J1t09O/vHZXq1jh03z/gqCkn/ZP/oenZb22fYpSs7SFL3tUeq/gS+O3NHUsqyp9foMPbej/Maff3Dg756tPae5xd09K/vHZErjfG0a8pTnaQqTf6cqOX9x2aXEjblONOkpTSjHolTfQkj21o2c+ZU39GB6N6O0v5jTi/qHB3z1Ke0908XdPTv7x2eB+MvQPlVP3GYlxM0BRb5qnT/UZIfRvRvmNP4D0b0b5jT+A4G+OrT8Z7o4u6enf3jsji4k7fay5zaa6xdNnUjvjZyqeIrSEanNzZ8Drn39iWrbWjZb8yp/Aejej+2xp/AcDfHVp7T3J1d09O/vHZGLniLtu4p+FVpurD5Mqba+4+dnvzatrU8S2tlQbWHyUsf3Er9GtFS6WNN/YFtrRU+lhTwODvnqU9p7p4u6enf3js8D8ZegfKqfuMw+JegY/KqfuMkPo3o3zGn8A9t6M1jzGn8BwN8dWn4z3Rxd09O/vHZHPxk6BhrNRdMr1Gda533tO6mqtxbxry5eX16Of7iV+jWjdH5lT6L3Bbb0bq/MKaY4G+OrT2nunjbp6d/eOyO0eIm3KVGMIKVOMe0Y02kv4Gfxl6F3zUx/sMkK21oyefMaefqMvbej5/oVPH1Dg746tPxnuji7p6d/eOyM1eI23qlJxnTlOM+koyg2mfKhvvalrNVre3jRqJcvqUcdPsRKvRvRs48wp479h6M6J8wp9foHA3x1ae0908XdPTv7x2R18SdAeJ81RP8A2GdevvjaVWXi1bSFScujcqOX9xKltvRl2sKfwD23o2c+Y0/gOBvjq09p7onV3T07+8dkdp8RtvU4xjFyhTjHEYqmzK4l6BhuUqi69PUZIPRrRm8uwp9Oxn0b0dpZsKa+wcHfHVp+M9zi7p6d/eOzwPxl6B8qp+4zD4lbfaabqY/2GSH0b0b5jT+A9G9G+Y0/gOBvjq0/Ge5xd09O/vHZE3vrZ7qeL5pT8RPmUvA65+B9qvEbblaHh1YyqQa6qVNtEl9GtFz/AECn7+xn0b0bv5jT+A4O+epT2nuni7p6d/eOyILeuzfmNL/7f/Az6b7N+Y0sfs/+BL/R7SPmFP4GHt7Scf0Cn8CeDvnq09p7o4u6ulb3jsiMt6bNqcv8zp+q8p+B/gdxcSNAhjllNRSwkqbJCtuaOuvmNP6sGfRzR8/0Gn8Bwd8dWntPcjW3T07+8dkf/GXoHyqn7jH4y9A+VU/cZIPRvRvmNP4D0b0b5jT+BHA3x1afjPc4u6enf3jsjr4k6A1nnn0fyGdW731tO6qqpXpynLGOtNkr9G9G9ljT+Ae29GX+gU39g4O+OrT8Z7p426enf3jshz3hsxrCtn+4z7We+9qWUs2tKUHLu1BkrW29Gw/5hTMejOipf0CmOFvnq0/Ge5xd09O/vHZHZ8SNAlCUJqbi+/qPqdB7w2Wsz81llvr6jJktt6MunmNP4Bbb0fP9Bp4+oRo746tPxnuji7q6d/eOyJW+9dn0JqtSoSjNdnyM7a4k6E5c7c10+QyRPbWjZ/oNP4GPRvRs/m+n0HB3z1afjPc4u6enf3jsj/4ytAf6VT9xnXvN+7WvUlcxlPHvgyU+jej9/MafwMvbejNf0Gn8Bwd8dWn4z3Txt09O/vHZDvTDZvOv5s8Yx+Qz60N87UoUZ0qVGShPpJcj6olfo5o6SSsKbMvbejfMafwHC3z1afjPdHF3T07+8dkN9MNmfNX+4x6YbM+av9xky9HNG+Y0vgPRvRvmNL4E8LfPVp+M9zi7p6d/eOyG+mGy/mr/AHGZjvHZiknG2kmuz5GTD0a0b5hT+A9GtG9ljT+A4W+erT8Z7p4u6Onf3jsjseJG34xUE6iUe3qM4XHETbVeDjVhKaaw803/ANCTLbmjr/Qqb+wx6N6Nn+g0/gRwd8dWn4z3Rxd09O/vHZCam6Nj1f8AvbSS/wB2RinufYtKcZU7OeU8p4kTf0a0Z/6BT+A9GtG+Y0/gTwt89Wn4z3OLujp3947I1S4h7aodKUJR+qmz6viVoDi3zz+rkZIPRvRvmFP4GHtrRvmNP4EcHfHVp+M908bdPTv7x2RS63ztS6rRqXFGU5Jd3BnyW8NmPObaXf5DJj6N6L7bCn8A9taM/wDQKfwHC3z1afjPc4u6enf3jsh3phsz5q/3GHvDZuOlq/3GTL0c0b5jS+A9HNG7+Y0/gTwt89Wn4z3Rxd09O/vHZGdB3Rte51WhRtKMo1qk4wg+V/lNpInp5ltoel29aNajZwjOMk00uzR6Z6OxU2qtZjabRM+mIw8/a7bNa0fs9ZiPvOQAHa5QAAAAAAAAAAAA3hNvsgAMcyxkZWcAMJ9zP1GMrA5kBkGMoZQMsgZXvMZXvBlkPsY544znodPV9StNNsKt1dVVThCDlllb6laVm1pxEJrWbzFa85l89UvrXTLSpe3dVQpRWcP2lcUlqe/9ZU5qVDSqFTMfdPBiNPU9/wCrwlUjKhpNJ5i/7RFl6bYUNPtqdrbU1CnBYWD5n/U31qc810K/857f3e/8G6aeltaf+Ed/7MabY22m26t7aCil7ju56IYx7MiMcew+l06V06xWkYiHgXvN5mbTmZcgAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABS3DnammblqapPUJ3MXb1YqHhTUe/NnOU/cXSUtw51vU9IqapHT9vXOrKrVi5ulNrw8c2M4i++f4Hj7y4XH0eLGa/F6Z9I+j1t38Tg6vCnE/D649fultXhZt/wAN+BdajSqY9WfiReH9XKdPhrqOp6fue/2jqNzK6p26lKjUk22sNdFn2NPOPYcNR4k6vQuI2MtruyvKmORXVw0nnt0cY/eerw/2tqNhql5uDXqlOWo3aa5ItPky8ttrpnou3ZGOnGjfaKfskYxPxcpiMfSc+rXUnWroW/apzmPh5xM5+sYTSrUp0qcqlWcacIrMpSeEl9LOna6zo91X8C11Wxr1e3JTuISl8Eyu95Xkdxb+jty91GNlpFolKs3NQU5cqb6vpnqkvd1Z2dwbX2NPR6r0u/srS9owc6NSF8pOUkspNOT7/E6rbdqWtbhRGK8uc4mZjzw5q7FSsV4kzm3PlGYjP1WSdS+1TTLGSje6jZ2sn1xWrxg/4sjPDnW7/XtmVW60HqNvz0FVqdcy5cwlL4rPvwzytL2doNgq1xvLULO71GtUc5Sq3bhFJ9n1cW39ZrO13vSt9GvK3PMziI/7ZxstaXtXVnnHLERmZT2x1Cwv4uVje211GPd0asZpfBle8a/zjtv9dV++keLUnoWl8RNGntO8zRr1oUriEJylFc01FrL7pp9uvY9rjX+cdt/rqv30jg2rap19k1InGazEcpzHnHk7dm2aNDatOYziYmecYnylZaOnrv5kv/2ap/ys7iOnrv5kv/2ap/ys9vU+SXj6fzQqbhvsnSty6HXvr64vadSncypJUZxUcKMX7Yvr6zJP+Kjbvz3Vf/Vp/wDsIxw33Jquj6HXtrHa97qtOVzKo61Fy5YtxiuXpCXXon39pJ/TrcX/AMv9V+NT/wDkfObHGwcCvEr8WOfKez39qnbuNbh25enOO6VbX0K029pf4PsqlepS53PNaScsv6kvcfe91bSrGp4d7qdlbT+TWrxg/g2de3v7+82vK/jYVbS+nbznC2mm5Qmk+VPKXtS9hV+waWzL+3rT3NXjU1WrWfM7qrOCx708pZf0vJ6mrtMaHg0tKIjMcs8ox3ebpbPOt49TVmZxPPHOVw21xb3VJVbavSr032nTmpJ/aiBbk3X4fEHSrC31i3hpcYqV04VY8qnmacZyz0xiPRs7e09qVdE3NV1DR7+jLQ7iGPB8Vzk3junjDxJd85xkjm6dB0iHFTStPjZxVtd0lUr0+aWJycqmXnOfYuxhtevtE6NZx4Z8UR5+fPlj7S22XR0I1bRnMeGZ8vt/eFq21ehdUIV7atTrUZrMalOSlGS+hrozpVdf0KlU8OprWmwn8mV1BP4ZPI3Zt2+uttUdD29XoWFupYqKcpdYfJTWXjL6ni1Nu8N9OsFQvbmznUUcSqyvH4kn78Rl9yOrV19es4isRiOczOIz9nNpaGjaMzMzz8ojM4+6f0atKvSjVo1IVKclmMoSTT+por+W7oz4mRtZa3ax0WlRbjJVoKlKTgu8s4bz730OpwcuYU9d1nS7K6ncabB+JbuWV0UsJ4fbKaz9R0Ybd0V8W6mjOxh5gqHMqPPLGfDTznOe/wBJxa216utpaV9Plm2J5+v8vR2aOy6ejq6tNTniuY5f/c1tU6lOpSjWp1IzpyipRnF5TT9qfuOjHXNElX8COsae6ucciuYc2fqyQbifeThe6Ts+zuY2FnXhDxpuWFGnnlim37Fyt9+vQ7E9qcPHprtY31nGty4Vz58ufPvxzY+zB1X2zUnUtTTiPh88zjn9Ic1dk04pF9SZ+LyxGeX1lYIIBwi1e5qq/wBAu7mNzLT54o1VLmUoZawn7Umlj6GT869m2iNo0o1I9XNtGhOhqTSQAG7AAAAAAAAAAAAPswH2YHzxJyy+iRnmTeEM5i0mR/d+5rTb9onUkpV5dKcF1bfuOfW19PZ6Tqak4iPVro6N9a8adIzM+ju6hrum6fVVK4rKMn9B1nuzRFJp3OP91lTapq+o6tdO6r6fVh7UsM6/nt88f5NqdPoZ5kf4j3bP/nP427PS/d/b/wCD+sLg9LNF+df8LHpZovzr/hZUPnd9/wCW1fgzHnd9/wCW1fgx+8e7f45/G3ZH+Qbw/gj3jut/0s0X53/ws5U90aNVqRpwusyk8Jcvcp3zq+/8vq/BnKF5fU5xmrCqnF5Twx+8e7v45/G3Y/yHeH8Ee8d13alqNpp1jO8uqqp0Yxzh+0reitU39rHNPmoaTQqZh/r4PlZW2t71vLenqNKdrYW6Xt/LwWfpllQ060ha21NQpx6JI48au+tScxMaFfTym8/f7OnOnunT5YnWn+cVj7fdjTbC20y2VvbQUUvcdtPtjv7TLT9whDHsPo6adaVitYxEPBvebzM2nMy5gA0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFacDe+ufrqf/AO5ZZ4e1NsWG2/O/Ma1zU86kpT8aUXhrPbCXvOPW0bX2jS1I8q5z/OHXo61aaGpSfO2Mfylw33t2luPQqltiKuqeZ203+jP3fU+z/wACPcJNxVrmhV27qkpq+ssqn4j9aUE8OL+mL/h9RYBG7vZumV9zx3DTuLy1vIyUmqEoqEmlh5Ti+66Pr1Ka+z3jXrr6Xn5TH1jvC+jr0nRto6vl5x9p7SgutabpNDixcUdx0VLT76PPSnOcoRUmlh5TX6Scfd1+El1zaew9I0mtqN1psFShByivO6v8o8dIr1urZJdxaBpev2qt9StlUUesJp4nB/Q//wDIjlvww25TrRnVq6hcQi8qlVrLl+rpFP8Aiclthvp2vFdOtszMxM+cZ+vKcumu21vWvi1LVxGJiPXH84w6eh3tvZcNtU1nQdGnpTkpOnGVeVXmaxHxE5e7L/dOnw42noGt6JHVtTlPUbyrOXjRnWkvDeWlnDy20s5fvLJhaW0LJWULenG2UPD8JRXLy4xjHuIdX4YbcncTq06uoW8JPrSp1lyY93WLePtLamw6kWpPhi8RGMeUZ+sRjH9FdPbKTW8eKazM5z5zj6Tzyim4/wAA0eIm37HQaNvCnb3dFVnRXRzdWPRv2tJI9fjX+cdt/rqv30iQXGwNvzoWVK3p17N2dTxIVKElzzl06yck8/ko7+6NsWG4q1lVva1zTlZSlKn4MopNtxznKfyV7jOdh1p0tWuIzaYmMeXLDSNt0Y1dK2ZxWJic+fPL3EdPXfzJf/s1T/lZ3D5XdCFza1rao5KFWEoSce6TWOh7V4zWYeRWcWiUG4F/+E7v9vn/APjpk+ID+Kjbvz3Vf/Vp/wDsH4qNu/PdV/8AVp/+w8vZv2vQ0q6fDicf7v8Ap6O0fsutq21OJMZ/2/8Aaa6rczstNubyFCVeVClKoqcXhyws4RCtI0/aW/bCeoz02naXvO1WjRq4qReejeMJ5WHlr6PYSTaW2rHbNrWt7Crc1IVp88nWlFtPGOmEjydU4c7dvr2d3DzuynNuUlbVFGOX36NPH2Guvp62rFZmkTHrWf7xOGehfR05tEWmJ9LR/aYyiul2ctrcTbPSNF1GrdW1x/SKLeeVPOVLHTKSznoepu1pcZNvt9F5vFZf+1VJPtjaOibenKrY0JzuJLDr1pc08e5exfYhuvaWk7knRq33nFOtRXLCrQmoyxnOOqa/gc0bBq10JrERnxRaIzyjHpl0TtulbWiZzjwzEzjnP3wjXGq/uqVDTNNhXnb2l5Ul5xUT7pOPR/Qst49vT3HpUNl7K0vTleXNvSq0YxU3cXFZtSWM574+CPTqbS0ittujoV2q11b0MunUqTXixbbeeZJe/HbseRZ8Mtt0K0Z1J391CLyqVasuT/hin/EtfZdWdadWaRbMRjM/L/T+ytNp0o0Y04vNcTPlHzf1eFwkr211vbXbizpRpW1SMpUYRjyqMHU9VY9nTB3IdOOtTPTNt0+n+SRKtJ2rpul6/caxYyr0alen4cqCcfCS6dly5XZe06+6NlaPuG9he3UrqhcxioupbzUXJLtnKZWuxa1NCtcRNq28X6+fstba9G2ta3OItXH6eSIcV7O0o720jUdToSqaZWhGlX9aS7SeeqeV0kn09xIpbL2ErB37sqPmijz+N55V5OX355z36uhafcaDS0W9pyvLWlTjTTrPM/VWE8rHX6VgjP4rtu+JnzjUvDznwvGjy/8ALn+Ja+xXrqWvGnW3i58/OJ9pzCKbXW2nWk6lq+Hly9Y945uHCyeh3V1qFzougz0+lTxS8eVzOoqqy2liXZ4Sb+snh1dJ06y0qxhZWFvChQh2jH72/a/pO0ehsujOjpRS2M/aMR/RwbTqxq6s2jOPvOZAAdDAAAAAAAAAAAAxL8l/UZPndOqraq6EeaqoPkWcZljoiJnEZTEZnCPby3Ja7fsXOTU7maxSprvn2EY2bty71e/W4tfy5ylzUaUuy9qOzoeztQudwV9X3CnUfO3RpOcWkvZ2bJ7TpcmMJRilhRXsPntLZtbeGvx9pr4aVn4a/X/dL2b7RpbFo8HZ5ze3zW/9QeFSXTwKf7qMKlT/ALCn+6j6KLz1MqL65Z7/AIMPFmZcPCp/2UP3UPCp/wBlD91HPl+gcv0E+BOZcPCp/wBlD91GJ0qbi06NNpr5KPpy/QYcejwiPBBmfq+VCmqceWFOMF9CPqotY9pjkax0z9pyxLm+gmaxEYiOSsRzznLkACyQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//Z" alt="Capital Value Real Estate" class="header-logo">
     <div class="header-divider"></div>
     <span class="header-tagline">Gestión documental</span>
   </div>
@@ -391,6 +390,7 @@ main{max-width:820px;margin:0 auto;padding:36px 24px 80px;}
   </div>
 
 </main>
+
 
 <script>
 // ═══════════════════════════════════
@@ -1107,21 +1107,30 @@ function renderRescision(step) {
       '<div class="card"><div class="card-title">Arrendatario que renuncia</div><div class="grid grid-2">' +
       field('r_nom','Nombre completo del arrendatario','text','Nombre y apellidos',true,'','full') +
       field('r_nif','DNI / NIE','text','Ej: 12345678A',true) +
-      field('r_tel','Teléfono o e-mail','text','',true,'','full') +
+      field('r_tel','Teléfono o e-mail','text','',true) +
+      field('r_domn_c','Calle y número (domicilio a efectos notificaciones)','text','',true,'','full') +
+      field('r_domn_p','Piso','text','Ej: 3º',true) +
+      field('r_domn_pt','Puerta','text','Ej: 2ª',true) +
+      field('r_domn_loc','Localidad','text','',true) +
       '</div></div>' +
       '<div class="card"><div class="card-title">Inmueble arrendado</div><div class="grid grid-2">' +
       field('r_pisoC','Calle del piso arrendado','text','',true,'','full') +
       field('r_pisoN','Número','text','',true) +
       field('r_pisoP','Piso','text','',true) +
       field('r_pisoPt','Puerta','text','',true) +
-      field('r_pisoLoc','Localidad','text','',true,'Se usará también como domicilio de notificaciones y como lugar de firma de la rescisión') +
+      field('r_pisoLoc','Localidad','text','',true) +
       field('r_firmaCtto','Fecha de firma del contrato','date','',true,'Fecha en que se suscribió el contrato original') +
       '</div></div>' +
-      '<div class="card"><div class="card-title">Fianza</div><div class="grid grid-2">' +
-      field('r_fianza','Importe de fianza a devolver (€)','number','Ej: 1200.00',true,'El número de llaves entregadas se dejará como "___" en el documento, para rellenar a mano','full') +
+      '<div class="card"><div class="card-title">Entrega de llaves y fianza</div><div class="grid grid-2">' +
+      field('r_llave_ent','Llaves de entrada (nº)','number','Ej: 2',true) +
+      field('r_llave_piso','Llaves del piso (nº)','number','Ej: 2',true) +
+      field('r_llave_buz','Llave buzón (nº)','number','Ej: 1',false) +
+      field('r_llave_otros','Otras llaves (nº)','number','Ej: 1',false) +
+      field('r_fianza','Importe de fianza a devolver (€)','number','Ej: 1200.00',true) +
       '</div></div>' +
-      '<div class="card"><div class="card-title">Fecha de firma de la rescisión</div><div class="grid grid-2">' +
-      field('r_fecha','Fecha de firma','date','',true,'El lugar de firma será automáticamente la localidad del inmueble arrendado','full') +
+      '<div class="card"><div class="card-title">Fecha y lugar de firma de la rescisión</div><div class="grid grid-2">' +
+      field('r_lugar','Lugar','text','Ej: Barcelona',true) +
+      field('r_fecha','Fecha de firma','date','',true) +
       '</div></div>' +
       btnRow(0, TOTAL_R, '', 'nextR(0)', false);
 
@@ -1144,14 +1153,15 @@ function renderRescision(step) {
         '<div class="summary-row"><span class="k">Nombre</span><span class="v">' + g('r_nom') + '</span></div>' +
         '<div class="summary-row"><span class="k">DNI/NIE</span><span class="v">' + g('r_nif') + '</span></div>' +
         '<div class="summary-row"><span class="k">Teléfono/email</span><span class="v">' + g('r_tel') + '</span></div>' +
-        '<div class="summary-row"><span class="k">Domicilio notificaciones</span><span class="v">' + g('r_pisoC') + ' ' + g('r_pisoN') + ', ' + g('r_pisoP') + '-' + g('r_pisoPt') + ', ' + g('r_pisoLoc') + '</span></div></div>' +
+        '<div class="summary-row"><span class="k">Domicilio notificaciones</span><span class="v">' + g('r_domn_c') + ', ' + g('r_domn_p') + '-' + g('r_domn_pt') + ', ' + g('r_domn_loc') + '</span></div></div>' +
         '<div class="summary-block"><h3>Inmueble</h3>' +
         '<div class="summary-row"><span class="k">Dirección arrendada</span><span class="v">' + g('r_pisoC') + ' ' + g('r_pisoN') + ', ' + g('r_pisoP') + '-' + g('r_pisoPt') + ', ' + g('r_pisoLoc') + '</span></div>' +
         '<div class="summary-row"><span class="k">Fecha contrato original</span><span class="v">' + fmtDate(g('r_firmaCtto')) + '</span></div></div>' +
         '<div class="summary-block"><h3>Entrega</h3>' +
-        '<div class="summary-row"><span class="k">Llaves entregadas</span><span class="v">A indicar a mano ( ___ )</span></div>' +
+        '<div class="summary-row"><span class="k">Llaves entrada</span><span class="v">' + (g('r_llave_ent')||'0') + '</span></div>' +
+        '<div class="summary-row"><span class="k">Llaves piso</span><span class="v">' + (g('r_llave_piso')||'0') + '</span></div>' +
         '<div class="summary-row"><span class="k">Fianza a devolver</span><span class="v">' + fmtEur(g('r_fianza')) + '</span></div>' +
-        '<div class="summary-row"><span class="k">Fecha y lugar de firma</span><span class="v">' + g('r_pisoLoc') + ', ' + fmtDate(g('r_fecha')) + '</span></div></div>';
+        '<div class="summary-row"><span class="k">Fecha y lugar de firma</span><span class="v">' + g('r_lugar') + ', ' + fmtDate(g('r_fecha')) + '</span></div></div>';
     }, 50);
     return;
   }
@@ -1160,7 +1170,7 @@ function renderRescision(step) {
 }
 
 function nextR(from) {
-  var reqs = { 0: ['r_nom','r_nif','r_tel','r_pisoC','r_pisoN','r_pisoP','r_pisoPt','r_pisoLoc','r_firmaCtto','r_fianza','r_fecha'] };
+  var reqs = { 0: ['r_nom','r_nif','r_tel','r_domn_c','r_domn_p','r_domn_pt','r_domn_loc','r_pisoC','r_pisoN','r_pisoP','r_pisoPt','r_pisoLoc','r_firmaCtto','r_llave_ent','r_llave_piso','r_fianza','r_lugar','r_fecha'] };
   if (!validateRequired(reqs[from] || [])) return;
   saveCurrentFields();
   currentStep = from + 1; renderRescision(currentStep);
@@ -1277,6 +1287,12 @@ function prevA(from) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ═══════════════════════════════════════════════════════
+//  PLANTILLAS (tarjetas inicio)
+// ═══════════════════════════════════════════════════════;
+
+
+// ═══════════════
 // ═══════════════════════════════════════════════════════
 //  PDF + DOC HELPERS
 // ═══════════════════════════════════════════════════════
@@ -1735,6 +1751,16 @@ function pdfTemporada() {
   // ── Cláusula 22 ──
   y = pdfClausula(doc, '22.', 'La finca ARRENDADA est\xe1 dotada de los muebles y enseres necesarios para una habitabilidad correcta, encontr\xe1ndose los mismos en buen estado de conservaci\xf3n. Cualquier anomal\xeda al respecto se ha de poner en conocimiento del arrendador en un plazo m\xe1ximo de 48 horas. Se adjunta inventario fotogr\xe1fico del mobiliario, electrodom\xe9sticos y enseres. El ARRENDATARIO ser\xe1 responsable de su mal uso, rotura, deterioro o p\xe9rdida, y deber\xe1 proceder, en su caso, a reponerlos, repararlos y abonarlos.', y);
 
+  y = pdfSec(doc, '23. SISTEMA DE ALARMA', y);
+  y = pdfP(doc, 'La vivienda objeto del presente contrato dispone de un sistema de alarma contratado con la empresa Securitas Direct Espa\xf1a S.A.U., cuya instalaci\xf3n se encuentra en funcionamiento en el inmueble arrendado.', y);
+  y = pdfP(doc, 'El ARRENDATARIO se obliga expresamente a:', y);
+  y = pdfP(doc, 'a) Subrogarse o contratar a su nombre el servicio de alarma desde el inicio del contrato, debiendo aportar justificante de dicho cambio de titularidad antes de la entrega de llaves.', y);
+  y = pdfP(doc, 'b) Mantener en todo momento activo el servicio de alarma durante toda la vigencia del contrato, sin posibilidad de cancelaci\xf3n, suspensi\xf3n o modificaci\xf3n sin autorizaci\xf3n expresa y por escrito del ARRENDADOR.', y);
+  y = pdfP(doc, 'c) Abonar \xedntegramente y de forma puntual todas las cuotas, servicios y costes derivados del sistema de alarma, respondiendo de cualquier impago.', y);
+  y = pdfP(doc, 'd) No manipular, desconectar, inutilizar o alterar el sistema de alarma ni sus dispositivos.', y);
+  y = pdfP(doc, 'e) Permitir, en caso necesario, el acceso al arrendador o a la empresa de seguridad para comprobaciones t\xe9cnicas o mantenimiento del sistema.', y);
+  y = pdfP(doc, 'El incumplimiento de cualquiera de las obligaciones anteriores tendr\xe1 la consideraci\xf3n de incumplimiento contractual grave, facultando al ARRENDADOR para resolver el contrato de forma inmediata, as\xed como reclamar los da\xf1os y perjuicios ocasionados.', y);
+  y = pdfP(doc, '23. En caso de baja, cancelaci\xf3n o impago del servicio de alarma, el ARRENDADOR podr\xe1 reactivar el servicio a su nombre y repercutir todos los costes al ARRENDATARIO, incluyendo cuotas pendientes, gastos de reactivaci\xf3n, penalizaciones y cualquier otro coste derivado.', y, 20, 9.5, true);
   y += 3;
   y = pdfP(doc, 'Estas condiciones complementarias del contrato referenciado en el encabezamiento, y previo ratificarse las partes en su contenido, se firman en el mismo lugar y fecha de dicho contrato al que corresponden.', y);
   y += 4;
@@ -1875,6 +1901,16 @@ function docTemporada() {
     '<p><b>20.</b> Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a Capital Value Real Estate Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: capitalvalue@capitalvalue.com y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().</p>' +
     '<p><b>21.</b> Las partes contratantes podr\xe1n someter a la resoluci\xf3n por \xe1rbitros nombrados por el Colegio de Administradores de Fincas de Barcelona-L\xe9rida o por arbitraje institucional de este, con arreglo a su Reglamento, todo litigio, discrepancia, cuesti\xf3n o reclamaci\xf3n que surja en la interpretaci\xf3n o ejecuci\xf3n del presente contrato; y en cuyo caso har\xe1n constar expresamente su compromiso de cumplir el laudo arbitral que se dicte.</p>' +
     '<p><b>22.</b> La finca ARRENDADA est\xe1 dotada de los muebles y enseres necesarios para una habitabilidad correcta, encontr\xe1ndose los mismos en buen estado de conservaci\xf3n. Cualquier anomal\xeda al respecto se ha de poner en conocimiento del arrendador en un plazo m\xe1ximo de 48 horas. Se adjunta inventario fotogr\xe1fico del mobiliario, electrodom\xe9sticos y enseres. El ARRENDATARIO ser\xe1 responsable de su mal uso, rotura, deterioro o p\xe9rdida, y deber\xe1 proceder, en su caso, a reponerlos, repararlos y abonarlos.</p>' +
+    '<h2>23. SISTEMA DE ALARMA</h2>' +
+    '<p>La vivienda objeto del presente contrato dispone de un sistema de alarma contratado con la empresa Securitas Direct Espa\xf1a S.A.U., cuya instalaci\xf3n se encuentra en funcionamiento en el inmueble arrendado.</p>' +
+    '<p>El ARRENDATARIO se obliga expresamente a:</p>' +
+    '<p>a) Subrogarse o contratar a su nombre el servicio de alarma desde el inicio del contrato, debiendo aportar justificante de dicho cambio de titularidad antes de la entrega de llaves.</p>' +
+    '<p>b) Mantener en todo momento activo el servicio de alarma durante toda la vigencia del contrato, sin posibilidad de cancelaci\xf3n, suspensi\xf3n o modificaci\xf3n sin autorizaci\xf3n expresa y por escrito del ARRENDADOR.</p>' +
+    '<p>c) Abonar \xedntegramente y de forma puntual todas las cuotas, servicios y costes derivados del sistema de alarma, respondiendo de cualquier impago.</p>' +
+    '<p>d) No manipular, desconectar, inutilizar o alterar el sistema de alarma ni sus dispositivos.</p>' +
+    '<p>e) Permitir, en caso necesario, el acceso al arrendador o a la empresa de seguridad para comprobaciones t\xe9cnicas o mantenimiento del sistema.</p>' +
+    '<p>El incumplimiento de cualquiera de las obligaciones anteriores tendr\xe1 la consideraci\xf3n de incumplimiento contractual grave, facultando al ARRENDADOR para resolver el contrato de forma inmediata, as\xed como reclamar los da\xf1os y perjuicios ocasionados.</p>' +
+    '<p><b>23.</b> En caso de baja, cancelaci\xf3n o impago del servicio de alarma, el ARRENDADOR podr\xe1 reactivar el servicio a su nombre y repercutir todos los costes al ARRENDATARIO, incluyendo cuotas pendientes, gastos de reactivaci\xf3n, penalizaciones y cualquier otro coste derivado.</p>' +
     '<p>Estas condiciones complementarias del contrato referenciado en el encabezamiento, y previo ratificarse las partes en su contenido, se firman en el mismo lugar y fecha de dicho contrato al que corresponden.</p>' +
     '<p>&nbsp;</p>' +
     '<table class="firma"><tr><td><b>EL ARRENDADOR</b></td><td><b>EL ARRENDATARIO</b></td></tr></table>' +
@@ -1887,488 +1923,758 @@ function docTemporada() {
   downloadDoc(html, 'Contrato_Temporada_' + g('t_nom').replace(/\s+/g,'_'));
 }
 
-function pdfLarga() {
-  var doc = makePDFBase();
-  var renta = parseFloat(g('l_renta')) || 0;
-  var ibi   = parseFloat(g('l_ibi'))   || 0;
-  var trib  = parseFloat(g('l_trib'))  || 0;
-  var tot   = renta + ibi + trib;
-  var dur   = parseInt(g('l_dur_m'))   || 0;
-  var finDate = '';
-  if (g('l_ini') && dur) { var d = new Date(g('l_ini')); d.setMonth(d.getMonth()+dur); finDate = dateText(d.toISOString().split('T')[0]); }
-  var tit2 = '';
-  if (dosDos && g('l_nom2')) {
-    var repTxt = g('l_rep2') === 'si' ? ', actuando en representaci\xf3n del Titular 1 en virtud de ' + (g('l_poder') || 'poder notarial') : '';
-    tit2 = 'D./D.\xaa, ' + g('l_nom2') + ', mayor de edad, de nacionalidad ' + g('l_nac2') + ', provisto/a de NIF/DNI/NIE n\xfamero ' + g('l_nif2') + ', tel\xe9fono ' + g('l_tel2') + (g('l_ema2') ? ', correo electr\xf3nico ' + g('l_ema2') : '') + repTxt + '.';
-  }
+// ══════════════════
+// LARGA DURACIÓN — PDF
+// ══════════════════
+function pdfLarga(){
+  const doc=makePDFBase();
+  const renta=parseFloat(g('l_renta'))||0,ibi=parseFloat(g('l_ibi'))||0,trib=parseFloat(g('l_trib'))||0;
+  const dur=parseInt(g('l_dur_m'))||0;
+  const ini=g('l_ini');let finDate='';
+  if(ini&&dur){const d=new Date(ini);d.setMonth(d.getMonth()+dur);finDate=fmtDate(d.toISOString().split('T')[0]);}
 
-  pdfHdr(doc, 'Contrato de Arrendamiento de Vivienda \u2014 Larga Duraci\xf3n (LAU)', '');
-  var y = 24;
-  doc.setFont('helvetica','bold'); doc.setFontSize(13);
-  doc.text('CONTRATO DE ARRENDAMIENTO DE VIVIENDA', 105, y, {align:'center'}); y += 7;
-  doc.setFontSize(11);
-  doc.text('LEY 29/1994, DE ARRENDAMIENTOS URBANOS', 105, y, {align:'center'}); y += 10;
+  pdfHdr(doc,'Contrato de Arrendamiento de Finca Urbana','');
+  let y=24;
+  doc.setFont('helvetica','bold');doc.setFontSize(13);doc.text('CONTRATO DE ARRENDAMIENTO DE FINCA URBANA',105,y,{align:'center'});y+=10;
 
-  y = pdfSec(doc, 'IDENTIFICACI\xd3N DE LA FINCA OBJETO DEL CONTRATO', y);
-  y = pdfKV(doc, 'Vivienda', g('l_desc'), y);
-  y = pdfKV(doc, 'Direcci\xf3n', g('l_dir'), y);
-  y = pdfKV(doc, 'Localidad', g('l_loc'), y);
-  y = pdfKV(doc, 'C\xf3digo Postal', g('l_cp'), y);
-  y = pdfKV(doc, 'Ref. Catastral', g('l_cat'), y);
-  y = pdfKV(doc, 'C\xe9dula de Habitabilidad', g('l_ced'), y);
-  y = pdfKV(doc, 'Certificado Energ\xe9tico', g('l_cert'), y);
-  if (g('l_indice')) y = pdfKV(doc, '\xcdndice de Referencia', g('l_indice'), y);
-  if (g('l_id_informe')) y = pdfKV(doc, 'Id. Informe', g('l_id_informe'), y);
-  if (g('l_sup')) y = pdfKV(doc, 'Superficie \xfatil', g('l_sup') + ' m\xb2', y);
-  if (g('l_anyo')) y = pdfKV(doc, 'A\xf1o de construcci\xf3n', g('l_anyo'), y);
+  y=pdfSec(doc,'IDENTIFICACIÓN DE LA FINCA OBJETO DEL CONTRATO',y);
+  y=pdfKV(doc,'PISO',g('l_desc'),y);y=pdfKV(doc,'DIRECCIÓN',g('l_dir'),y);y=pdfKV(doc,'LOCALIDAD',g('l_loc'),y);
+  y=pdfKV(doc,'CÓDIGO POSTAL',g('l_cp'),y);y=pdfKV(doc,'PROVINCIA','BARCELONA',y);
+  y=pdfKV(doc,'REFERENCIA CATASTRAL',g('l_cat'),y);y=pdfKV(doc,'CERTIFICADO ENERGÉTICO',g('l_cert'),y);
+  y=pdfKV(doc,'CÉDULA HABITABILIDAD',g('l_ced'),y);y=pdfKV(doc,'ÍNDICE DE REFERENCIA',g('l_indice'),y);
+  if(g('l_id_informe'))y=pdfKV(doc,'Id. Informe',g('l_id_informe'),y);
+  if(g('l_anyo'))y=pdfKV(doc,'AÑO DE CONSTRUCCIÓN',g('l_anyo'),y);
+  if(g('l_sup'))y=pdfKV(doc,'SUPERFICIE',g('l_sup')+' m²',y);
 
-  y = pdfSec(doc, 'IDENTIFICACI\xd3N DE LOS CONTRATANTES', y);
-  y = pdfP(doc, 'ARRENDADOR:', y, 20, 9.5, true);
-  y = pdfP(doc, 'La mercantil ' + g('l_sl') + ', provista de CIF ' + g('l_cif') + ', debidamente representada en este acto por ' + g('l_rep') + ', con DNI n\xba ' + g('l_rep_dni') + ', quien act\xfaa en calidad de administrador/a de la indicada sociedad.', y);
-  y += 2;
-  y = pdfP(doc, 'ARRENDATARIO/S:', y, 20, 9.5, true);
-  y = pdfP(doc, 'D./D.\xaa, ' + g('l_nom') + ', mayor de edad, de nacionalidad ' + g('l_nac') + ', provisto/a de NIF/DNI/NIE n\xfamero ' + g('l_nif') + ', tel\xe9fono ' + g('l_tel') + (g('l_ema') ? ', correo electr\xf3nico ' + g('l_ema') : '') + '.', y);
-  if (tit2) { y += 2; y = pdfP(doc, tit2, y); }
-  y += 3;
-  y = pdfP(doc, 'Reunidos los comparecientes anteriormente indicados, en su calidad de ARRENDADOR y ARRENDATARIO/S, formalizan el presente CONTRATO DE ARRENDAMIENTO DE VIVIENDA con sujeci\xf3n a la Ley 29/1994, de Arrendamientos Urbanos, y a las siguientes cl\xe1usulas:', y);
-  y += 4;
-  y = pdfFirmas(doc, y, 'EL ARRENDADOR', 'EL/LOS ARRENDATARIO/S', g('l_sl'), g('l_nom') + (dosDos && g('l_nom2') ? ' / ' + g('l_nom2') : ''));
+  y=pdfSec(doc,'IDENTIFICACIÓN DE LOS CONTRATANTES',y);
+  y=pdfBold(doc,'ARRENDADOR',y);
+  y=pdfP(doc,`La mercantil ${g('l_sl')}, provista de CIF ${g('l_cif')}, debidamente representada en este acto por ${g('l_rep')} con DNI nº ${g('l_rep_dni')}, quien actúa en calidad de administradora de la indicada sociedad.`,y);
+  y+=3;y=pdfBold(doc,'ARRENDATARIOS',y);
+  y=pdfP(doc,`D./Dª ${g('l_nom')}, con N.I.F. nº ${g('l_nif')}, de nacionalidad ${g('l_nac')}, mayor de edad, con número de teléfono ${g('l_tel')}.`,y);
+  if(dosDos&&g('l_nom2')){
+    y=pdfP(doc,'Y',y);
+    y=pdfP(doc,`D./Dª ${g('l_nom2')}, con N.I.F. nº ${g('l_nif2')}, de nacionalidad ${g('l_nac2')}, mayor de edad.`,y);
+    const rep=document.getElementById('l_rep2');
+    if(rep&&rep.value==='si'&&g('l_poder'))y=pdfP(doc,`D./Dª ${g('l_nom2')} interviene en este acto en nombre propio y además en nombre y representación de D./Dª ${g('l_nom')}, en virtud de ${g('l_poder')}.`,y);
+    else y=pdfP(doc,`Ambos tendrán domicilio, desde la fecha del presente contrato, en la finca arrendada anteriormente referenciada.`,y);
+  }else{y=pdfP(doc,'Tendrá domicilio, desde la fecha del presente contrato, en la finca arrendada anteriormente referenciada.',y);}
+  y+=3;
+  // Calcular duración en texto
+  const durTxt=`${dur} MESES`;
+  y=pdfP(doc,`Reunidos los comparecientes anteriormente indicados, contratan el arrendamiento de la vivienda que ha sido identificada encabezando este contrato, por tiempo de ${durTxt} y las partes pactan como renta inicial del contrato la cantidad de ${fmtEur(renta)}/mes, pagaderos por meses anticipados, y con las demás condiciones anexas que se consignan.`,y);
+  y+=2;
+  y=pdfP(doc,`Formalizando así este contrato y para que conste, lo firman por duplicado y a un solo efecto, en ${g('l_lugar')}, a ${fmtDate(g('l_firma'))}.`,y);
+  y=pdfFirmas(doc,y,'ARRENDADOR','ARRENDATARIOS',g('l_rep'),g('l_nom')+(dosDos&&g('l_nom2')?' / '+g('l_nom2'):''));
 
-  doc.addPage();
-  pdfHdr(doc, 'Condiciones del Contrato de Arrendamiento de Vivienda \u2014 Larga Duraci\xf3n', '');
-  y = 22;
+  // Página 2: condiciones
+  doc.addPage();pdfHdr(doc,'Condiciones Anexas al Contrato de Arrendamiento de Vivienda','');
+  y=22;
+  y=pdfP(doc,`Referentes a la vivienda ${g('l_desc')}, de la finca ${g('l_dir')}, ${g('l_loc')}.`,y,20,8.5);
+  y=pdfP(doc,`Referencia Catastral: ${g('l_cat')} | Cédula de habitabilidad: ${g('l_ced')} | Certificado energético: ${g('l_cert')}`,y,20,8);y+=2;
 
-  y = pdfClausula(doc, '1.', 'OBJETO Y DESTINO. \u2013 El ARRENDADOR cede en arrendamiento al ARRENDATARIO la vivienda descrita en el encabezamiento, que \xe9ste recibe a su entera satisfacci\xf3n, destin\xe1ndola exclusivamente a vivienda habitual y permanente del arrendatario y su familia, sin que pueda destinarse a uso distinto sin consentimiento expreso y por escrito del arrendador.', y);
+  y=pdfSec(doc,'1ª.- OBJETO',y);
+  y=pdfP(doc,'Es objeto del arrendamiento exclusivamente la superficie situada dentro de las paredes de la vivienda, quedando especialmente excluida la fachada, partes laterales de la entrada, azotea y vestíbulo de la escalera. En consecuencia, el arrendamiento a que este contrato se refiere no dará derecho a entrar ni a usar la azotea o terrado de la finca.',y);
 
-  y = pdfClausula(doc, '2.', 'DURACI\xd3N. \u2013 El presente contrato tendr\xe1 una duraci\xf3n de ' + durText(dur) + ', comenzando sus efectos el d\xeda ' + dateText(g('l_ini')) + ' y finalizando, salvo pr\xf3rroga legal o convencional, el ' + finDate + '. Llegado el vencimiento del plazo pactado, el contrato se prorrogar\xe1 obligatoriamente por plazos anuales hasta alcanzar los m\xednimos establecidos por la Ley de Arrendamientos Urbanos, salvo que el arrendatario manifieste al arrendador, con al menos treinta d\xedas de antelaci\xf3n a la fecha de terminaci\xf3n del contrato o de cualquiera de las pr\xf3rrogas, su voluntad de no renovarlo.', y);
+  y=pdfSec(doc,'2ª.- RENTA',y);
+  y=pdfP(doc,`Las partes pactan como renta inicial del contrato la cantidad de ${fmtEur(renta)}/mes, cantidad inicial, fija y periódica que el arrendatario se obliga a pagar por el inmueble que se le arrienda.`,y);
+  y=pdfP(doc,'La renta se devengará por mensualidades anticipadas y se hará efectiva dentro de los siete primeros días de cada mes.',y);
+  y=pdfP(doc,'Independientemente de la renta pactada indicada en el cuerpo principal del contrato, será a cargo de la parte arrendataria los gastos generales para el adecuado sostenimiento del inmueble, así como sus servicios, tributos, cargas y responsabilidades que no sean susceptibles de individualización y que correspondan a la vivienda arrendada o a sus accesorios si los tuviere.',y);
+  y=pdfP(doc,'De su importe anual resulta que el coste de los gastos y servicios, en la fecha de la celebración del presente contrato, es mensualmente el siguiente:',y);
+  y=pdfP(doc,`  - I.B.I.: pagará la cantidad de ${fmtEur(ibi)}`,y);
+  if(trib)y=pdfP(doc,`  - Tribut Metropolità: ${fmtEur(trib)}`,y);
+  y=pdfP(doc,'Dichos gastos se actualizarán anualmente repercutiendo a la parte arrendataria las variaciones que se produzcan.',y);
+  y=pdfP(doc,'La obligación de pago de la renta subsistirá hasta que se devuelva el piso y sus instalaciones al arrendador. El pago de un recibo no presupone el pago de los anteriores.',y);
 
-  y = pdfClausula(doc, '3.', 'RENTA. \u2013 Se pacta una renta mensual de ' + euroText(renta) + ', que el arrendatario se obliga a abonar por adelantado dentro de los siete (7) primeros d\xedas de cada mes, mediante transferencia o domiciliaci\xf3n bancaria a la cuenta que el arrendador designe.', y);
+  y=pdfSec(doc,'3ª.- DURACIÓN',y);
+  y=pdfP(doc,`El plazo de duración del presente contrato es de ${durTxt}. El plazo comenzará a contarse desde la puesta del inmueble a disposición de la parte arrendataria, siendo ésta la firma de este contrato, es decir, el día ${fmtDate(ini)}.`,y);
+  y=pdfP(doc,'Ambas partes contratantes pactan expresamente que será de obligado cumplimiento para la parte arrendataria la permanencia en la vivienda arrendada durante el período correspondiente a los primeros seis meses de contrato.',y);
+  y=pdfP(doc,'Una vez transcurrido dicho plazo de obligado cumplimiento, el arrendatario podrá desistir del contrato siempre que lo comunique a la arrendadora con una antelación mínima de UN MES.',y);
+  y=pdfP(doc,'Si el desistimiento se produjere durante los primeros SEIS MESES, el arrendatario deberá abonar como penalización al arrendador las cuotas arrendaticias correspondientes al período que falte hasta completar los citados seis meses.',y);
+  y=pdfP(doc,'Si el desistimiento se produjere entre los seis primeros meses y el primer año de contrato, el arrendatario indemnizará a la arrendadora con una cantidad equivalente a una mensualidad de la renta en vigor.',y);
+  y=pdfP(doc,'Pasado el primer año, el arrendatario podrá rescindir el contrato sin ningún tipo de penalización con un único preaviso de UN MES.',y);
+  y=pdfP(doc,`Una vez terminado el plazo pactado de ${durTxt} y, en su caso, la prórroga legal, el arrendamiento podrá quedar reconducido mes a mes, conforme a lo dispuesto en el artículo 1.566 del Código Civil.`,y);
 
-  y = pdfClausula(doc, '4.', 'GASTOS REPERCUTIDOS. \u2013 De conformidad con el art\xedculo 20 de la LAU, se repercuten mensualmente al arrendatario los siguientes conceptos: Impuesto sobre Bienes Inmuebles (IBI), por importe de ' + euroText(ibi) + ', y, en su caso, Tribut Metropolit\xe0 de l\u2019\xc0rea Metropolitana de Barcelona, por importe de ' + euroText(trib) + '. En consecuencia, el importe total mensual a satisfacer por el arrendatario asciende a ' + euroText(tot) + '.', y);
+  y=pdfSec(doc,'4ª.- DESTINO',y);
+  y=pdfP(doc,'La vivienda se alquila exclusivamente para satisfacer la necesidad de vivienda permanente del arrendatario. No obstante, en el supuesto de nulidad, separación judicial o divorcio del arrendatario titular inicial del contrato, seguirá respondiendo solidariamente de todas las obligaciones económicas dimanantes del mismo.',y);
+  y=pdfP(doc,'El arrendatario no podrá instalar en la vivienda comercio, industria, ni siquiera manual, ni oficina ni despacho profesional.',y);
 
-  y = pdfClausula(doc, '5.', 'ACTUALIZACI\xd3N DE LA RENTA. \u2013 Durante la vigencia del contrato, la renta podr\xe1 actualizarse anualmente conforme al \xedndice que legalmente resulte de aplicaci\xf3n en el momento de cada actualizaci\xf3n, previa notificaci\xf3n por escrito al arrendatario con la antelaci\xf3n m\xednima legalmente exigida.', y);
+  y=pdfSec(doc,'5ª.- CESIÓN Y SUBARRIENDO',y);
+  y=pdfP(doc,'Queda totalmente prohibido el subarriendo total de la vivienda, así como el arrendamiento turístico. Para el subarriendo parcial o la cesión, el arrendatario deberá obtener previamente y por escrito la autorización de la arrendadora.',y);
+  y=pdfP(doc,'En ningún caso, la vivienda arrendada podrá ser ocupada por un número de personas superior a TRES. Cualquier alteración de las personas arrendatarias registradas en el presente contrato debe ser previa y expresamente aceptada por la arrendadora.',y);
 
-  y = pdfClausula(doc, '6.', 'FIANZA LEGAL. \u2013 El arrendatario hace entrega en este acto, en concepto de fianza legal obligatoria conforme al art\xedculo 36 de la LAU, de la cantidad de ' + euroText(g('l_fianza')) + ', equivalente a una mensualidad de renta. Dicha fianza ser\xe1 depositada por el arrendador en el organismo p\xfablico competente cuando as\xed lo exija la normativa aplicable, y ser\xe1 devuelta al arrendatario a la finalizaci\xf3n del contrato, una vez comprobado el cumplimiento de sus obligaciones y el buen estado del inmueble.', y);
+  y=pdfSec(doc,'6ª.- DOCUMENTACIÓN APORTADA',y);
+  y=pdfP(doc,'De acuerdo con lo que dispone el artículo 66 de la Ley 18/2007, de 28 de diciembre, sobre el derecho a la vivienda, el arrendatario ha recibido previamente a este acto la documentación acreditativa de la información requerida a la oferta de arrendamiento y una copia de la cédula de habitabilidad o acreditación equivalente. De acuerdo con la legislación vigente, queda totalmente prohibida la sobreocupación.',y);
 
-  if (parseFloat(g('l_gar')) > 0) {
-    y = pdfClausula(doc, '7.', 'GARANT\xcdA ADICIONAL. \u2013 Adem\xe1s de la fianza legal, el arrendatario entrega en concepto de garant\xeda adicional la cantidad de ' + euroText(g('l_gar')) + ', destinada a cubrir el cumplimiento de las obligaciones derivadas del presente contrato, y que ser\xe1 reintegrada en los mismos t\xe9rminos que la fianza legal.', y);
-  }
+  y=pdfSec(doc,'7ª.- SUMINISTROS',y);
+  y=pdfP(doc,'Los consumos por servicios y suministros del departamento que disponga de contadores individuales serán por cuenta y cargo del arrendatario, así como la contratación, cambios de titularidad, la adquisición, conservación, reparación o sustitución de los mismos.',y);
+  y=pdfP(doc,'En el momento de la finalización o resolución del contrato, el arrendatario se compromete a no dar de baja los suministros contratados, debiendo entregar a la arrendadora copia de las facturas de todos los suministros de la vivienda arrendada. En caso de que los justificantes no fueran entregados, la arrendadora podrá retener la fianza hasta la entrega de los mismos.',y);
 
-  y = pdfClausula(doc, '8.', 'CONSERVACI\xd3N Y REPARACIONES. \u2013 El arrendatario se obliga a conservar la vivienda en buen estado, siendo de su cuenta las peque\xf1as reparaciones que exija el desgaste por el uso ordinario. Las reparaciones necesarias para conservar la vivienda en condiciones de habitabilidad ser\xe1n de cargo del arrendador, salvo que el deterioro sea imputable al arrendatario.', y);
+  y=pdfSec(doc,'8ª.- CONSERVACIÓN DE LA VIVIENDA',y);
+  y=pdfP(doc,'Son a cargo de la arrendadora las reparaciones que sean necesarias para mantener la vivienda en condiciones de habitabilidad, salvo que el deterioro sea imputable a la parte arrendataria.',y);
+  y=pdfP(doc,'En particular, serán de cuenta y cargo del arrendatario los gastos ocasionados por los desperfectos que se produzcan, ya sean en cristales, cerraduras y demás útiles y utensilios de las instalaciones y su adecuado entretenimiento; los gastos de conservación, reparación y revisiones de las instalaciones de agua, gas, electricidad, calefacción, cocina, baño, bidet, grifos, inodoros, sanitarios, lavabos, calentador, antena de TV y, en particular, todos los desagües, atascos, arreglo de la cocina, fregaderos, lavaderos, aire acondicionado y sus tuberías, como también la conservación y sustitución de persianas.',y);
 
-  y = pdfClausula(doc, '9.', 'OBRAS. \u2013 El arrendatario no podr\xe1 realizar obras que modifiquen la configuraci\xf3n de la vivienda, sus accesos o instalaciones, sin el consentimiento previo y por escrito del arrendador. Las obras as\xed autorizadas quedar\xe1n en beneficio de la finca sin derecho a indemnizaci\xf3n alguna.', y);
+  y=pdfSec(doc,'9ª.- RESPONSABILIDAD CIVIL Y SEGUROS',y);
+  y=pdfP(doc,'El arrendatario se hace directa y exclusivamente responsable, y exime de toda responsabilidad a la propiedad y al administrador, de los daños que puedan ocasionarse a personas o cosas y sean derivados del mal uso por parte del arrendatario de las instalaciones, servicios, suministros y actividades que tengan lugar en la finca arrendada.',y);
+  y=pdfP(doc,'Con el fin de que quede cubierta la responsabilidad antes citada, el arrendatario se obliga a contratar un seguro de responsabilidad civil, que deberá entregar a la propiedad o al Administrador en un plazo máximo de treinta días y mantener vigente durante toda la duración del presente contrato y sus prórrogas.',y);
 
-  y = pdfClausula(doc, '10.', 'SUMINISTROS. \u2013 Los consumos de agua, electricidad, gas y dem\xe1s suministros ser\xe1n de cuenta y a nombre del arrendatario durante toda la vigencia del contrato.', y);
+  y=pdfSec(doc,'10ª.- OBRAS',y);
+  y=pdfP(doc,'El arrendatario no podrá practicar obras de clase alguna en la vivienda sin previo permiso por escrito de la propiedad o del Administrador. En todo caso, las obras así autorizadas serán de cargo y cuenta del arrendatario y quedarán en beneficio de la finca, sin derecho a indemnización o reclamación en momento alguno.',y);
 
-  y = pdfClausula(doc, '11.', 'SUBARRIENDO Y CESI\xd3N. \u2013 Queda expresamente prohibida la cesi\xf3n total o parcial de la vivienda, as\xed como su subarriendo, sin el consentimiento previo y por escrito del arrendador. El incumplimiento de esta cl\xe1usula ser\xe1 causa de resoluci\xf3n del contrato.', y);
+  y=pdfSec(doc,'11ª.- ACTUALIZACIÓN DE LA RENTA',y);
+  y=pdfP(doc,'La renta será actualizada anualmente en la fecha en que se cumpla cada año de vigencia del contrato, conforme al índice de referencia para la actualización anual de los contratos de arrendamiento de vivienda que publique el Instituto Nacional de Estadística (INE) o el organismo que legalmente lo sustituya.',y);
 
-  y = pdfClausula(doc, '12.', 'NORMAS DE LA COMUNIDAD. \u2013 El arrendatario se obliga a respetar y cumplir en todo momento las normas estatutarias y de r\xe9gimen interior de la Comunidad de Propietarios, en orden a la utilizaci\xf3n de los servicios y elementos comunes y al buen r\xe9gimen de convivencia.', y);
+  y=pdfSec(doc,'12ª.- GASTOS GENERALES DE LA FINCA',y);
+  y=pdfP(doc,'En el caso de que el inmueble no tenga servicio de portería, conserjería o limpieza, o si lo tuviere y en el futuro fuere objeto de supresión, el arrendatario se compromete, cuando así lo acuerden los vecinos del inmueble, a la limpieza de la escalera, el vestíbulo y demás elementos comunes.',y);
 
-  y = pdfClausula(doc, '13.', 'MASCOTAS. \u2013 Se permite la tenencia de mascotas en la vivienda, siempre que se respeten las normas de convivencia y de la comunidad de propietarios, y que el arrendatario responda de los da\xf1os que, en su caso, pudieran ocasionar.', y);
+  y=pdfSec(doc,'13ª.- FIANZA OBLIGATORIA',y);
+  const fianzaT=parseFloat(g('l_fianza'))||0,garT=parseFloat(g('l_gar'))||0;
+  y=pdfP(doc,`La parte arrendataria entrega en este acto la suma de ${fmtEur(fianzaT)} en concepto de fianza legal obligatoria${garT?`, así como la suma de ${fmtEur(garT)} en concepto de garantía adicional`:''}. La fianza legal será depositada en INCASÒL por la parte arrendadora, de conformidad con la normativa vigente.`,y);
+  y=pdfP(doc,'La arrendadora se compromete a la devolución de la fianza legal y, en su caso, de la garantía adicional, siempre que previamente se corrobore que la vivienda se encuentra en adecuado estado de limpieza, conservación, pintura y funcionamiento de todos los elementos e instalaciones que la integran.',y);
+  y=pdfP(doc,`Transcurridos los ${durTxt} de vigencia del presente contrato, la fianza legal podrá ser actualizada conforme a la renta vigente y a la normativa aplicable.`,y);
 
-  y = pdfClausula(doc, '14.', 'RESOLUCI\xd3N DEL CONTRATO. \u2013 El incumplimiento de cualquiera de las obligaciones derivadas del presente contrato por cualquiera de las partes facultar\xe1 a la otra para instar su resoluci\xf3n, con los efectos legalmente previstos, en particular en caso de impago de la renta o cantidades asimiladas, o de uso de la vivienda para fines distintos de los pactados.', y);
+  y=pdfSec(doc,'14ª.- OTRAS OBLIGACIONES',y);
+  y=pdfP(doc,'La parte arrendataria además se obliga:',y);
+  y=pdfP(doc,'A) Al pago de la renta, aumentos e incrementos legales mediante domiciliación bancaria; a no ceder, traspasar o subarrendar total o parcialmente la vivienda objeto de este contrato, ni destinarla total o parcialmente a hospedaje.',y);
+  y=pdfP(doc,'B) A no tener o manipular en la vivienda materias explosivas, inflamables, incómodas o insalubres, y observar en todo momento las disposiciones vigentes.',y);
+  y=pdfP(doc,'C) A permitir el acceso a la vivienda a la propietaria, al Administrador y a los operarios o industriales mandados por cualquiera de ambos, para la realización, inspección y comprobación de cualquier clase de obras o reparaciones que afecten al inmueble.',y);
+  y=pdfP(doc,'D) De existir el servicio de ascensor, a utilizarlo conforme a la normativa de aparatos elevadores y a las demás disposiciones que se dicten.',y);
+  y=pdfP(doc,'E) A facilitar al momento de finalización o renuncia del presente contrato copia de la última factura de suministros.',y);
+  y=pdfP(doc,'F) A entregar la vivienda en el momento de la finalización o renuncia del contrato en adecuado estado de limpieza y conservación, equivalente al derivado de un uso ordinario de la vivienda.',y);
+  y=pdfP(doc,'G) A no realizar en la misma actividades contrarias a la convivencia normal en la comunidad o que dañen o hagan peligrar el edificio, de conformidad con lo establecido en el artículo 553-40.1 del Codi Civil de Catalunya.',y);
+  y=pdfP(doc,'H) De conformidad con el artículo 11 de la Llei 11/2020, si la arrendadora realiza obras de mejora en la vivienda arrendada, podrá incrementar la renta en los términos legales.',y);
 
-  y = pdfClausula(doc, '15.', 'PROTECCI\xd3N DE DATOS. \u2013 ' + g('l_sl') + ' es responsable del tratamiento de los datos personales del arrendatario, que ser\xe1n tratados de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Org\xe1nica 3/2018 (LOPDGDD), exclusivamente para la ejecuci\xf3n del presente contrato y durante el tiempo necesario para el cumplimiento de sus finalidades y de las obligaciones legales aplicables.', y);
+  y=pdfSec(doc,'15ª.- IMPUESTO SOBRE TRANSMISIONES PATRIMONIALES',y);
+  y=pdfP(doc,'De acuerdo con lo establecido en el apartado 26 del artículo 45.1.B) del texto refundido de la Ley del ITP y AJD, la suscripción de contratos de arrendamiento de vivienda para uso estable y permanente a los que se refiere el artículo 2 de la LAU, se encuentra exenta del gravamen aplicable para dicho impuesto. No obstante, la parte arrendataria se encuentra obligada a realizar la correspondiente cumplimentación y presentación del referido impuesto.',y);
 
-  y = pdfClausula(doc, '16.', 'RESOLUCI\xd3N DE CONFLICTOS. \u2013 Para cuantas cuestiones se deriven de la interpretaci\xf3n o ejecuci\xf3n del presente contrato, las partes podr\xe1n someterse a arbitraje institucional del Colegio de Administradores de Fincas de Barcelona-L\xe9rida, con arreglo a su Reglamento, comprometi\xe9ndose a cumplir el laudo que en su caso se dicte.', y);
+  y=pdfSec(doc,'16ª.- DERECHO DE ADQUISICIÓN PREFERENTE',y);
+  y=pdfP(doc,'La parte arrendataria renuncia expresamente al derecho de adquisición preferente que le concede el artículo 25 de la Ley de Arrendamientos Urbanos en el supuesto de que la finca arrendada se transmitiese a favor de terceras personas.',y);
 
-  y += 3;
-  y = pdfP(doc, 'Y para que conste y surta los efectos oportunos, ambas partes firman el presente contrato por duplicado y a un solo efecto, en ' + g('l_lugar') + ', a ' + dateText(g('l_firma')) + '.', y);
-  y += 4;
-  y = pdfFirmas(doc, y, 'EL ARRENDADOR', 'EL/LOS ARRENDATARIO/S', g('l_sl'), g('l_nom') + (dosDos && g('l_nom2') ? ' / ' + g('l_nom2') : ''));
+  y=pdfSec(doc,'17ª.- COMUNIDAD DE PROPIETARIOS',y);
+  y=pdfP(doc,'En caso de hallarse esta vivienda integrada en un inmueble en régimen de Comunidad en Propiedad Horizontal, la parte arrendataria se obliga a cumplir en todo momento las normas estatutarias y reglamentos que la Comunidad de Propietarios tenga establecidas o establezca.',y);
+
+  y=pdfSec(doc,'18ª.- INCUMPLIMIENTO',y);
+  y=pdfP(doc,'En el supuesto de incumplir, por parte del arrendatario, cualquiera de las obligaciones que resultan del presente contrato, la arrendadora podrá exigir su cumplimiento o, en su caso, promover la resolución del contrato, de acuerdo con lo dispuesto en el artículo 1.124 del Código Civil.',y);
+
+  y=pdfSec(doc,'19ª.- NOTIFICACIONES',y);
+  y=pdfP(doc,'A efectos de recibir cualquier notificación relacionada con los derechos y obligaciones reconocidos en este contrato, se designa como domicilio de la arrendadora el de su administrador y de la parte arrendataria la propia finca arrendada.',y);
+  y=pdfP(doc,'Teléfono: ____________________',y);y=pdfP(doc,'Correo electrónico: ____________________',y);
+
+  y=pdfSec(doc,'20ª.- PROTECCIÓN DE DATOS',y);
+  y=pdfP(doc,`Las partes autorizan a ${g('l_sl')}, o en su caso a otro administrador que designe la propiedad en el futuro, para que sus datos personales sean incorporados a un fichero automatizado debidamente registrado en la Agencia de Protección de Datos, de acuerdo con la Ley Orgánica 15/1999, de 13 de diciembre.`,y);
+
+  y=pdfSec(doc,'21ª.- ESTADO DE LA VIVIENDA Y ENTREGA DE LLAVES',y);
+  y=pdfP(doc,'El arrendatario declara conocer las características y estado de conservación de la vivienda, por haberla visitado con anterioridad a este acto, declarando así recibirla a su entera satisfacción, siendo responsable de su correcto mantenimiento.',y);
+
+  y=pdfSec(doc,'22ª.- FUERO',y);
+  y=pdfP(doc,'Para cualquier litigio o diferencia que esté relacionada con el presente contrato, las partes se someten a la competencia y jurisdicción de los Tribunales del lugar en que se encuentra la finca, renunciando las partes a cualquier otro fuero o domicilio que pudiera corresponderles.',y);
+
+  y+=4;y=pdfP(doc,`En ${g('l_lugar')}, a ${fmtDate(g('l_firma'))}`,y);
+  y+=4;doc.setFont('helvetica','bold');doc.setFontSize(9);
+  doc.text('ARRENDADOR:',20,y);doc.text('ARRENDATARIOS:',110,y);y+=8;
+  doc.setFont('helvetica','normal');doc.setFontSize(8);
+  doc.text(`Fdo.: ${g('l_rep')}`,20,y);
+  doc.text(`Fdo.: ${g('l_nom')}`,110,y);y+=5;
+  if(dosDos&&g('l_nom2'))doc.text(`Fdo.: ${g('l_nom2')}`,110,y);
 
   pdfFoot(doc, g('l_nom'), g('l_dir'));
-  doc.save('Contrato_Larga_Duracion_' + g('l_nom').replace(/\s+/g,'_') + '.pdf');
+  doc.save(`Contrato_Vivienda_${g('l_nom').replace(/\s+/g,'_')}.pdf`);
+}
+
+// ══════════════════
+// LARGA DURACIÓN — DOC
+// ══════════════════
+function docLarga(){
+  const renta=parseFloat(g('l_renta'))||0,ibi=parseFloat(g('l_ibi'))||0,trib=parseFloat(g('l_trib'))||0;
+  const dur=parseInt(g('l_dur_m'))||0,ini=g('l_ini');let finDate='';
+  if(ini&&dur){const d=new Date(ini);d.setMonth(d.getMonth()+dur);finDate=fmtDate(d.toISOString().split('T')[0]);}
+  const durTxt=`${dur} MESES`;
+  let arra2='';
+  if(dosDos&&g('l_nom2')){
+    arra2=`<p>Y</p><p>D./Dª <b>${g('l_nom2')}</b>, con N.I.F. nº ${g('l_nif2')}, de nacionalidad ${g('l_nac2')}, mayor de edad.</p>`;
+    const rep=document.getElementById('l_rep2');
+    if(rep&&rep.value==='si'&&g('l_poder'))arra2+=`<p>D./Dª ${g('l_nom2')} interviene en este acto en nombre propio y además en nombre y representación de D./Dª ${g('l_nom')}, en virtud de ${g('l_poder')}.</p>`;
+    arra2+='<p>Ambos tendrán domicilio, desde la fecha del presente contrato, en la finca arrendada anteriormente referenciada.</p>';
+  }else{arra2='<p>Tendrá domicilio, desde la fecha del presente contrato, en la finca arrendada anteriormente referenciada.</p>';}
+  const fianzaT=parseFloat(g('l_fianza'))||0,garT=parseFloat(g('l_gar'))||0;
+  const html=`
+<h1>CONTRATO DE ARRENDAMIENTO DE FINCA URBANA</h1>
+<h2>IDENTIFICACIÓN DE LA FINCA OBJETO DEL CONTRATO</h2>
+<p><b>PISO:</b> ${g('l_desc')}</p><p><b>DIRECCIÓN:</b> ${g('l_dir')}</p><p><b>LOCALIDAD:</b> ${g('l_loc')}</p>
+<p><b>CÓDIGO POSTAL:</b> ${g('l_cp')}</p><p><b>PROVINCIA:</b> BARCELONA</p><p><b>REFERENCIA CATASTRAL:</b> ${g('l_cat')}</p>
+<p><b>CERTIFICADO ENERGÉTICO:</b> ${g('l_cert')}</p><p><b>CÉDULA HABITABILIDAD:</b> ${g('l_ced')}</p>
+<p><b>ÍNDICE DE REFERENCIA:</b> ${g('l_indice')}</p>
+${g('l_id_informe')?`<p><b>Id. Informe:</b> ${g('l_id_informe')}</p>`:''}
+${g('l_anyo')?`<p><b>AÑO DE CONSTRUCCIÓN:</b> ${g('l_anyo')}</p>`:''}
+${g('l_sup')?`<p><b>SUPERFICIE:</b> ${g('l_sup')} m²</p>`:''}
+<h2>IDENTIFICACIÓN DE LOS CONTRATANTES</h2>
+<p><b>ARRENDADOR</b></p>
+<p>La mercantil ${g('l_sl')}, provista de CIF ${g('l_cif')}, debidamente representada en este acto por ${g('l_rep')} con DNI nº ${g('l_rep_dni')}, quien actúa en calidad de administradora de la indicada sociedad.</p>
+<p><b>ARRENDATARIOS</b></p>
+<p>D./Dª <b>${g('l_nom')}</b>, con N.I.F. nº ${g('l_nif')}, de nacionalidad ${g('l_nac')}, mayor de edad, con número de teléfono ${g('l_tel')}.</p>
+${arra2}
+<p>Reunidos los comparecientes anteriormente indicados, contratan el arrendamiento de la vivienda que ha sido identificada encabezando este contrato, por tiempo de <b>${durTxt}</b> y las partes pactan como renta inicial del contrato la cantidad de <b>${fmtEur(renta)}/mes</b>, pagaderos por meses anticipados, y con las demás condiciones anexas que se consignan.</p>
+<p>Formalizando así este contrato y para que conste, lo firman por duplicado y a un solo efecto, en ${g('l_lugar')}, a ${fmtDate(g('l_firma'))}.</p>
+<table class="firma"><tr><td><b>ARRENDADOR</b><br>Fdo.: ${g('l_rep')}</td><td><b>ARRENDATARIOS</b><br>Fdo.: ${g('l_nom')}${dosDos&&g('l_nom2')?' / '+g('l_nom2'):''}</td></tr></table>
+<h2>CONDICIONES ANEXAS AL CONTRATO DE ARRENDAMIENTO DE VIVIENDA</h2>
+<p>Referentes a la vivienda ${g('l_desc')}, de la finca ${g('l_dir')}, ${g('l_loc')}.</p>
+<p><b>Referencia Catastral:</b> ${g('l_cat')} &nbsp;|&nbsp; <b>Cédula de habitabilidad:</b> ${g('l_ced')} &nbsp;|&nbsp; <b>Certificado energético:</b> ${g('l_cert')}</p>
+<h2>1ª.- OBJETO</h2>
+<p>Es objeto del arrendamiento exclusivamente la superficie situada dentro de las paredes de la vivienda, quedando especialmente excluida la fachada, partes laterales de la entrada, azotea y vestíbulo de la escalera.</p>
+<p>En consecuencia, el arrendamiento a que este contrato se refiere no dará derecho a entrar ni a usar la azotea o terrado de la finca.</p>
+<h2>2ª.- RENTA</h2>
+<p>Las partes pactan como renta inicial del contrato la cantidad de <b>${fmtEur(renta)}/mes</b>, cantidad inicial, fija y periódica que el arrendatario se obliga a pagar por el inmueble que se le arrienda.</p>
+<p>La renta se devengará por mensualidades anticipadas y se hará efectiva dentro de los siete primeros días de cada mes.</p>
+<p>Independientemente de la renta pactada indicada en el cuerpo principal del contrato, será a cargo de la parte arrendataria los gastos generales para el adecuado sostenimiento del inmueble, así como sus servicios, tributos, cargas y responsabilidades que no sean susceptibles de individualización y que correspondan a la vivienda arrendada o a sus accesorios si los tuviere.</p>
+<p>De su importe anual resulta que el coste de los gastos y servicios, en la fecha de la celebración del presente contrato, es mensualmente el siguiente:</p>
+<p>&nbsp;&nbsp;- I.B.I.: pagará la cantidad de ${fmtEur(ibi)}</p>
+${trib?`<p>&nbsp;&nbsp;- Tribut Metropolità: ${fmtEur(trib)}</p>`:''}
+<p>Dichos gastos se actualizarán anualmente repercutiendo a la parte arrendataria las variaciones que se produzcan y se señalarán en concepto aparte de la renta, pero integrados en el recibo del alquiler.</p>
+<p>En todo caso, dicha actualización nunca podrá ser en un porcentaje superior al doble de aquel en que pueda incrementarse la renta.</p>
+<p>La obligación de pago de la renta subsistirá hasta que se devuelva el piso y sus instalaciones al arrendador. El pago de un recibo no presupone el pago de los anteriores. El arrendatario deberá comunicar fehacientemente a la arrendadora el cambio de método de pago si lo hubiere.</p>
+<h2>3ª.- DURACIÓN</h2>
+<p>El plazo de duración del presente contrato es de <b>${durTxt}</b>.</p>
+<p>El plazo comenzará a contarse desde la puesta del inmueble a disposición de la parte arrendataria, siendo ésta la firma de este contrato, es decir, el día ${fmtDate(ini)}.</p>
+<p>Ambas partes contratantes pactan expresamente que será de obligado cumplimiento para la parte arrendataria la permanencia en la vivienda arrendada durante el período correspondiente a los primeros seis meses de contrato.</p>
+<p>Una vez transcurrido dicho plazo de obligado cumplimiento, el arrendatario podrá desistir del contrato siempre que lo comunique a la arrendadora con una antelación mínima de UN MES.</p>
+<p>Si el desistimiento se produjere durante los primeros SEIS MESES, el arrendatario deberá abonar como penalización al arrendador las cuotas arrendaticias correspondientes al período que falte hasta completar los citados seis meses.</p>
+<p>Si el desistimiento se produjere entre los seis primeros meses y el primer año de contrato, el arrendatario indemnizará a la arrendadora con una cantidad equivalente a una mensualidad de la renta en vigor.</p>
+<p>Pasado el primer año, el arrendatario podrá rescindir el contrato sin ningún tipo de penalización con un único preaviso de UN MES.</p>
+<p>Una vez terminado el plazo pactado de ${durTxt} y, en su caso, la prórroga legal, el arrendamiento podrá quedar reconducido mes a mes, conforme a lo dispuesto en el artículo 1.566 del Código Civil.</p>
+<h2>4ª.- DESTINO</h2>
+<p>La vivienda se alquila exclusivamente para satisfacer la necesidad de vivienda permanente del arrendatario. No obstante, en el supuesto de nulidad, separación judicial o divorcio del arrendatario titular inicial del contrato, seguirá respondiendo solidariamente de todas las obligaciones económicas dimanantes del mismo. El arrendatario no podrá instalar en la vivienda comercio, industria, ni siquiera manual, ni oficina ni despacho profesional.</p>
+<h2>5ª.- CESIÓN Y SUBARRIENDO</h2>
+<p>Queda totalmente prohibido el subarriendo total de la vivienda, así como el arrendamiento turístico. Para el subarriendo parcial o la cesión, el arrendatario deberá obtener previamente y por escrito la autorización de la arrendadora. En ningún caso, la vivienda arrendada podrá ser ocupada por un número de personas superior a TRES. Cualquier alteración de las personas arrendatarias registradas en el presente contrato debe ser previa y expresamente aceptada por la arrendadora.</p>
+<h2>6ª.- DOCUMENTACIÓN APORTADA</h2>
+<p>De acuerdo con lo que dispone el artículo 66 de la Ley 18/2007, de 28 de diciembre, sobre el derecho a la vivienda, el arrendatario ha recibido previamente a este acto la documentación acreditativa de la información requerida a la oferta de arrendamiento y una copia de la cédula de habitabilidad o acreditación equivalente. De acuerdo con la legislación vigente, queda totalmente prohibida la sobreocupación.</p>
+<h2>7ª.- SUMINISTROS</h2>
+<p>Los consumos por servicios y suministros del departamento que disponga de contadores individuales serán por cuenta y cargo del arrendatario. En el momento de la finalización o resolución del contrato, el arrendatario se compromete a no dar de baja los suministros contratados, debiendo entregar a la arrendadora copia de las facturas de todos los suministros de la vivienda arrendada. En caso de que los justificantes no fueran entregados, la arrendadora podrá retener la fianza hasta la entrega de los mismos. La arrendadora dispondrá de un plazo de quince días desde la extinción del contrato para efectuar dicho cambio de titularidad.</p>
+<h2>8ª.- CONSERVACIÓN DE LA VIVIENDA</h2>
+<p>Son a cargo de la arrendadora las reparaciones que sean necesarias para mantener la vivienda en condiciones de habitabilidad, salvo que el deterioro sea imputable a la parte arrendataria. El arrendatario está obligado a mantener la vivienda y sus instalaciones en perfectas condiciones de uso y conservación.</p>
+<p>En particular, serán de cuenta y cargo del arrendatario los gastos ocasionados por los desperfectos que se produzcan, ya sean en cristales, cerraduras y demás útiles y utensilios de las instalaciones y su adecuado entretenimiento; los gastos de conservación, reparación y revisiones de las instalaciones de agua, gas, electricidad, calefacción, cocina, baño, bidet, grifos, inodoros, sanitarios, lavabos, calentador, antena de TV y, en particular, todos los desagües, atascos, arreglo de la cocina, fregaderos, lavaderos, aire acondicionado y sus tuberías.</p>
+<h2>9ª.- RESPONSABILIDAD CIVIL Y SEGUROS</h2>
+<p>El arrendatario se hace directa y exclusivamente responsable, y exime de toda responsabilidad a la propiedad y al administrador, de los daños que puedan ocasionarse a personas o cosas derivados del mal uso por parte del arrendatario. Con el fin de que quede cubierta la responsabilidad antes citada, el arrendatario se obliga a contratar un seguro de responsabilidad civil, que deberá entregar a la propiedad o al Administrador en un plazo máximo de treinta días.</p>
+<h2>10ª.- OBRAS</h2>
+<p>El arrendatario no podrá practicar obras de clase alguna en la vivienda sin previo permiso por escrito de la propiedad o del Administrador. En todo caso, las obras así autorizadas serán de cargo y cuenta del arrendatario y quedarán en beneficio de la finca, sin derecho a indemnización o reclamación en momento alguno.</p>
+<h2>11ª.- ACTUALIZACIÓN DE LA RENTA</h2>
+<p>La renta será actualizada anualmente en la fecha en que se cumpla cada año de vigencia del contrato, conforme al índice de referencia para la actualización anual de los contratos de arrendamiento de vivienda que publique el Instituto Nacional de Estadística (INE) o el organismo que legalmente lo sustituya.</p>
+<h2>12ª.- GASTOS GENERALES DE LA FINCA</h2>
+<p>En el caso de que el inmueble no tenga servicio de portería, conserjería o limpieza, o si lo tuviere y en el futuro fuere objeto de supresión, el arrendatario se compromete, cuando así lo acuerden los vecinos del inmueble, a la limpieza de la escalera, el vestíbulo y demás elementos comunes.</p>
+<h2>13ª.- FIANZA OBLIGATORIA</h2>
+<p>La parte arrendataria entrega en este acto la suma de <b>${fmtEur(fianzaT)}</b> en concepto de fianza legal obligatoria${garT?`, así como la suma de <b>${fmtEur(garT)}</b> en concepto de garantía adicional`:''}. La fianza legal será depositada en INCASÒL por la parte arrendadora, de conformidad con la normativa vigente.</p>
+<p>En ningún caso, la existencia de la fianza legal o de la garantía adicional podrá justificar el retraso en el pago de la renta, suministros, gastos repercutibles y demás obligaciones derivadas del presente contrato.</p>
+<p>La arrendadora se compromete a la devolución de la fianza legal y, en su caso, de la garantía adicional, siempre que previamente se corrobore que la vivienda se encuentra en adecuado estado de limpieza, conservación, pintura y funcionamiento de todos los elementos e instalaciones que la integran.</p>
+<p>Transcurridos los ${durTxt} de vigencia del presente contrato, la fianza legal podrá ser actualizada conforme a la renta vigente y a la normativa aplicable.</p>
+<h2>14ª.- OTRAS OBLIGACIONES</h2>
+<p>La parte arrendataria además se obliga: A) Al pago de la renta, aumentos e incrementos legales mediante domiciliación bancaria; a no ceder, traspasar o subarrendar total o parcialmente la vivienda. B) A no tener o manipular en la vivienda materias explosivas, inflamables, incómodas o insalubres. C) A permitir el acceso a la vivienda a la propietaria, al Administrador y a los operarios mandados por cualquiera de ambos. D) De existir el servicio de ascensor, a utilizarlo conforme a la normativa de aparatos elevadores. E) A facilitar al momento de finalización o renuncia del presente contrato copia de la última factura de suministros. F) A entregar la vivienda en adecuado estado de limpieza y conservación, equivalente al derivado de un uso ordinario de la vivienda. G) A no realizar actividades contrarias a la convivencia normal en la comunidad, de conformidad con el artículo 553-40.1 del Codi Civil de Catalunya.</p>
+<h2>15ª.- IMPUESTO SOBRE TRANSMISIONES PATRIMONIALES</h2>
+<p>De acuerdo con lo establecido en el apartado 26 del artículo 45.1.B) del texto refundido de la Ley del ITP y AJD, la suscripción de contratos de arrendamiento de vivienda para uso estable y permanente se encuentra exenta del gravamen aplicable para dicho impuesto. No obstante, la parte arrendataria se encuentra obligada a realizar la correspondiente cumplimentación y presentación del referido impuesto.</p>
+<h2>16ª.- DERECHO DE ADQUISICIÓN PREFERENTE</h2>
+<p>La parte arrendataria renuncia expresamente al derecho de adquisición preferente que le concede el artículo 25 de la Ley de Arrendamientos Urbanos en el supuesto de que la finca arrendada se transmitiese a favor de terceras personas.</p>
+<h2>17ª.- COMUNIDAD DE PROPIETARIOS</h2>
+<p>En caso de hallarse esta vivienda integrada en un inmueble en régimen de Comunidad en Propiedad Horizontal, la parte arrendataria se obliga a cumplir en todo momento las normas estatutarias y reglamentos que la Comunidad de Propietarios tenga establecidas o establezca, en orden a la utilización de los servicios, elementos comunes y buen régimen de convivencia.</p>
+<h2>18ª.- INCUMPLIMIENTO</h2>
+<p>En el supuesto de incumplir, por parte del arrendatario, cualquiera de las obligaciones que resultan del presente contrato, la arrendadora podrá exigir su cumplimiento o, en su caso, promover la resolución del contrato, de acuerdo con lo dispuesto en el artículo 1.124 del Código Civil.</p>
+<h2>19ª.- NOTIFICACIONES</h2>
+<p>A efectos de recibir cualquier notificación relacionada con los derechos y obligaciones reconocidos en este contrato, se designa como domicilio de la arrendadora el de su administrador y de la parte arrendataria la propia finca arrendada.</p>
+<p><b>Teléfono:</b> ____________________</p><p><b>Correo electrónico:</b> ____________________</p>
+<h2>20ª.- PROTECCIÓN DE DATOS</h2>
+<p>Las partes autorizan a ${g('l_sl')}, o en su caso a otro administrador que designe la propiedad en el futuro, para que sus datos personales sean incorporados a un fichero automatizado debidamente registrado en la Agencia de Protección de Datos, de acuerdo con la Ley Orgánica 15/1999, de 13 de diciembre, siendo responsable del fichero ${g('l_sl')} o, en su caso, otro administrador que designe la propiedad.</p>
+<h2>21ª.- ESTADO DE LA VIVIENDA Y ENTREGA DE LLAVES</h2>
+<p>El arrendatario declara conocer las características y estado de conservación de la vivienda, por haberla visitado con anterioridad a este acto, declarando así recibirla a su entera satisfacción, siendo responsable de su correcto mantenimiento.</p>
+<h2>22ª.- FUERO</h2>
+<p>Para cualquier litigio o diferencia que esté relacionada con el presente contrato, las partes se someten a la competencia y jurisdicción de los Tribunales del lugar en que se encuentra la finca, renunciando las partes a cualquier otro fuero o domicilio que pudiera corresponderles.</p>
+<table class="firma"><tr><td><b>ARRENDADOR</b><br>Fdo.: ${g('l_rep')}</td><td><b>ARRENDATARIOS</b><br>Fdo.: ${g('l_nom')}${dosDos&&g('l_nom2')?' / '+g('l_nom2'):''}</td></tr></table>`;
+  downloadDoc(html,`Contrato_Vivienda_${g('l_nom').replace(/\s+/g,'_')}`);
 }
 
 // ═══════════════
-// LARGA — DOC
+// RESCISIÓN — PDF
 // ═══════════════
-function docLarga() {
-  var renta = parseFloat(g('l_renta')) || 0;
-  var ibi   = parseFloat(g('l_ibi'))   || 0;
-  var trib  = parseFloat(g('l_trib'))  || 0;
-  var tot   = renta + ibi + trib;
-  var dur   = parseInt(g('l_dur_m'))   || 0;
-  var finDate = '';
-  if (g('l_ini') && dur) { var d = new Date(g('l_ini')); d.setMonth(d.getMonth()+dur); finDate = dateText(d.toISOString().split('T')[0]); }
-  var tit2 = '';
-  if (dosDos && g('l_nom2')) {
-    var repTxt = g('l_rep2') === 'si' ? ', actuando en representaci\xf3n del Titular 1 en virtud de ' + (g('l_poder') || 'poder notarial') : '';
-    tit2 = '<p>D./D.\xaa, <b>' + g('l_nom2') + '</b>, mayor de edad, de nacionalidad ' + g('l_nac2') + ', provisto/a de NIF/DNI/NIE n\xfamero ' + g('l_nif2') + ', tel\xe9fono ' + g('l_tel2') + (g('l_ema2') ? ', correo electr\xf3nico ' + g('l_ema2') : '') + repTxt + '.</p>';
-  }
+function pdfRescision(){
+  const doc=makePDFBase();
+  pdfHdr(doc,'Renuncia Contrato de Arrendamiento','');
+  let y=24;
+  doc.setFont('helvetica','bold');doc.setFontSize(13);doc.text('RENUNCIA CONTRATO DE ARRENDAMIENTO',105,y,{align:'center'});y+=12;
 
-  var html = '<h1>CONTRATO DE ARRENDAMIENTO DE VIVIENDA</h1>' +
-    '<h1 style="font-size:11pt;margin-top:2pt">LEY 29/1994, DE ARRENDAMIENTOS URBANOS</h1>' +
-    '<h2>IDENTIFICACI\xd3N DE LA FINCA OBJETO DEL CONTRATO</h2>' +
-    '<p>Vivienda: <b>' + g('l_desc') + '</b></p>' +
-    '<p>Direcci\xf3n: <b>' + g('l_dir') + '</b></p>' +
-    '<p>Localidad: <b>' + g('l_loc') + '</b></p>' +
-    '<p>C\xf3digo Postal: <b>' + g('l_cp') + '</b></p>' +
-    '<p>Ref. Catastral: <b>' + g('l_cat') + '</b></p>' +
-    '<p>C\xe9dula de Habitabilidad: <b>' + g('l_ced') + '</b></p>' +
-    '<p>Certificado Energ\xe9tico: <b>' + g('l_cert') + '</b></p>' +
-    (g('l_indice') ? '<p>\xcdndice de Referencia: <b>' + g('l_indice') + '</b></p>' : '') +
-    (g('l_id_informe') ? '<p>Id. Informe: <b>' + g('l_id_informe') + '</b></p>' : '') +
-    (g('l_sup') ? '<p>Superficie \xfatil: <b>' + g('l_sup') + ' m\xb2</b></p>' : '') +
-    (g('l_anyo') ? '<p>A\xf1o de construcci\xf3n: <b>' + g('l_anyo') + '</b></p>' : '') +
-    '<h2>IDENTIFICACI\xd3N DE LOS CONTRATANTES</h2>' +
-    '<p><b>ARRENDADOR:</b></p>' +
-    '<p>La mercantil <b>' + g('l_sl') + '</b>, provista de CIF <b>' + g('l_cif') + '</b>, debidamente representada en este acto por <b>' + g('l_rep') + '</b>, con DNI n\xba ' + g('l_rep_dni') + ', quien act\xfaa en calidad de administrador/a de la indicada sociedad.</p>' +
-    '<p><b>ARRENDATARIO/S:</b></p>' +
-    '<p>D./D.\xaa, <b>' + g('l_nom') + '</b>, mayor de edad, de nacionalidad ' + g('l_nac') + ', provisto/a de NIF/DNI/NIE n\xfamero ' + g('l_nif') + ', tel\xe9fono ' + g('l_tel') + (g('l_ema') ? ', correo electr\xf3nico ' + g('l_ema') : '') + '.</p>' +
-    tit2 +
-    '<p>Reunidos los comparecientes anteriormente indicados, en su calidad de ARRENDADOR y ARRENDATARIO/S, formalizan el presente CONTRATO DE ARRENDAMIENTO DE VIVIENDA con sujeci\xf3n a la Ley 29/1994, de Arrendamientos Urbanos, y a las siguientes cl\xe1usulas:</p>' +
-    '<table class="firma"><tr><td><b>EL ARRENDADOR</b></td><td><b>EL/LOS ARRENDATARIO/S</b></td></tr></table>' +
-    '<h2>CONDICIONES DEL CONTRATO DE ARRENDAMIENTO DE VIVIENDA</h2>' +
-    '<p><b>1. OBJETO Y DESTINO.</b> \u2013 El ARRENDADOR cede en arrendamiento al ARRENDATARIO la vivienda descrita en el encabezamiento, que \xe9ste recibe a su entera satisfacci\xf3n, destin\xe1ndola exclusivamente a vivienda habitual y permanente del arrendatario y su familia, sin que pueda destinarse a uso distinto sin consentimiento expreso y por escrito del arrendador.</p>' +
-    '<p><b>2. DURACI\xd3N.</b> \u2013 El presente contrato tendr\xe1 una duraci\xf3n de <b>' + durText(dur) + '</b>, comenzando sus efectos el d\xeda <b>' + dateText(g('l_ini')) + '</b> y finalizando, salvo pr\xf3rroga legal o convencional, el <b>' + finDate + '</b>. Llegado el vencimiento del plazo pactado, el contrato se prorrogar\xe1 obligatoriamente por plazos anuales hasta alcanzar los m\xednimos establecidos por la Ley de Arrendamientos Urbanos, salvo que el arrendatario manifieste al arrendador, con al menos treinta d\xedas de antelaci\xf3n a la fecha de terminaci\xf3n del contrato o de cualquiera de las pr\xf3rrogas, su voluntad de no renovarlo.</p>' +
-    '<p><b>3. RENTA.</b> \u2013 Se pacta una renta mensual de <b>' + euroText(renta) + '</b>, que el arrendatario se obliga a abonar por adelantado dentro de los siete (7) primeros d\xedas de cada mes, mediante transferencia o domiciliaci\xf3n bancaria a la cuenta que el arrendador designe.</p>' +
-    '<p><b>4. GASTOS REPERCUTIDOS.</b> \u2013 De conformidad con el art\xedculo 20 de la LAU, se repercuten mensualmente al arrendatario los siguientes conceptos: Impuesto sobre Bienes Inmuebles (IBI), por importe de <b>' + euroText(ibi) + '</b>, y, en su caso, Tribut Metropolit\xe0 de l\u2019\xc0rea Metropolitana de Barcelona, por importe de <b>' + euroText(trib) + '</b>. En consecuencia, el importe total mensual a satisfacer por el arrendatario asciende a <b>' + euroText(tot) + '</b>.</p>' +
-    '<p><b>5. ACTUALIZACI\xd3N DE LA RENTA.</b> \u2013 Durante la vigencia del contrato, la renta podr\xe1 actualizarse anualmente conforme al \xedndice que legalmente resulte de aplicaci\xf3n en el momento de cada actualizaci\xf3n, previa notificaci\xf3n por escrito al arrendatario con la antelaci\xf3n m\xednima legalmente exigida.</p>' +
-    '<p><b>6. FIANZA LEGAL.</b> \u2013 El arrendatario hace entrega en este acto, en concepto de fianza legal obligatoria conforme al art\xedculo 36 de la LAU, de la cantidad de <b>' + euroText(g('l_fianza')) + '</b>, equivalente a una mensualidad de renta. Dicha fianza ser\xe1 depositada por el arrendador en el organismo p\xfablico competente cuando as\xed lo exija la normativa aplicable, y ser\xe1 devuelta al arrendatario a la finalizaci\xf3n del contrato, una vez comprobado el cumplimiento de sus obligaciones y el buen estado del inmueble.</p>' +
-    (parseFloat(g('l_gar')) > 0 ? '<p><b>7. GARANT\xcdA ADICIONAL.</b> \u2013 Adem\xe1s de la fianza legal, el arrendatario entrega en concepto de garant\xeda adicional la cantidad de <b>' + euroText(g('l_gar')) + '</b>, destinada a cubrir el cumplimiento de las obligaciones derivadas del presente contrato, y que ser\xe1 reintegrada en los mismos t\xe9rminos que la fianza legal.</p>' : '') +
-    '<p><b>8. CONSERVACI\xd3N Y REPARACIONES.</b> \u2013 El arrendatario se obliga a conservar la vivienda en buen estado, siendo de su cuenta las peque\xf1as reparaciones que exija el desgaste por el uso ordinario. Las reparaciones necesarias para conservar la vivienda en condiciones de habitabilidad ser\xe1n de cargo del arrendador, salvo que el deterioro sea imputable al arrendatario.</p>' +
-    '<p><b>9. OBRAS.</b> \u2013 El arrendatario no podr\xe1 realizar obras que modifiquen la configuraci\xf3n de la vivienda, sus accesos o instalaciones, sin el consentimiento previo y por escrito del arrendador. Las obras as\xed autorizadas quedar\xe1n en beneficio de la finca sin derecho a indemnizaci\xf3n alguna.</p>' +
-    '<p><b>10. SUMINISTROS.</b> \u2013 Los consumos de agua, electricidad, gas y dem\xe1s suministros ser\xe1n de cuenta y a nombre del arrendatario durante toda la vigencia del contrato.</p>' +
-    '<p><b>11. SUBARRIENDO Y CESI\xd3N.</b> \u2013 Queda expresamente prohibida la cesi\xf3n total o parcial de la vivienda, as\xed como su subarriendo, sin el consentimiento previo y por escrito del arrendador. El incumplimiento de esta cl\xe1usula ser\xe1 causa de resoluci\xf3n del contrato.</p>' +
-    '<p><b>12. NORMAS DE LA COMUNIDAD.</b> \u2013 El arrendatario se obliga a respetar y cumplir en todo momento las normas estatutarias y de r\xe9gimen interior de la Comunidad de Propietarios, en orden a la utilizaci\xf3n de los servicios y elementos comunes y al buen r\xe9gimen de convivencia.</p>' +
-    '<p><b>13. MASCOTAS.</b> \u2013 Se permite la tenencia de mascotas en la vivienda, siempre que se respeten las normas de convivencia y de la comunidad de propietarios, y que el arrendatario responda de los da\xf1os que, en su caso, pudieran ocasionar.</p>' +
-    '<p><b>14. RESOLUCI\xd3N DEL CONTRATO.</b> \u2013 El incumplimiento de cualquiera de las obligaciones derivadas del presente contrato por cualquiera de las partes facultar\xe1 a la otra para instar su resoluci\xf3n, con los efectos legalmente previstos, en particular en caso de impago de la renta o cantidades asimiladas, o de uso de la vivienda para fines distintos de los pactados.</p>' +
-    '<p><b>15. PROTECCI\xd3N DE DATOS.</b> \u2013 ' + g('l_sl') + ' es responsable del tratamiento de los datos personales del arrendatario, que ser\xe1n tratados de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Org\xe1nica 3/2018 (LOPDGDD), exclusivamente para la ejecuci\xf3n del presente contrato y durante el tiempo necesario para el cumplimiento de sus finalidades y de las obligaciones legales aplicables.</p>' +
-    '<p><b>16. RESOLUCI\xd3N DE CONFLICTOS.</b> \u2013 Para cuantas cuestiones se deriven de la interpretaci\xf3n o ejecuci\xf3n del presente contrato, las partes podr\xe1n someterse a arbitraje institucional del Colegio de Administradores de Fincas de Barcelona-L\xe9rida, con arreglo a su Reglamento, comprometi\xe9ndose a cumplir el laudo que en su caso se dicte.</p>' +
-    '<p>Y para que conste y surta los efectos oportunos, ambas partes firman el presente contrato por duplicado y a un solo efecto, en <b>' + g('l_lugar') + '</b>, a <b>' + dateText(g('l_firma')) + '</b>.</p>' +
-    '<table class="firma"><tr><td><b>EL ARRENDADOR</b></td><td><b>EL/LOS ARRENDATARIO/S</b></td></tr></table>';
-
-  downloadDoc(html, 'Contrato_Larga_Duracion_' + g('l_nom').replace(/\s+/g,'_'));
-}
-
-function pdfRescision() {
-  var doc = makePDFBase();
-  pdfHdr(doc, 'Renuncia Contrato de Arrendamiento', '');
-  var y = 24;
-
-  doc.setFont('helvetica','bold'); doc.setFontSize(13);
-  doc.text('RENUNCIA CONTRATO DE ARRENDAMIENTO', 105, y, {align:'center'}); y += 12;
-
-  y = pdfSec(doc, 'COMPARECE', y);
-  y = pdfP(doc, 'El/La Sr./Sra. ' + g('r_nom') + ', mayor de edad, con DNI/NIE ' + g('r_nif') + ', y domicilio a efectos de notificaciones en la calle ' + g('r_pisoC') + ' ' + g('r_pisoN') + ', piso ' + g('r_pisoP') + ', puerta ' + g('r_pisoPt') + ', de ' + g('r_pisoLoc') + ', tel\xe9fono/e-mail: ' + g('r_tel') + '.', y);
-
-  y += 2;
-  y = pdfSec(doc, 'LIBRE Y ESPONT\xc1NEAMENTE MANIFIESTA', y);
-  y = pdfP(doc, 'Que hasta la fecha ha sido arrendatario/a del piso situado en la calle ' + g('r_pisoC') + ', n\xfamero ' + g('r_pisoN') + ', piso ' + g('r_pisoP') + ', puerta ' + g('r_pisoPt') + ', de ' + g('r_pisoLoc') + ', seg\xfan contrato de arrendamiento suscrito en fecha ' + dateText(g('r_firmaCtto')) + '.', y);
-  y += 1;
-  y = pdfP(doc, 'Que en este acto renuncia tanto al referido contrato de arrendamiento y sus anexos, como a los posibles derechos que de dicha relaci\xf3n arrendaticia pudieran dimanarse, dando por resuelto a partir del d\xeda de hoy el citado contrato, y dejando el expresado piso libre de sus pertenencias y a disposici\xf3n de la propiedad, entregando en este acto las correspondientes llaves:', y);
-  y += 2;
-  doc.setFont('helvetica','bold'); doc.setFontSize(9.5);
-  doc.text('Entrada ___      Piso / local ___      Buz\xf3n ___      Otros ___', 20, y);
-  y += 8;
-  doc.setFont('helvetica','normal');
-  y = pdfP(doc, 'Que por lo que respecta a la cantidad entregada en concepto de fianza, cuyo importe abajo se reseña, le ser\xe1 abonada por el arrendador al arrendatario en el plazo legalmente establecido, a contar desde la fecha de entrega de llaves, una vez se haya confirmado que el arrendatario est\xe1 al corriente de pago de las rentas y suministros, y que el piso se entrega en las debidas condiciones de conservaci\xf3n y limpieza.', y);
-  y += 1;
-  y = pdfP(doc, 'En caso de quedar alguna cantidad pendiente de liquidar por parte del arrendatario, y/o de existir desperfectos en el piso no atribuibles al uso ordinario, la propiedad podr\xe1 retener de la fianza el importe correspondiente, restituyendo al arrendatario la suma sobrante.', y);
-  y += 4;
-  doc.setFont('helvetica','bold'); doc.setFontSize(10);
-  doc.text('Fianza a devolver: ' + fmtEur(g('r_fianza')), 20, y); y += 8;
-  doc.setFont('helvetica','normal'); doc.setFontSize(9.5);
-  y = pdfP(doc, 'En virtud de lo dispuesto en la Ley 16/2009, de 13 de noviembre, de servicios de pago, el compareciente manifiesta expresamente que no proceder\xe1 a la devoluci\xf3n de ning\xfan recibo correspondiente al presente contrato, siempre que dichos recibos hubieran sido debidamente autorizados.', y);
-  y += 6;
-  y = pdfP(doc, 'En ' + g('r_pisoLoc') + ', a ' + dateText(g('r_fecha')) + '.', y);
-
-  y = pdfFirmas(doc, y, 'EL/LA ARRENDATARIO/A', '', g('r_nom') + ' \u2014 DNI/NIE: ' + g('r_nif'), '');
-
+  y=pdfSec(doc,'COMPARECE',y);
+  y=pdfP(doc,`El/La Sr./Sra. ${g('r_nom')}, mayor de edad, con DNI/NIE ${g('r_nif')}, y domicilio a efectos de notificación en la calle ${g('r_domn_c')}, piso ${g('r_domn_p')}, puerta ${g('r_domn_pt')}, de ${g('r_domn_loc')}, teléfono/e-mail: ${g('r_tel')}.`,y);
+  y+=4;
+  y=pdfSec(doc,'LIBRE Y ESPONTÁNEAMENTE MANIFIESTA',y);
+  y=pdfP(doc,`Que hasta la fecha ha sido arrendatario/a del departamento situado en la calle ${g('r_pisoC')}, nº ${g('r_pisoN')}, piso ${g('r_pisoP')}, puerta ${g('r_pisoPt')}, de ${g('r_pisoLoc')}, según contrato de arrendamiento suscrito en fecha ${fmtDate(g('r_firmaCtto'))}.`,y);
+  y+=2;
+  y=pdfP(doc,'Que en este acto renuncia tanto al referido contrato de arrendamiento y sus anexos como a los posibles derechos que de dicha relación arrendaticia pudieran dimanarse, dando por resuelto a día de hoy el citado contrato, y dejando el expresado departamento libre de sus pertenencias y expedito a disposición de la propiedad, entregando en este acto el duplicado del contrato y las correspondientes llaves:',y);
+  y+=2;
+  y=pdfP(doc,`Entrada ${g('r_llave_ent')||'0'}   Piso / local ${g('r_llave_piso')||'0'}   Buzón ${g('r_llave_buz')||'0'}   Otros ${g('r_llave_otros')||'0'}`,y);
+  y+=2;
+  y=pdfP(doc,'Asimismo entrega en este acto a la propiedad copia de las últimas facturas correspondientes a los suministros de luz, agua y gas de los que está dotado el inmueble hasta la fecha arrendado, autorizando al administrador y a la propiedad para que puedan hacer los trámites de cambios de titularidad, de domiciliación bancaria, de domicilio de correspondencia, pudiendo cambiar de compañía comercializadora con la finalidad de agilizar y mejorar las gestiones en los casos de cambios de nombre.',y);
+  y+=2;
+  y=pdfP(doc,'Que por lo que respecta a las cantidades entregadas en concepto de fianza y, en su caso, depósito adicional, cuyo importe abajo se reseña, le serán abonadas por el arrendador al arrendatario en el plazo legal, a contar desde la fecha de entrega de llaves, una vez se haya confirmado que el arrendatario esté al corriente de pago de las rentas y el departamento se encuentre en condiciones debidas y los servicios al corriente de pago.',y);
+  y+=2;
+  y=pdfP(doc,'En caso de quedar alguna cantidad pendiente de liquidar por parte del arrendatario/a, y/o en caso de existir desperfectos en el departamento, la propiedad hará suyas las sumas entregadas hasta cubrir el importe de los importes debidos y de la reparación de los desperfectos que pudieran existir, restituyendo al arrendatario con la suma sobrante.',y);
+  y+=4;
+  doc.setFont('helvetica','bold');doc.setFontSize(10);
+  doc.text(`Fianza: ${fmtEur(g('r_fianza'))}`,20,y);y+=6;
+  doc.setFont('helvetica','normal');doc.setFontSize(9.5);
+  y=pdfP(doc,'Que en virtud de lo que dispone la Ley 16/2009 de 13 de noviembre de servicios de pago, el compareciente manifiesta expresamente que no procederá a ordenar la devolución de ningún recibo, siempre que los mismos fueran debidamente autorizados.',y);
+  y+=4;
+  y=pdfP(doc,`En ${g('r_lugar')}, a ${fmtDate(g('r_fecha'))}`,y);
+  y+=16;
+  if(y+20>280){doc.addPage();y=22;}
+  doc.setFont('helvetica','bold');doc.setFontSize(9);
+  doc.text('FIRMA:',105,y,{align:'center'});y+=12;
+  doc.setDrawColor(100,100,100);doc.line(55,y,155,y);y+=5;
+  doc.setFont('helvetica','bold');doc.text('EL/LA ARRENDATARIO/A',105,y,{align:'center'});y+=7;
+  doc.setFont('helvetica','normal');doc.setFontSize(9);
+  doc.text(`Nombre: ${g('r_nom')}`,20,y);y+=5;
+  doc.text(`DNI/NIE: ${g('r_nif')}`,20,y);
   pdfFoot(doc, g('r_nom'), g('r_pisoC') + ' ' + g('r_pisoN'));
-  doc.save('Rescision_' + g('r_nom').replace(/\s+/g,'_') + '.pdf');
+  doc.save(`Rescision_${g('r_nom').replace(/\s+/g,'_')}.pdf`);
 }
 
 // ═══════════════
 // RESCISIÓN — DOC
 // ═══════════════
-function docRescision() {
-  var html = '<h1>RENUNCIA CONTRATO DE ARRENDAMIENTO</h1>' +
-    '<h2>COMPARECE</h2>' +
-    '<p>El/La Sr./Sra. <b>' + g('r_nom') + '</b>, mayor de edad, con DNI/NIE <b>' + g('r_nif') + '</b>, y domicilio a efectos de notificaciones en la calle ' + g('r_pisoC') + ' ' + g('r_pisoN') + ', piso ' + g('r_pisoP') + ', puerta ' + g('r_pisoPt') + ', de ' + g('r_pisoLoc') + ', tel\xe9fono/e-mail: ' + g('r_tel') + '.</p>' +
-    '<h2>LIBRE Y ESPONT\xc1NEAMENTE MANIFIESTA</h2>' +
-    '<p>Que hasta la fecha ha sido <b>arrendatario/a del piso situado en la calle ' + g('r_pisoC') + ', n\xfamero ' + g('r_pisoN') + ', piso ' + g('r_pisoP') + ', puerta ' + g('r_pisoPt') + ', de ' + g('r_pisoLoc') + '</b>, seg\xfan contrato de arrendamiento suscrito en fecha <b>' + dateText(g('r_firmaCtto')) + '</b>.</p>' +
-    '<p>Que en este acto <b>renuncia tanto al referido contrato de arrendamiento y sus anexos, como a los posibles derechos que de dicha relaci\xf3n arrendaticia pudieran dimanarse</b>, dando por resuelto a partir del d\xeda de hoy el citado contrato, y dejando el expresado piso <b>libre de sus pertenencias y a disposici\xf3n de la propiedad</b>, entregando en este acto las correspondientes llaves:</p>' +
-    '<p><b>Entrada ___ &nbsp;&nbsp;&nbsp; Piso / local ___ &nbsp;&nbsp;&nbsp; Buz\xf3n ___ &nbsp;&nbsp;&nbsp; Otros ___</b></p>' +
-    '<p>Que por lo que respecta a la cantidad entregada en concepto de <b>fianza</b>, cuyo importe abajo se rese\xf1a, le ser\xe1 abonada por el arrendador al arrendatario en el plazo legalmente establecido, a contar desde la fecha de entrega de llaves, una vez se haya confirmado que el arrendatario est\xe1 al corriente de pago de las rentas y suministros, y que el piso se entrega en las debidas condiciones de conservaci\xf3n y limpieza.</p>' +
-    '<p>En caso de quedar alguna cantidad pendiente de liquidar por parte del arrendatario, y/o de existir desperfectos en el piso no atribuibles al uso ordinario, la propiedad podr\xe1 retener de la fianza el importe correspondiente, restituyendo al arrendatario la suma sobrante.</p>' +
-    '<p><b>Fianza a devolver: ' + fmtEur(g('r_fianza')) + '</b></p>' +
-    '<p>En virtud de lo dispuesto en la <b>Ley 16/2009, de 13 de noviembre, de servicios de pago</b>, el compareciente manifiesta expresamente que <b>no proceder\xe1 a la devoluci\xf3n de ning\xfan recibo</b> correspondiente al presente contrato, siempre que dichos recibos hubieran sido debidamente autorizados.</p>' +
-    '<p>En ' + g('r_pisoLoc') + ', a ' + dateText(g('r_fecha')) + '.</p>' +
-    '<table class="firma"><tr><td><b>EL/LA ARRENDATARIO/A</b><br><br>Nombre: ' + g('r_nom') + '<br>DNI/NIE: ' + g('r_nif') + '</td><td></td></tr></table>';
-
-  downloadDoc(html, 'Rescision_' + g('r_nom').replace(/\s+/g,'_'));
+function docRescision(){
+  const html=`
+<h1>RENUNCIA CONTRATO DE ARRENDAMIENTO</h1>
+<h2>COMPARECE</h2>
+<p>El/La Sr./Sra. <b>${g('r_nom')}</b>, mayor de edad, con <b>DNI/NIE ${g('r_nif')}</b>, y domicilio a efectos de notificación en la calle ${g('r_domn_c')}, piso ${g('r_domn_p')}, puerta ${g('r_domn_pt')}, de ${g('r_domn_loc')}, teléfono/e-mail: ${g('r_tel')}.</p>
+<h2>LIBRE Y ESPONTÁNEAMENTE MANIFIESTA</h2>
+<p>Que hasta la fecha ha sido <b>arrendatario/a del departamento situado en la calle ${g('r_pisoC')}, nº ${g('r_pisoN')}, piso ${g('r_pisoP')}, puerta ${g('r_pisoPt')}, de ${g('r_pisoLoc')}</b>, según contrato de arrendamiento suscrito en fecha <b>${fmtDate(g('r_firmaCtto'))}</b>.</p>
+<p>Que en este acto <b>renuncia tanto al referido contrato de arrendamiento y sus anexos como a los posibles derechos que de dicha relación arrendaticia pudieran dimanarse</b>, dando por resuelto a día de hoy el citado contrato, y dejando el expresado departamento <b>libre de sus pertenencias y expedito a disposición de la propiedad</b>, entregando en este acto el duplicado del contrato y las correspondientes llaves:</p>
+<p>Entrada ${g('r_llave_ent')||'0'} &nbsp;&nbsp; Piso / local ${g('r_llave_piso')||'0'} &nbsp;&nbsp; Buzón ${g('r_llave_buz')||'0'} &nbsp;&nbsp; Otros ${g('r_llave_otros')||'0'}</p>
+<p>Asimismo entrega en este acto a la propiedad copia de las últimas facturas correspondientes a los suministros de <b>luz, agua y gas</b> de los que está dotado el inmueble hasta la fecha arrendado, autorizando al administrador y a la propiedad para que puedan hacer los trámites de cambios de titularidad, de domiciliación bancaria, de domicilio de correspondencia, pudiendo cambiar de compañía comercializadora con la finalidad de agilizar y mejorar las gestiones en los casos de cambios de nombre.</p>
+<p>Que por lo que respecta a las cantidades entregadas en concepto de <b>fianza y, en su caso, depósito adicional</b>, cuyo importe abajo se reseña, le serán abonadas por el arrendador al arrendatario en el plazo legal, a contar desde la fecha de entrega de llaves, una vez se haya confirmado que el arrendatario esté al corriente de pago de las rentas y el departamento se encuentre en condiciones debidas y los servicios al corriente de pago.</p>
+<p>En caso de quedar alguna cantidad pendiente de liquidar por parte del arrendatario/a, y/o en caso de existir desperfectos en el departamento, la propiedad hará suyas las sumas entregadas hasta cubrir el importe de los importes debidos y de la reparación de los desperfectos que pudieran existir, restituyendo al arrendatario con la suma sobrante.</p>
+<p><b>Fianza: ${fmtEur(g('r_fianza'))}</b></p>
+<p>Que en virtud de lo que dispone la <b>Ley 16/2009 de 13 de noviembre de servicios de pago</b>, el compareciente manifiesta expresamente que <b>no procederá a ordenar la devolución de ningún recibo</b>, siempre que los mismos fueran debidamente autorizados.</p>
+<p>En ${g('r_lugar')}, a ${fmtDate(g('r_fecha'))}</p>
+<table class="firma"><tr><td><b>FIRMA:</b><br><br><br><b>EL/LA ARRENDATARIO/A</b><br><br>Nombre: ${g('r_nom')}<br>DNI/NIE: ${g('r_nif')}</td><td></td></tr></table>`;
+  downloadDoc(html,`Rescision_${g('r_nom').replace(/\s+/g,'_')}`);
 }
 
-function pdfAval() {
-  var doc = makePDFBase();
-  pdfHdr(doc, 'Aval Solidario Personal', '');
-  var y = 24;
+// ═══════════════
+// AVAL — PDF
+// ═══════════════
+function pdfAval(){
+  const doc=makePDFBase();
+  pdfHdr(doc,'Aval Solidario Personal','Anexo al Contrato de Arrendamiento de Uso Distinto de Vivienda (Temporada)');
+  let y=24;
+  doc.setFont('helvetica','bold');doc.setFontSize(13);doc.text('AVAL SOLIDARIO PERSONAL',105,y,{align:'center'});y+=7;
+  doc.setFont('helvetica','normal');doc.setFontSize(9);
+  doc.text('ANEXO AL CONTRATO DE ARRENDAMIENTO DE USO DISTINTO DE VIVIENDA (TEMPORADA)',105,y,{align:'center'});y+=6;
+  y=pdfKV(doc,'Vivienda sita en',g('a_piso'),y);
+  y=pdfKV(doc,'Fecha contrato',fmtDate(g('a_fctto')),y);y+=4;
 
-  doc.setFont('helvetica','bold'); doc.setFontSize(13);
-  doc.text('AVAL SOLIDARIO PERSONAL', 105, y, {align:'center'}); y += 12;
+  y=pdfSec(doc,'REUNIDOS',y);
+  y=pdfP(doc,`De una parte, la mercantil ${g('a_sl')}, como ARRENDADORA.`,y);y+=2;
+  y=pdfP(doc,'Y de otra,',y);y+=1;
+  y=pdfP(doc,`${g('a_av_nom')}, mayor de edad, con DNI ${g('a_av_nif')}, estado civil ${g('a_av_civil')}, con domicilio en ${g('a_av_dom')}, teléfono ${g('a_av_tel')}, en adelante, EL AVALISTA.`,y);
 
-  y = pdfSec(doc, 'COMPARECE', y);
-  y = pdfP(doc, 'D./D.\xaa ' + g('a_av_nom') + ', mayor de edad, de estado civil ' + g('a_av_civil') + ', provisto/a de DNI n\xfamero ' + g('a_av_nif') + ', con domicilio en ' + g('a_av_dom') + ', tel\xe9fono ' + g('a_av_tel') + ', en adelante el AVALISTA.', y);
-  y += 4;
+  y=pdfSec(doc,'EXPONE',y);
+  y=pdfP(doc,`I. Que en fecha ${fmtDate(g('a_fctto'))} se ha formalizado contrato de arrendamiento de temporada respecto de la vivienda indicada.`,y);y+=2;
+  y=pdfP(doc,`II. Que la arrendataria, ${g('a_ar_nom')}, tiene su domicilio habitual en:`,y);
+  y=pdfP(doc,`${g('a_ar_dom')}`,y,28);y+=2;
+  y=pdfP(doc,`III. Que el arrendamiento tiene carácter estrictamente temporal, motivado por ${g('a_ar_mot')} de la arrendataria, no constituyendo en ningún caso su vivienda habitual.`,y);y+=2;
+  y=pdfP(doc,'IV. Que el AVALISTA tiene interés en garantizar el exacto cumplimiento de todas las obligaciones derivadas del contrato.',y);
 
-  y = pdfSec(doc, 'EXPONE', y);
-  y = pdfP(doc, 'Que D./D.\xaa ' + g('a_ar_nom') + ', con domicilio habitual en ' + g('a_ar_dom') + ', ha suscrito con ' + g('a_sl') + ' un contrato de arrendamiento de fecha ' + dateText(g('a_fctto')) + ', sobre la vivienda sita en ' + g('a_piso') + ', con motivo de ' + g('a_ar_mot') + '.', y);
-  y += 4;
-
-  y = pdfSec(doc, 'MANIFIESTA', y);
-  y = pdfP(doc, 'Que en garant\xeda del fiel cumplimiento de todas las obligaciones derivadas del citado contrato de arrendamiento, se constituye en AVALISTA SOLIDARIO del arrendatario arriba indicado, obligándose, con renuncia expresa a los beneficios de orden, divisi\xf3n y excusi\xf3n, al pago de cuantas cantidades resulten adeudadas por el arrendatario en concepto de renta, gastos repercutidos, suministros, desperfectos, indemnizaciones o cualquier otro concepto derivado del contrato de arrendamiento referido.', y);
-  y += 1;
-  y = pdfP(doc, 'El presente aval se extender\xe1 durante toda la vigencia del contrato de arrendamiento y de sus eventuales pr\xf3rrogas, hasta la completa restituci\xf3n de la vivienda y la liquidaci\xf3n de cuantas obligaciones econ\xf3micas se hubieran generado.', y);
-  y += 1;
-  y = pdfP(doc, 'El avalista declara conocer y aceptar el contenido \xedntegro del contrato de arrendamiento al que se anexa el presente aval.', y);
-  y += 4;
-
-  y = pdfP(doc, 'Y para que conste y surta los efectos oportunos, se firma el presente documento en ' + g('a_lugar') + ', a ' + dateText(g('a_fecha')) + '.', y);
-
-  y = pdfFirmas(doc, y, 'EL AVALISTA', 'EL ARRENDATARIO', g('a_av_nom') + ' \u2014 DNI: ' + g('a_av_nif'), g('a_ar_nom'));
-
+  y=pdfSec(doc,'CLÁUSULAS',y);
+  y=pdfP(doc,'- OBJETO DEL AVAL',y,20,9.5,true);
+  y=pdfP(doc,'El AVALISTA se constituye en fiador solidario de la arrendataria, garantizando todas las obligaciones económicas y contractuales derivadas del contrato de arrendamiento.',y);y+=2;
+  y=pdfP(doc,'- CARÁCTER SOLIDARIO Y RENUNCIA EXPRESA',y,20,9.5,true);
+  y=pdfP(doc,'El aval tiene carácter solidario, indefinido y sin beneficio de excusión, división ni orden, renunciando expresamente el avalista a dichos beneficios, pudiendo el arrendador dirigirse directamente contra él sin necesidad de reclamación previa al arrendatario.',y);y+=2;
+  y=pdfP(doc,'- OBLIGACIONES GARANTIZADAS',y,20,9.5,true);
+  y=pdfP(doc,'El aval cubre la totalidad de obligaciones derivadas del contrato, incluyendo: rentas, cantidades asimiladas, gastos repercutidos, suministros, intereses de demora, penalizaciones, indemnizaciones por ocupación indebida, daños en la vivienda, así como costas judiciales y honorarios de abogado y procurador.',y);y+=2;
+  y=pdfP(doc,'- DURACIÓN DEL AVAL',y,20,9.5,true);
+  y=pdfP(doc,'El aval permanecerá vigente durante toda la duración del contrato y hasta la completa devolución de la vivienda y liquidación total de cualquier cantidad adeudada.',y);y+=2;
+  y=pdfP(doc,'- EXTENSIÓN',y,20,9.5,true);
+  y=pdfP(doc,'El aval se extiende a prórrogas, tácitas o expresas, así como a cualquier situación de permanencia en la vivienda tras la finalización del contrato.',y);y+=2;
+  y=pdfP(doc,'- RECLAMACIÓN DIRECTA',y,20,9.5,true);
+  y=pdfP(doc,'En caso de impago, el arrendador podrá reclamar directamente al avalista cualquier cantidad adeudada, sin necesidad de requerimiento previo al arrendatario.',y);y+=2;
+  y=pdfP(doc,'- RESPONSABILIDAD',y,20,9.5,true);
+  y=pdfP(doc,'El avalista responde con todos sus bienes presentes y futuros, sin limitación cuantitativa.',y);y+=2;
+  y=pdfP(doc,'- NOTIFICACIONES',y,20,9.5,true);
+  y=pdfP(doc,'A efectos de notificaciones, serán válidas las comunicaciones dirigidas al domicilio del avalista y al teléfono facilitado en el presente documento.',y);y+=2;
+  y=pdfP(doc,'- JURISDICCIÓN',y,20,9.5,true);
+  y=pdfP(doc,'Las partes se someten a los Juzgados y Tribunales de Barcelona, sin perjuicio de lo pactado en el contrato principal en materia de arbitraje.',y);
+  y+=4;
+  y=pdfP(doc,`Y en prueba de conformidad, firman el presente documento en ${g('a_lugar')}, a ${fmtDate(g('a_fecha'))}.`,y);
+  y=pdfFirmas(doc,y,'EL AVALISTA','EL ARRENDATARIO',g('a_av_nom'),g('a_ar_nom'));
+  y+=2;doc.setFont('helvetica','normal');doc.setFontSize(8);
+  doc.text('Fdo.: ___________________________',25,y);
+  doc.text('Fdo.: ___________________________',120,y);
   pdfFoot(doc, g('a_ar_nom'), g('a_piso'));
-  doc.save('Aval_' + g('a_av_nom').replace(/\s+/g,'_') + '.pdf');
+  doc.save(`Aval_Solidario_${g('a_ar_nom').replace(/\s+/g,'_')}.pdf`);
 }
 
 // ═══════════════
 // AVAL — DOC
 // ═══════════════
-function docAval() {
-  var html = '<h1>AVAL SOLIDARIO PERSONAL</h1>' +
-    '<h2>COMPARECE</h2>' +
-    '<p>D./D.\xaa <b>' + g('a_av_nom') + '</b>, mayor de edad, de estado civil ' + g('a_av_civil') + ', provisto/a de DNI n\xfamero <b>' + g('a_av_nif') + '</b>, con domicilio en ' + g('a_av_dom') + ', tel\xe9fono ' + g('a_av_tel') + ', en adelante el AVALISTA.</p>' +
-    '<h2>EXPONE</h2>' +
-    '<p>Que D./D.\xaa <b>' + g('a_ar_nom') + '</b>, con domicilio habitual en ' + g('a_ar_dom') + ', ha suscrito con <b>' + g('a_sl') + '</b> un contrato de arrendamiento de fecha <b>' + dateText(g('a_fctto')) + '</b>, sobre la vivienda sita en <b>' + g('a_piso') + '</b>, con motivo de ' + g('a_ar_mot') + '.</p>' +
-    '<h2>MANIFIESTA</h2>' +
-    '<p>Que en garant\xeda del fiel cumplimiento de todas las obligaciones derivadas del citado contrato de arrendamiento, se constituye en <b>AVALISTA SOLIDARIO</b> del arrendatario arriba indicado, oblig\xe1ndose, con renuncia expresa a los beneficios de orden, divisi\xf3n y excusi\xf3n, al pago de cuantas cantidades resulten adeudadas por el arrendatario en concepto de renta, gastos repercutidos, suministros, desperfectos, indemnizaciones o cualquier otro concepto derivado del contrato de arrendamiento referido.</p>' +
-    '<p>El presente aval se extender\xe1 durante toda la vigencia del contrato de arrendamiento y de sus eventuales pr\xf3rrogas, hasta la completa restituci\xf3n de la vivienda y la liquidaci\xf3n de cuantas obligaciones econ\xf3micas se hubieran generado.</p>' +
-    '<p>El avalista declara conocer y aceptar el contenido \xedntegro del contrato de arrendamiento al que se anexa el presente aval.</p>' +
-    '<p>Y para que conste y surta los efectos oportunos, se firma el presente documento en ' + g('a_lugar') + ', a ' + dateText(g('a_fecha')) + '.</p>' +
-    '<table class="firma"><tr><td><b>EL AVALISTA</b><br><br>' + g('a_av_nom') + '<br>DNI: ' + g('a_av_nif') + '</td><td><b>EL ARRENDATARIO</b><br><br>' + g('a_ar_nom') + '</td></tr></table>';
-
-  downloadDoc(html, 'Aval_' + g('a_av_nom').replace(/\s+/g,'_'));
+function docAval(){
+  const html=`
+<h1>AVAL SOLIDARIO PERSONAL</h1>
+<p style="text-align:center">ANEXO AL CONTRATO DE ARRENDAMIENTO DE USO DISTINTO DE VIVIENDA (TEMPORADA)</p>
+<p><b>Vivienda sita en:</b> ${g('a_piso')}</p>
+<p><b>Fecha contrato:</b> ${fmtDate(g('a_fctto'))}</p>
+<h2>REUNIDOS</h2>
+<p>De una parte, la mercantil <b>${g('a_sl')}</b>, como ARRENDADORA.</p>
+<p>Y de otra,</p>
+<p>${g('a_av_nom')}, mayor de edad, con DNI ${g('a_av_nif')}, estado civil ${g('a_av_civil')}, con domicilio en ${g('a_av_dom')}, teléfono ${g('a_av_tel')}, en adelante, EL AVALISTA.</p>
+<h2>EXPONE</h2>
+<p>I. Que en fecha ${fmtDate(g('a_fctto'))} se ha formalizado contrato de arrendamiento de temporada respecto de la vivienda indicada.</p>
+<p>II. Que la arrendataria, ${g('a_ar_nom')}, tiene su domicilio habitual en:<br>${g('a_ar_dom')}</p>
+<p>III. Que el arrendamiento tiene carácter estrictamente temporal, motivado por ${g('a_ar_mot')} de la arrendataria, no constituyendo en ningún caso su vivienda habitual.</p>
+<p>IV. Que el AVALISTA tiene interés en garantizar el exacto cumplimiento de todas las obligaciones derivadas del contrato.</p>
+<h2>CLÁUSULAS</h2>
+<p>- <b>OBJETO DEL AVAL</b><br>El AVALISTA se constituye en fiador solidario de la arrendataria, garantizando todas las obligaciones económicas y contractuales derivadas del contrato de arrendamiento.</p>
+<p>- <b>CARÁCTER SOLIDARIO Y RENUNCIA EXPRESA</b><br>El aval tiene carácter solidario, indefinido y sin beneficio de excusión, división ni orden, renunciando expresamente el avalista a dichos beneficios, pudiendo el arrendador dirigirse directamente contra él sin necesidad de reclamación previa al arrendatario.</p>
+<p>- <b>OBLIGACIONES GARANTIZADAS</b><br>El aval cubre la totalidad de obligaciones derivadas del contrato, incluyendo: rentas, cantidades asimiladas, gastos repercutidos, suministros, intereses de demora, penalizaciones, indemnizaciones por ocupación indebida, daños en la vivienda, así como costas judiciales y honorarios de abogado y procurador.</p>
+<p>- <b>DURACIÓN DEL AVAL</b><br>El aval permanecerá vigente durante toda la duración del contrato y hasta la completa devolución de la vivienda y liquidación total de cualquier cantidad adeudada.</p>
+<p>- <b>EXTENSIÓN</b><br>El aval se extiende a prórrogas, tácitas o expresas, así como a cualquier situación de permanencia en la vivienda tras la finalización del contrato.</p>
+<p>- <b>RECLAMACIÓN DIRECTA</b><br>En caso de impago, el arrendador podrá reclamar directamente al avalista cualquier cantidad adeudada, sin necesidad de requerimiento previo al arrendatario.</p>
+<p>- <b>RESPONSABILIDAD</b><br>El avalista responde con todos sus bienes presentes y futuros, sin limitación cuantitativa.</p>
+<p>- <b>NOTIFICACIONES</b><br>A efectos de notificaciones, serán válidas las comunicaciones dirigidas al domicilio del avalista y al teléfono facilitado en el presente documento.</p>
+<p>- <b>JURISDICCIÓN</b><br>Las partes se someten a los Juzgados y Tribunales de Barcelona, sin perjuicio de lo pactado en el contrato principal en materia de arbitraje.</p>
+<p>Y en prueba de conformidad, firman el presente documento en ${g('a_lugar')}, a ${fmtDate(g('a_fecha'))}.</p>
+<table class="firma"><tr><td><b>EL AVALISTA</b><br><br>Fdo.: ___________________________<br>${g('a_av_nom')}</td><td><b>EL ARRENDATARIO</b><br><br>Fdo.: ___________________________<br>${g('a_ar_nom')}</td></tr></table>`;
+  downloadDoc(html,`Aval_Solidario_${g('a_ar_nom').replace(/\s+/g,'_')}`);
 }
 
 // ═══════════════════════════════════════════════════════
-//  PLANTILLAS (DATOS DE EJEMPLO)
+//  PLANTILLAS — variables visibles tipo «variable»
 // ═══════════════════════════════════════════════════════
+
+// Genera PDF de plantilla con variables visibles
+// ═══════════════════════════════════════════════════════
+//  PLANTILLAS CON DATOS DE EJEMPLO
+// ═══════════════════════════════════════════════════════
+
+// Datos ficticios realistas para plantillas
 var FAKE_DATA = {
   // Temporada
-  t_piso: 'Carrer de Balmes 42, 3º 2ª',
-  t_loc: 'Barcelona',
-  t_cp: '08008',
-  t_cat: '9872023VH5797S0001WX',
-  t_indice: 'entre 419,33 y 584,77',
-  t_id_informe: 'INF-2026-0042',
-  t_arrendador_tipo: 'cv',
-  t_sl: 'CAPITAL VALUE REAL ESTATE SL',
-  t_cif: 'B66743873',
-  t_nom: 'Marc Soler Puig',
-  t_nac: 'Española',
-  t_nif: '46728193K',
-  t_dom: 'Carrer de Sants 120, Barcelona',
-  t_tel: '612 345 678',
-  t_ema: 'marc.soler@email.com',
-  t_nom2: 'Laia Ferrer Camps',
-  t_nac2: 'Española',
-  t_nif2: '52839471M',
-  t_dom2: 'Carrer de Sants 120, Barcelona',
-  t_tel2: '699 887 766',
-  t_ema2: 'laia.ferrer@email.com',
-  t_ini: '2026-07-01',
-  t_fin: '2027-01-01',
-  t_dur: '6',
-  t_mot: 'trabajo',
-  t_mot_desc: 'DESPLAZAMIENTO TEMPORAL LABORAL JUSTIFICADO, EMPRESA "D477 SMART CONSTRUCCION SL" SE ANEXA DOCUMENTO FIRMADO POR EMPRESA',
-  t_empresa: 'D477 SMART CONSTRUCCION SL',
-  t_firma: '2026-06-25',
-  t_renta: '828.44',
-  t_fianza_meses: '2',
-  t_fianza: '1656.88',
-  t_banco_titular: 'Capital Value Real Estate SL',
-  t_banco_nombre: 'CaixaBank',
-  t_banco_cta: 'ES12 0049 1234 5612 3456 7890',
-  t_ibi: '45.00',
-  t_bas: '8.00',
-  t_lim: '15.00',
-  t_itp: '24.85',
-
-  // Larga Duración
-  l_desc: 'Piso primero, puerta primera',
-  l_dir: 'Calle Roma, Nº 40',
-  l_loc: 'Santa Coloma de Gramenet',
-  l_cp: '08921',
-  l_cat: '8765432AB1234N0001YZ',
-  l_ced: 'CHB 04862719001',
-  l_cert: '5K3H3J9DL',
-  l_indice: 'entre 419,33 y 584,77',
-  l_id_informe: 'INF-2026-0099',
-  l_sup: '31.24',
-  l_anyo: '1963',
-  l_sl: 'Colson Resource S.L.',
-  l_cif: 'B66149998',
-  l_rep: 'Isabel Susana Ordeix Cabero',
+  t_piso:           'Gran Via de les Corts Catalanes 487, 4t 2a',
+  t_loc:            'Barcelona',
+  t_cp:             '08015',
+  t_cat:            '7843201DF3807A0003KL',
+  t_indice:         'entre 812,33 y 1.048,92',
+  t_id_informe:     'INF-2026-04872',
+  t_arrendador_tipo:'cv',
+  t_sl:             '',
+  t_cif:            '',
+  t_nom:            'LAURA FONT PUIGDOM\xc8NECH',
+  t_nac:            'ESPA\xd1OLA',
+  t_nif:            '39876543M',
+  t_dom:            'CARRER DEL ROSER, 22 3R 1A - SABADELL',
+  t_tel:            '634 987 215',
+  t_ema:            'laura.font@email.com',
+  t_nom2:           'MARC VILA SOLER',
+  t_nac2:           'ESPA\xd1OLA',
+  t_nif2:           '52341876T',
+  t_dom2:           'CARRER DEL ROSER, 22 3R 1A - SABADELL',
+  t_tel2:           '612 043 891',
+  t_ema2:           'marc.vila@email.com',
+  t_ini:            '2026-07-01',
+  t_fin:            '2027-05-31',
+  t_dur:            '11',
+  t_mot:            'trabajo',
+  t_mot_desc:       'DESPLAZAMIENTO TEMPORAL LABORAL JUSTIFICADO, EMPRESA "MEDITECH SOLUTIONS SL" SE ANEXA DOCUMENTO FIRMADO POR EMPRESA',
+  t_empresa:        'MEDITECH SOLUTIONS SL',
+  t_motOtro:        '',
+  t_firma:          '2026-06-25',
+  t_renta:          '950.00',
+  t_fianza_meses:   '2',
+  t_fianza:         '1900.00',
+  t_ibi:            '27.30',
+  t_bas:            '6.50',
+  t_lim:            '13.50',
+  t_itp:            '52.25',
+  t_banco_titular:  'Capital Value Real Estate SL',
+  t_banco_nombre:   'CaixaBank',
+  t_banco_cta:      'ES76 2100 4815 3402 1234 5678',
+  // Larga
+  l_desc:    'Piso primero, puerta primera',
+  l_dir:     'Carrer de Provença 88',
+  l_loc:     'Barcelona',
+  l_cp:      '08029',
+  l_cat:     '7654321VH5797S0002AB',
+  l_ced:     'CHB 04862719001',
+  l_cert:    '5K3H3J9DL',
+  l_indice:  'entre 419,33 y 584,77',
+  l_id_informe: 'INF-2024-001',
+  l_sup:     '65.40',
+  l_anyo:    '1975',
+  l_sl:      'Colson Resource S.L.',
+  l_cif:     'B66149998',
+  l_rep:     'Isabel Susana Ordeix Cabero',
   l_rep_dni: '38115287D',
-  l_nom: 'Jordi Camps Riera',
-  l_nac: 'Española',
-  l_nif: '37786180D',
-  l_tel: '633 221 144',
-  l_ema: 'jordi.camps@email.com',
-  l_nom2: 'Núria Vidal Roca',
-  l_nac2: 'Española',
-  l_nif2: '41122334P',
-  l_tel2: '655 998 877',
-  l_ema2: 'nuria.vidal@email.com',
-  l_rep2: 'no',
-  l_poder: '',
-  l_ini: '2026-09-01',
-  l_dur_m: '85',
-  l_firma: '2026-08-20',
-  l_renta: '584.77',
-  l_ibi: '19.64',
-  l_trib: '1.00',
-  l_lugar: 'Barcelona',
-  l_fianza: '584.77',
-  l_gar: '1169.54',
-
+  l_nom:     'Carlos Martínez Pérez',
+  l_nac:     'Española',
+  l_nif:     '87654321B',
+  l_tel:     '623 456 789',
+  l_ema:     'carlos.martinez@email.com',
+  l_nom2:    '',
+  l_nac2:    '',
+  l_nif2:    '',
+  l_rep2:    'no',
+  l_poder:   '',
+  l_ini:     '2025-02-01',
+  l_dur_m:   '36',
+  l_firma:   '2025-01-28',
+  l_renta:   '984.00',
+  l_ibi:     '19.64',
+  l_trib:    '1.00',
+  l_lugar:   'Barcelona',
+  l_fianza:  '984.00',
+  l_gar:     '1968.00',
   // Rescision
-  r_nom: 'Ana Torres Vidal',
-  r_nif: '11223344C',
-  r_tel: 'ana.torres@email.com',
-  r_pisoC: 'Carrer de Balmes',
-  r_pisoN: '42',
-  r_pisoP: '3º',
-  r_pisoPt: '2ª',
-  r_pisoLoc: 'Barcelona',
+  r_nom:       'Ana Torres Vidal',
+  r_nif:       '11223344C',
+  r_tel:       'ana.torres@email.com',
+  r_domn_c:    'Carrer de Balmes 42',
+  r_domn_p:    '3º',
+  r_domn_pt:   '2ª',
+  r_domn_loc:  'Barcelona',
+  r_pisoC:     'Carrer de Balmes',
+  r_pisoN:     '42',
+  r_pisoP:     '3º',
+  r_pisoPt:    '2ª',
+  r_pisoLoc:   'Barcelona',
   r_firmaCtto: '2024-01-15',
-  r_fianza: '1200.00',
-  r_fecha: '2026-01-10',
-
+  r_llave_ent:  '2',
+  r_llave_piso: '2',
+  r_llave_buz:  '1',
+  r_llave_otros:'1',
+  r_fianza:    '1200.00',
+  r_lugar:     'Barcelona',
+  r_fecha:     '2025-01-10',
   // Aval
-  a_piso: 'C/ Amílcar 130, Ático 2, Barcelona (08032)',
-  a_fctto: '2026-03-01',
-  a_sl: 'Capital Value Real Estate S.L.',
-  a_av_nom: 'Francesc Puig Mata',
-  a_av_nif: '35771717R',
-  a_av_civil: 'casado',
-  a_av_dom: 'Avinguda Diagonal 220, 4º 1ª, Barcelona (08018)',
-  a_av_tel: '677 554 332',
-  a_ar_nom: 'Marc Soler Puig',
-  a_ar_dom: 'Carrer de Sants 120, Barcelona',
-  a_ar_mot: 'desplazamiento laboral temporal',
-  a_fecha: '2026-03-01',
-  a_lugar: 'Barcelona',
-
-  // Liquidación
-  liq_empresa: 'cv',
-  liq_piso: 'Carrer de Balmes 42, 3º 2ª, Barcelona',
-  liq_arrendatario: 'Marc Soler Puig',
-  liq_nif: '46728193K',
-  liq_ini: '2026-07-15',
-  liq_fecha: '2026-07-10',
-  liq_renta: '828.44',
-  liq_dias: '17',
-  liq_fianza: '1656.88',
-  liq_itp: '24.85',
-  liq_reserva: '200.00'
+  a_piso:    'Carrer de Balmes 42, 3º 2ª, Barcelona (08008)',
+  a_fctto:   '2025-01-15',
+  a_sl:      'Capital Value Real Estate S.L.',
+  a_av_nom:  'José Pérez García',
+  a_av_nif:  '35771717R',
+  a_av_civil:'casado',
+  a_av_dom:  'Calle Serrano 45, 2º A, Madrid (28001)',
+  a_av_tel:  '691 234 567',
+  a_ar_nom:  'María García López',
+  a_ar_dom:  'Calle Mayor 15, 1º, Madrid (28001)',
+  a_ar_mot:  'desplazamiento laboral temporal',
+  a_fecha:   '2025-01-15',
+  a_lugar:   'Barcelona'
 };
 
 function runWithFakeData(fn) {
-  var backupData = {};
-  Object.keys(DATA).forEach(function(k) { backupData[k] = DATA[k]; });
-  var backupDosDos = dosDos;
-  Object.keys(DATA).forEach(function(k) { delete DATA[k]; });
+  // Save real DATA and dosDos
+  var savedData = {};
+  Object.keys(DATA).forEach(function(k) { savedData[k] = DATA[k]; });
+  var savedDosDos = dosDos;
+  // Inject fake data
   Object.keys(FAKE_DATA).forEach(function(k) { DATA[k] = FAKE_DATA[k]; });
   dosDos = false;
+  // Override g() to read from DATA (already done by g() implementation)
+  // Also need to temporarily override document.getElementById for fields not in DOM
+  var origGetEl = document.getElementById.bind(document);
+  document.getElementById = function(id) {
+    var el = origGetEl(id);
+    if (el) return el;
+    // Return a fake element with the fake value
+    if (FAKE_DATA[id] !== undefined) {
+      return { value: FAKE_DATA[id], id: id };
+    }
+    return null;
+  };
   try {
     fn();
-  } finally {
-    Object.keys(DATA).forEach(function(k) { delete DATA[k]; });
-    Object.keys(backupData).forEach(function(k) { DATA[k] = backupData[k]; });
-    dosDos = backupDosDos;
+  } catch(e) {
+    console.error('Template error:', e);
+    alert('Error generando plantilla: ' + e.message);
+  }
+  // Restore
+  document.getElementById = origGetEl;
+  Object.keys(DATA).forEach(function(k) { delete DATA[k]; });
+  Object.keys(savedData).forEach(function(k) { DATA[k] = savedData[k]; });
+  dosDos = savedDosDos;
+}
+
+function tplTemporada(fmt) {
+  // Save and set dosDos=true since fake data has 2 arrendatarios
+  var savedDosDos = dosDos;
+  dosDos = true;
+  if (fmt === 'pdf') {
+    runWithFakeData(pdfTemporada);
+  } else {
+    runWithFakeData(docTemporada);
+  }
+  dosDos = savedDosDos;
+}
+
+function tplLarga(fmt) {
+  if (fmt === 'pdf') {
+    runWithFakeData(pdfLarga);
+  } else {
+    runWithFakeData(docLarga);
   }
 }
 
-function tplTemporada(kind) { runWithFakeData(kind === 'pdf' ? pdfTemporada : docTemporada); }
-function tplLarga(kind)     { runWithFakeData(kind === 'pdf' ? pdfLarga : docLarga); }
-function tplRescision(kind) { runWithFakeData(kind === 'pdf' ? pdfRescision : docRescision); }
-function tplAval(kind)      { runWithFakeData(kind === 'pdf' ? pdfAval : docAval); }
-function tplLiquidacion(kind) { runWithFakeData(kind === 'pdf' ? pdfLiquidacion : docLiquidacion); }
+function tplRescision(fmt) {
+  if (fmt === 'pdf') {
+    runWithFakeData(pdfRescision);
+  } else {
+    runWithFakeData(docRescision);
+  }
+}
 
-function toggleTplMenu(id, event) {
-  if (event) event.stopPropagation();
-  document.querySelectorAll('.tpl-sub-row').forEach(function(row) {
-    if (row.id !== id) row.classList.remove('open');
+function tplAval(fmt) {
+  if (fmt === 'pdf') {
+    runWithFakeData(pdfAval);
+  } else {
+    runWithFakeData(docAval);
+  }
+}
+
+// Toggle plantilla submenu on welcome cards
+function toggleTplMenu(id, evt) {
+  if (evt) evt.stopPropagation();
+  document.querySelectorAll('.tpl-sub-row').forEach(function(el) {
+    if (el.id !== id) el.classList.remove('open');
   });
   var el = document.getElementById(id);
   if (el) el.classList.toggle('open');
 }
 
 document.addEventListener('click', function(e) {
-  if (!e.target.closest('.btn-tpl-card') && !e.target.closest('.tpl-sub-row')) {
-    document.querySelectorAll('.tpl-sub-row').forEach(function(row) { row.classList.remove('open'); });
+  if (!e.target.closest('.doc-card')) {
+    document.querySelectorAll('.tpl-sub-row').forEach(function(el) { el.classList.remove('open'); });
   }
 });
 
+
+
 // ═══════════════════════════════════════════════════════
-//  LIQUIDACIÓN INICIAL
+//  LIQUIDACIÓN INICIAL — FORMULARIO + PDF + DOC
 // ═══════════════════════════════════════════════════════
+
 var TOTAL_LIQ = 3;
+
 var LIQ_EMPRESAS = {
-  cv:     { sl: 'CAPITAL VALUE REAL ESTATE SL', cif: 'B66743873' },
-  colson: { sl: 'COLSON RESOURCE SL',           cif: 'B66149998' }
+  colson: {
+    nombre: 'COLSON RESOURCE SL',
+    cif: 'B66149998',
+    dir: 'Av Pau Casals 4 2-2 08021 Barcelona',
+    tel: '611062285',
+    email: 'colsonsl@outlook.com'
+  },
+  cv: {
+    nombre: 'CAPITAL VALUE REAL ESTATE SL',
+    cif: 'B66743873',
+    dir: 'Av Pau Casals 4 2-2 08021 Barcelona',
+    tel: '611062285',
+    email: 'ipo@capitalvalue.com'
+  }
 };
 
 function getLiqEmpresa() {
-  return LIQ_EMPRESAS[g('liq_empresa')] || { sl: '', cif: '' };
+  var v = g('liq_empresa');
+  return LIQ_EMPRESAS[v] || LIQ_EMPRESAS['cv'];
 }
 
 function renderLiquidacion(step) {
   var cont = document.getElementById('liquidacion-steps');
+  if (!cont) return;
   updateProgress(step, TOTAL_LIQ);
   var html = '';
 
   if (step === 0) {
-    html = '<div class="section-title">Datos del Arrendamiento</div>' +
-      '<div class="section-sub">Empresa, inmueble y arrendatario sobre los que se realiza la liquidación.</div>' +
-      '<div class="card"><div class="card-title">Empresa</div><div class="grid">' +
-      selField('liq_empresa', 'Sociedad', [['cv','CAPITAL VALUE REAL ESTATE SL'],['colson','COLSON RESOURCE SL']], true, true) +
+    html = '<div class="section-title">Datos del Documento</div>' +
+      '<div class="section-sub">Información general de la liquidación inicial.</div>' +
+      '<div class="card"><div class="card-title">Empresa emisora</div><div class="grid">' +
+      '<div class="field full"><label>Empresa <span class="req">*</span></label>' +
+      '<select id="liq_empresa" required>' +
+      '<option value="">— Selecciona —</option>' +
+      '<option value="cv">CAPITAL VALUE REAL ESTATE SL — CIF B66743873</option>' +
+      '<option value="colson">COLSON RESOURCE SL — CIF B66149998</option>' +
+      '</select></div>' +
       '</div></div>' +
-      '<div class="card"><div class="card-title">Inmueble y arrendatario</div><div class="grid grid-2">' +
-      field('liq_piso', 'Dirección del inmueble', 'text', 'Calle, número, localidad', true, '', 'full') +
-      field('liq_arrendatario', 'Nombre del arrendatario', 'text', 'Nombre y apellidos', true) +
-      field('liq_nif', 'DNI / NIE', 'text', 'Ej: 12345678A', true) +
+      '<div class="card"><div class="card-title">Datos del arrendamiento</div><div class="grid grid-2">' +
+      field('liq_edificio','Edificio / Dirección','text','Ej: BORDETA 23',true) +
+      field('liq_piso','Piso','text','Ej: 3-1',true) +
+      field('liq_inquilino','Inquilino','text','Nombre completo',true,'','full') +
+      field('liq_fecha','Fecha de firma','date','',true) +
       '</div></div>' +
-      '<div class="card"><div class="card-title">Fechas</div><div class="grid grid-2">' +
-      field('liq_ini', 'Fecha de inicio del contrato', 'date', '', true) +
-      field('liq_fecha', 'Fecha de la liquidación', 'date', '', true) +
+      '<div class="card"><div class="card-title">Cuenta bancaria</div><div class="grid">' +
+      field('liq_cuenta','Número de cuenta (IBAN)','text','Ej: ES11 0128 0500 1501 0016 8995',true,'Aparecerá destacada en el documento','full') +
       '</div></div>' +
       btnRow(0, TOTAL_LIQ, '', 'nextLiq(0)', false);
 
   } else if (step === 1) {
     html = '<div class="section-title">Importes</div>' +
-      '<div class="section-sub">Conceptos a cobrar en la liquidación inicial.</div>' +
-      '<div class="card"><div class="card-title">Desglose</div><div class="grid grid-2">' +
-      field('liq_renta', 'Renta mensual (€)', 'number', 'Ej: 828.44', true) +
-      field('liq_dias', 'Días a prorratear (primer mes)', 'number', 'Ej: 17', true, 'Días de ocupación del primer mes') +
-      field('liq_fianza', 'Fianza (€)', 'number', 'Ej: 1656.88', true) +
-      field('liq_itp', 'ITP (€)', 'number', 'Ej: 24.85', true) +
-      field('liq_reserva', 'Reserva ya entregada (€)', 'number', 'Ej: 200.00', false, 'Se descuenta del total a pagar') +
+      '<div class="section-sub">Introduce los importes de cada concepto. El subtotal y total se calculan automáticamente.</div>' +
+      '<div class="card"><div class="card-title">Conceptos de cobro</div><div class="grid">' +
+      '<div class="field full"><label>ALQUILER + IBI + LIMP proporcional (€) <span class="req">*</span></label>' +
+      '<input type="number" id="liq_alquiler" placeholder="Ej: 517.64" step="0.01" min="0" required oninput="calcLiq()">' +
+      '<span class="hint">Importe ya calculado por ti — incluye alquiler, IBI y limpieza proporcional</span></div>' +
+      '<div class="field full"><label>Fianza (€) <span class="req">*</span></label>' +
+      '<input type="number" id="liq_fianza" placeholder="Ej: 1617.36" step="0.01" min="0" required oninput="calcLiq()">' +
       '</div>' +
-      '<div class="calc-result" id="liq_calcRes">' +
-      '<div style="display:flex;justify-content:space-between"><span>Renta proporcional:</span><span><span id="liq_propRes">—</span> €</span></div>' +
-      '<div class="total-row" style="margin-top:8px"><span>TOTAL A PAGAR</span><span class="amount"><span id="liq_totRes">—</span> €</span></div>' +
+      '<div class="field full"><label>Impuesto Transmisiones Patrimoniales — ITP (€) <span class="req">*</span></label>' +
+      '<input type="number" id="liq_itp" placeholder="Ej: 32.35" step="0.01" min="0" required oninput="calcLiq()">' +
+      '</div>' +
       '</div></div>' +
+      '<div class="card"><div class="card-title">Conceptos adicionales (opcionales)</div><div class="grid">' +
+      '<div class="field full"><label>Descripción línea adicional 1</label>' +
+      '<input type="text" id="liq_extra1_desc" placeholder="Ej: Seguro de hogar" oninput="calcLiq()"></div>' +
+      '<div class="field full"><label>Importe línea adicional 1 (€)</label>' +
+      '<input type="number" id="liq_extra1_importe" placeholder="0.00" step="0.01" oninput="calcLiq()"></div>' +
+      '<div class="field full"><label>Descripción línea adicional 2</label>' +
+      '<input type="text" id="liq_extra2_desc" placeholder="Ej: Gastos de gestión" oninput="calcLiq()"></div>' +
+      '<div class="field full"><label>Importe línea adicional 2 (€)</label>' +
+      '<input type="number" id="liq_extra2_importe" placeholder="0.00" step="0.01" oninput="calcLiq()"></div>' +
+      '</div></div>' +
+      '<div class="card"><div class="card-title">Reserva (descuento)</div><div class="grid">' +
+      '<div class="field full"><label>Reserva entregada (€) — introduce valor negativo para descontar</label>' +
+      '<input type="number" id="liq_reserva" placeholder="Ej: -200.00" step="0.01" oninput="calcLiq()">' +
+      '<span class="hint">Si el cliente entregó una reserva de 200€, escribe -200. Se restará del subtotal.</span></div>' +
+      '</div></div>' +
+      '<div class="calc-result" id="liq_calc_result" style="margin-top:0">' +
+      '<div style="display:flex;justify-content:space-between;padding:3px 0"><span>Subtotal:</span><span id="liq_subtotal_txt" style="font-weight:600">—</span></div>' +
+      '<div style="display:flex;justify-content:space-between;padding:3px 0;color:var(--cv-muted)"><span>Reserva:</span><span id="liq_reserva_txt">—</span></div>' +
+      '<div class="total-row" style="margin-top:8px"><span>TOTAL A PAGAR</span><span class="amount" id="liq_total_txt">—</span></div>' +
+      '</div>' +
       btnRow(1, TOTAL_LIQ, 'prevLiq(1)', 'nextLiq(1)', false);
 
   } else if (step === 2) {
+    var emp = getLiqEmpresa();
+    var alq = parseFloat(g('liq_alquiler'))||0;
+    var fian = parseFloat(g('liq_fianza'))||0;
+    var itp = parseFloat(g('liq_itp'))||0;
+    var ex1i = parseFloat(g('liq_extra1_importe'))||0;
+    var ex2i = parseFloat(g('liq_extra2_importe'))||0;
+    var res = parseFloat(g('liq_reserva'))||0;
+    var subtotal = alq + fian + itp + ex1i + ex2i;
+    var total = subtotal + res;
     html = '<div class="section-title">Resumen de la Liquidación</div>' +
-      '<div class="section-sub">Revisa los datos antes de generar el documento.</div>' +
-      '<div id="liq_sumContent"></div>' +
+      '<div class="section-sub">Revisa todos los datos antes de descargar.</div>' +
+      '<div class="summary-block"><h3>Empresa</h3>' +
+      '<div class="summary-row"><span class="k">Nombre</span><span class="v">' + emp.nombre + ' — CIF ' + emp.cif + '</span></div>' +
+      '<div class="summary-row"><span class="k">Dirección</span><span class="v">' + emp.dir + '</span></div>' +
+      '<div class="summary-row"><span class="k">Contacto</span><span class="v">' + emp.tel + ' · ' + emp.email + '</span></div>' +
+      '</div>' +
+      '<div class="summary-block"><h3>Arrendamiento</h3>' +
+      '<div class="summary-row"><span class="k">Edificio / Piso</span><span class="v">' + g('liq_edificio') + ' — ' + g('liq_piso') + '</span></div>' +
+      '<div class="summary-row"><span class="k">Inquilino</span><span class="v">' + g('liq_inquilino') + '</span></div>' +
+      '<div class="summary-row"><span class="k">Fecha firma</span><span class="v">' + fmtDate(g('liq_fecha')) + '</span></div>' +
+      '<div class="summary-row"><span class="k">Cuenta bancaria</span><span class="v">' + g('liq_cuenta') + '</span></div>' +
+      '</div>' +
+      '<div class="summary-block"><h3>Importes</h3>' +
+      '<div class="summary-row"><span class="k">Alquiler + IBI + Limp proporcional</span><span class="v">' + alq.toFixed(2) + ' €</span></div>' +
+      '<div class="summary-row"><span class="k">Fianza</span><span class="v">' + fian.toFixed(2) + ' €</span></div>' +
+      '<div class="summary-row"><span class="k">ITP</span><span class="v">' + itp.toFixed(2) + ' €</span></div>' +
+      (ex1i ? '<div class="summary-row"><span class="k">' + (g('liq_extra1_desc')||'Adicional 1') + '</span><span class="v">' + ex1i.toFixed(2) + ' €</span></div>' : '') +
+      (ex2i ? '<div class="summary-row"><span class="k">' + (g('liq_extra2_desc')||'Adicional 2') + '</span><span class="v">' + ex2i.toFixed(2) + ' €</span></div>' : '') +
+      '<div class="summary-row"><span class="k">Subtotal</span><span class="v">' + subtotal.toFixed(2) + ' €</span></div>' +
+      (res !== 0 ? '<div class="summary-row"><span class="k">Reserva</span><span class="v">' + res.toFixed(2) + ' €</span></div>' : '') +
+      '<div class="total-row"><span>TOTAL</span><span class="amount">' + total.toFixed(2) + ' €</span></div>' +
+      '</div>' +
       '<div class="btn-row" style="justify-content:center;margin-top:28px;flex-wrap:wrap;gap:16px;">' +
       '<button class="btn btn-secondary" onclick="prevLiq(2)">← Modificar datos</button>' +
       '<div class="download-group"><div class="download-label">Descargar como:</div>' +
@@ -2377,61 +2683,34 @@ function renderLiquidacion(step) {
       '<button class="btn btn-pdf" onclick="pdfLiquidacion()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PDF</button>' +
       '</div></div></div>';
     cont.innerHTML = html;
-    setTimeout(function() {
-      var el = document.getElementById('liq_sumContent'); if (!el) return;
-      var emp = getLiqEmpresa();
-      var renta = parseFloat(g('liq_renta')) || 0;
-      var dias = parseFloat(g('liq_dias')) || 0;
-      var fianza = parseFloat(g('liq_fianza')) || 0;
-      var itp = parseFloat(g('liq_itp')) || 0;
-      var reserva = parseFloat(g('liq_reserva')) || 0;
-      var rentaProp = (renta / 30) * dias;
-      var total = rentaProp + fianza + itp - reserva;
-      el.innerHTML =
-        '<div class="summary-block"><h3>Arrendamiento</h3>' +
-        '<div class="summary-row"><span class="k">Empresa</span><span class="v">' + emp.sl + '</span></div>' +
-        '<div class="summary-row"><span class="k">Inmueble</span><span class="v">' + g('liq_piso') + '</span></div>' +
-        '<div class="summary-row"><span class="k">Arrendatario</span><span class="v">' + g('liq_arrendatario') + ' · ' + g('liq_nif') + '</span></div>' +
-        '<div class="summary-row"><span class="k">Inicio contrato</span><span class="v">' + fmtDate(g('liq_ini')) + '</span></div>' +
-        '<div class="summary-row"><span class="k">Fecha liquidación</span><span class="v">' + fmtDate(g('liq_fecha')) + '</span></div></div>' +
-        '<div class="summary-block"><h3>Importes</h3>' +
-        '<div class="summary-row"><span class="k">Renta proporcional (' + dias + ' días)</span><span class="v">' + fmtEur(rentaProp) + '</span></div>' +
-        '<div class="summary-row"><span class="k">Fianza</span><span class="v">' + fmtEur(fianza) + '</span></div>' +
-        '<div class="summary-row"><span class="k">ITP</span><span class="v">' + fmtEur(itp) + '</span></div>' +
-        (reserva > 0 ? '<div class="summary-row"><span class="k">Reserva entregada</span><span class="v">\u2013 ' + fmtEur(reserva) + '</span></div>' : '') +
-        '<div class="total-row"><span>TOTAL A PAGAR</span><span class="amount">' + fmtEur(total) + '</span></div></div>';
-    }, 50);
     return;
   }
 
   cont.innerHTML = html;
-  setTimeout(function() {
-    ['liq_renta','liq_dias','liq_fianza','liq_itp','liq_reserva'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el) el.addEventListener('input', calcLiq);
-    });
-    calcLiq();
-  }, 30);
+  setTimeout(function() { calcLiq(); }, 30);
 }
 
 function calcLiq() {
-  var renta = parseFloat(g('liq_renta')) || 0;
-  var dias = parseFloat(g('liq_dias')) || 0;
-  var fianza = parseFloat(g('liq_fianza')) || 0;
-  var itp = parseFloat(g('liq_itp')) || 0;
-  var reserva = parseFloat(g('liq_reserva')) || 0;
-  var rentaProp = (renta / 30) * dias;
-  var total = rentaProp + fianza + itp - reserva;
-  var propEl = document.getElementById('liq_propRes');
-  var totEl = document.getElementById('liq_totRes');
-  if (propEl) propEl.textContent = rentaProp.toFixed(2);
-  if (totEl) totEl.textContent = total.toFixed(2);
+  var alq  = parseFloat(g('liq_alquiler'))||0;
+  var fian = parseFloat(g('liq_fianza'))||0;
+  var itp  = parseFloat(g('liq_itp'))||0;
+  var ex1  = parseFloat(g('liq_extra1_importe'))||0;
+  var ex2  = parseFloat(g('liq_extra2_importe'))||0;
+  var res  = parseFloat(g('liq_reserva'))||0;
+  var sub  = alq + fian + itp + ex1 + ex2;
+  var tot  = sub + res;
+  var elSub = document.getElementById('liq_subtotal_txt');
+  var elRes = document.getElementById('liq_reserva_txt');
+  var elTot = document.getElementById('liq_total_txt');
+  if (elSub) elSub.textContent = sub.toFixed(2) + ' \u20ac';
+  if (elRes) elRes.textContent = res !== 0 ? res.toFixed(2) + ' \u20ac' : '0,00 \u20ac';
+  if (elTot) elTot.textContent = tot.toFixed(2) + ' \u20ac';
 }
 
 function nextLiq(from) {
   var reqs = {
-    0: ['liq_empresa','liq_piso','liq_arrendatario','liq_nif','liq_ini','liq_fecha'],
-    1: ['liq_renta','liq_dias','liq_fianza','liq_itp']
+    0: ['liq_empresa','liq_edificio','liq_piso','liq_inquilino','liq_fecha','liq_cuenta'],
+    1: ['liq_alquiler','liq_fianza','liq_itp']
   };
   if (!validateRequired(reqs[from] || [])) return;
   saveCurrentFields();
@@ -2447,104 +2726,276 @@ function prevLiq(from) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ── PDF ──────────────────────────────────────────────────────
 function pdfLiquidacion() {
   var doc = makePDFBase();
-  var emp = getLiqEmpresa();
-  var renta = parseFloat(g('liq_renta')) || 0;
-  var dias = parseFloat(g('liq_dias')) || 0;
-  var fianza = parseFloat(g('liq_fianza')) || 0;
-  var itp = parseFloat(g('liq_itp')) || 0;
-  var reserva = parseFloat(g('liq_reserva')) || 0;
-  var rentaProp = (renta / 30) * dias;
-  var total = rentaProp + fianza + itp - reserva;
+  var emp  = getLiqEmpresa();
+  var alq  = parseFloat(g('liq_alquiler'))||0;
+  var fian = parseFloat(g('liq_fianza'))||0;
+  var itp  = parseFloat(g('liq_itp'))||0;
+  var ex1d = g('liq_extra1_desc');
+  var ex1i = parseFloat(g('liq_extra1_importe'))||0;
+  var ex2d = g('liq_extra2_desc');
+  var ex2i = parseFloat(g('liq_extra2_importe'))||0;
+  var res  = parseFloat(g('liq_reserva'))||0;
+  var sub  = alq + fian + itp + ex1i + ex2i;
+  var tot  = sub + res;
 
-  pdfHdr(doc, 'Liquidaci\xf3n Inicial de Arrendamiento', '');
-  var y = 24;
+  // ── Header bar ──
+  doc.setFillColor(44, 51, 64);
+  doc.rect(0, 0, 210, 42, 'F');
+
+  // Company info (left)
+  doc.setTextColor(255,255,255);
+  doc.setFont('helvetica','bold'); doc.setFontSize(11);
+  doc.text(emp.nombre, 15, 13);
+  doc.setFont('helvetica','normal'); doc.setFontSize(8);
+  doc.setTextColor(200,210,220);
+  doc.text('CIF ' + emp.cif, 15, 20);
+  doc.text(emp.dir, 15, 26);
+  doc.text(emp.tel + '   ' + emp.email, 15, 32);
+
+  // Title (right)
   doc.setFont('helvetica','bold'); doc.setFontSize(13);
-  doc.text('LIQUIDACI\xd3N INICIAL DE ARRENDAMIENTO', 105, y, {align:'center'}); y += 12;
+  doc.setTextColor(232, 119, 34);
+  doc.text('LIQUIDACI\xd3N INICIAL', 195, 15, {align:'right'});
+  doc.setFont('helvetica','normal'); doc.setFontSize(8.5);
+  doc.setTextColor(200,210,220);
+  doc.text('DEL ARRENDAMIENTO', 195, 22, {align:'right'});
 
-  y = pdfSec(doc, 'DATOS DEL ARRENDAMIENTO', y);
-  y = pdfKV(doc, 'Empresa', emp.sl + ' (CIF ' + emp.cif + ')', y);
-  y = pdfKV(doc, 'Inmueble', g('liq_piso'), y);
-  y = pdfKV(doc, 'Arrendatario', g('liq_arrendatario') + ' (NIF ' + g('liq_nif') + ')', y);
-  y = pdfKV(doc, 'Fecha inicio contrato', dateText(g('liq_ini')), y);
-  y = pdfKV(doc, 'Fecha de liquidaci\xf3n', dateText(g('liq_fecha')), y);
+  // Orange accent line
+  doc.setDrawColor(232,119,34); doc.setLineWidth(0.8);
+  doc.line(0, 42, 210, 42);
 
-  y = pdfSec(doc, 'DESGLOSE DE IMPORTES', y);
-  y += 2;
-  var rowH = 8;
-  if (y + rowH > 280) { doc.addPage(); y = 22; }
-  doc.setFillColor(44,51,64);
-  doc.rect(20, y, 170, rowH, 'F');
-  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(9);
-  doc.text('CONCEPTO', 23, y + 5.5);
-  doc.text('IMPORTE', 187, y + 5.5, { align: 'right' });
-  y += rowH;
+  var y = 52;
   doc.setTextColor(0,0,0);
 
-  function row(label, amount) {
-    if (y + rowH > 280) { doc.addPage(); y = 22; }
-    doc.setDrawColor(220,220,220); doc.setLineWidth(0.2);
-    doc.rect(20, y, 170, rowH);
-    doc.line(150, y, 150, y + rowH);
-    doc.setFont('helvetica','normal'); doc.setFontSize(9);
-    doc.text(label, 23, y + 5.5);
-    doc.text(amount, 187, y + 5.5, { align: 'right' });
+  // ── Info row: Edificio | Piso | Inquilino | Fecha ──
+  doc.setFillColor(245,246,248);
+  doc.rect(10, y-4, 190, 14, 'F');
+  doc.setDrawColor(220,220,225); doc.setLineWidth(0.3);
+  doc.rect(10, y-4, 190, 14);
+
+  var cols = [
+    {label:'Edificio', val: g('liq_edificio'), x:14},
+    {label:'Piso',     val: g('liq_piso'),     x:72},
+    {label:'Inquilino',val: g('liq_inquilino'),x:105},
+    {label:'Fecha firma', val: fmtDate(g('liq_fecha')), x:162}
+  ];
+  cols.forEach(function(col) {
+    doc.setFont('helvetica','bold'); doc.setFontSize(6.5);
+    doc.setTextColor(130,130,140);
+    doc.text(col.label.toUpperCase(), col.x, y);
+    doc.setFont('helvetica','bold'); doc.setFontSize(9);
+    doc.setTextColor(30,35,50);
+    doc.text(col.val, col.x, y+6);
+  });
+  y += 20;
+
+  // ── Table header ──
+  doc.setFillColor(44,51,64);
+  doc.rect(10, y, 190, 9, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(8);
+  doc.setTextColor(255,255,255);
+  doc.text('CANT.', 14, y+6);
+  doc.text('DESCRIPCI\xd3N', 32, y+6);
+  doc.text('IMPORTE', 188, y+6, {align:'right'});
+  y += 9;
+
+  // ── Table rows ──
+  var rows = [
+    {cant:'1', desc:'ALQUILER + IBI + LIMP proporcional', importe: alq},
+    {cant:'1', desc:'Fianza', importe: fian},
+    {cant:'1', desc:'Impuesto Transmisiones Patrimoniales', importe: itp}
+  ];
+  if (ex1i) rows.push({cant:'1', desc: ex1d || 'Adicional 1', importe: ex1i});
+  if (ex2i) rows.push({cant:'1', desc: ex2d || 'Adicional 2', importe: ex2i});
+
+  var rowH = 9;
+  rows.forEach(function(row, idx) {
+    var bg = idx % 2 === 0 ? [255,255,255] : [248,249,251];
+    doc.setFillColor(bg[0],bg[1],bg[2]);
+    doc.rect(10, y, 190, rowH, 'F');
+    doc.setDrawColor(230,232,236); doc.setLineWidth(0.2);
+    doc.line(10, y+rowH, 200, y+rowH);
+
+    doc.setFont('helvetica','normal'); doc.setFontSize(8.5);
+    doc.setTextColor(44,51,64);
+    doc.text(String(row.cant), 14, y+6);
+    doc.text(row.desc, 32, y+6);
+    doc.setFont('helvetica','bold');
+    doc.text(row.importe.toFixed(2) + ' \u20ac', 188, y+6, {align:'right'});
+    y += rowH;
+  });
+
+  // Empty rows (pad to at least 8 total rows for visual balance)
+  var emptyRows = Math.max(0, 8 - rows.length);
+  for (var e = 0; e < emptyRows; e++) {
+    var bg2 = (rows.length + e) % 2 === 0 ? [255,255,255] : [248,249,251];
+    doc.setFillColor(bg2[0],bg2[1],bg2[2]);
+    doc.rect(10, y, 190, rowH, 'F');
+    doc.setDrawColor(230,232,236); doc.setLineWidth(0.2);
+    doc.line(10, y+rowH, 200, y+rowH);
     y += rowH;
   }
 
-  row('Renta proporcional (' + dias + ' d\xedas)', fmtEur(rentaProp));
-  row('Fianza', fmtEur(fianza));
-  row('ITP', fmtEur(itp));
-  if (reserva > 0) row('Reserva ya entregada (a descontar)', '\u2013 ' + fmtEur(reserva));
+  // ── Totals block ──
+  y += 4;
+  var totRows = [
+    {label:'Subtotal', val: sub, bold:false},
+    {label:'Reserva',  val: res, bold:false, muted: res === 0},
+    {label:'Total',    val: tot, bold:true, accent:true}
+  ];
+  totRows.forEach(function(tr) {
+    if (tr.accent) {
+      doc.setFillColor(44,51,64);
+      doc.rect(115, y-1, 85, 9, 'F');
+      doc.setFont('helvetica','bold'); doc.setFontSize(9);
+      doc.setTextColor(232,119,34);
+      doc.text(tr.label.toUpperCase(), 120, y+5.5);
+      doc.setTextColor(255,255,255);
+      doc.text(tr.val.toFixed(2) + ' \u20ac', 196, y+5.5, {align:'right'});
+      y += 11;
+    } else {
+      doc.setFillColor(245,246,248);
+      doc.rect(115, y-1, 85, 8, 'F');
+      doc.setFont('helvetica', tr.bold ? 'bold':'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(tr.muted ? 150 : 44, tr.muted ? 150 : 51, tr.muted ? 160 : 64);
+      doc.text(tr.label, 120, y+5);
+      doc.setFont('helvetica', tr.bold ? 'bold':'normal');
+      doc.setTextColor(44,51,64);
+      doc.text(tr.val.toFixed(2) + ' \u20ac', 196, y+5, {align:'right'});
+      y += 9;
+    }
+  });
 
-  if (y + rowH + 2 > 280) { doc.addPage(); y = 22; }
+  // ── Account box ──
+  y += 12;
   doc.setFillColor(232,119,34);
-  doc.rect(20, y, 170, rowH + 2, 'F');
-  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(10);
-  doc.text('TOTAL A PAGAR', 23, y + 6.5);
-  doc.text(fmtEur(total), 187, y + 6.5, { align: 'right' });
-  y += rowH + 2;
-  doc.setTextColor(0,0,0);
+  doc.rect(10, y, 190, 20, 'F');
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.5);
+  doc.setTextColor(255,255,255);
+  doc.text('El pago se realiza en la cuenta:', 105, y+6, {align:'center'});
+  doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text(g('liq_cuenta'), 105, y+14, {align:'center'});
 
-  y += 10;
-  doc.setFont('helvetica','normal'); doc.setFontSize(8.5);
-  y = pdfP(doc, 'El presente documento tiene car\xe1cter informativo del desglose de cantidades a abonar en concepto de liquidaci\xf3n inicial del arrendamiento referido, sin perjuicio de la documentaci\xf3n contractual suscrita entre las partes.', y);
+  // ── Footer ──
+  y += 28;
+  doc.setFillColor(44,51,64);
+  doc.rect(10, y, 190, 10, 'F');
+  doc.setFont('helvetica','italic'); doc.setFontSize(9);
+  doc.setTextColor(200,210,220);
+  doc.text('\xa1Gracias por su confianza!', 105, y+6.5, {align:'center'});
 
-  pdfFoot(doc, g('liq_arrendatario'), g('liq_piso'));
-  doc.save('Liquidacion_' + g('liq_arrendatario').replace(/\s+/g,'_') + '.pdf');
+  // Page number
+  doc.setFont('helvetica','normal'); doc.setFontSize(7);
+  doc.setTextColor(150,150,160);
+  doc.text(g('liq_inquilino') + '  \xb7  ' + g('liq_edificio') + ' ' + g('liq_piso'), 15, 293);
+  doc.text('Pág. 1 de 1', 195, 293, {align:'right'});
+
+  doc.save('Liquidacion_' + g('liq_inquilino').replace(/\s+/g,'_') + '.pdf');
 }
 
+// ── DOC ──────────────────────────────────────────────────────
 function docLiquidacion() {
-  var emp = getLiqEmpresa();
-  var renta = parseFloat(g('liq_renta')) || 0;
-  var dias = parseFloat(g('liq_dias')) || 0;
-  var fianza = parseFloat(g('liq_fianza')) || 0;
-  var itp = parseFloat(g('liq_itp')) || 0;
-  var reserva = parseFloat(g('liq_reserva')) || 0;
-  var rentaProp = (renta / 30) * dias;
-  var total = rentaProp + fianza + itp - reserva;
+  var emp  = getLiqEmpresa();
+  var alq  = parseFloat(g('liq_alquiler'))||0;
+  var fian = parseFloat(g('liq_fianza'))||0;
+  var itp  = parseFloat(g('liq_itp'))||0;
+  var ex1d = g('liq_extra1_desc');
+  var ex1i = parseFloat(g('liq_extra1_importe'))||0;
+  var ex2d = g('liq_extra2_desc');
+  var ex2i = parseFloat(g('liq_extra2_importe'))||0;
+  var res  = parseFloat(g('liq_reserva'))||0;
+  var sub  = alq + fian + itp + ex1i + ex2i;
+  var tot  = sub + res;
 
-  var html = '<h1>LIQUIDACI\xd3N INICIAL DE ARRENDAMIENTO</h1>' +
-    '<h2>DATOS DEL ARRENDAMIENTO</h2>' +
-    '<p>Empresa: <b>' + emp.sl + '</b> (CIF ' + emp.cif + ')</p>' +
-    '<p>Inmueble: <b>' + g('liq_piso') + '</b></p>' +
-    '<p>Arrendatario: <b>' + g('liq_arrendatario') + '</b> (NIF ' + g('liq_nif') + ')</p>' +
-    '<p>Fecha inicio contrato: <b>' + dateText(g('liq_ini')) + '</b></p>' +
-    '<p>Fecha de liquidaci\xf3n: <b>' + dateText(g('liq_fecha')) + '</b></p>' +
-    '<h2>DESGLOSE DE IMPORTES</h2>' +
-    '<table style="width:100%;border-collapse:collapse;margin-top:6pt;font-size:9.5pt;">' +
-    '<tr style="background:#2c3340;color:#fff;"><td style="padding:6pt;border:1pt solid #ccc;">CONCEPTO</td><td style="padding:6pt;border:1pt solid #ccc;text-align:right;">IMPORTE</td></tr>' +
-    '<tr><td style="padding:6pt;border:1pt solid #ccc;">Renta proporcional (' + dias + ' d\xedas)</td><td style="padding:6pt;border:1pt solid #ccc;text-align:right;">' + fmtEur(rentaProp) + '</td></tr>' +
-    '<tr><td style="padding:6pt;border:1pt solid #ccc;">Fianza</td><td style="padding:6pt;border:1pt solid #ccc;text-align:right;">' + fmtEur(fianza) + '</td></tr>' +
-    '<tr><td style="padding:6pt;border:1pt solid #ccc;">ITP</td><td style="padding:6pt;border:1pt solid #ccc;text-align:right;">' + fmtEur(itp) + '</td></tr>' +
-    (reserva > 0 ? '<tr><td style="padding:6pt;border:1pt solid #ccc;">Reserva ya entregada (a descontar)</td><td style="padding:6pt;border:1pt solid #ccc;text-align:right;">\u2013 ' + fmtEur(reserva) + '</td></tr>' : '') +
-    '<tr style="background:#e87722;color:#fff;font-weight:bold;"><td style="padding:6pt;border:1pt solid #ccc;">TOTAL A PAGAR</td><td style="padding:6pt;border:1pt solid #ccc;text-align:right;">' + fmtEur(total) + '</td></tr>' +
+  var extraRows = '';
+  if (ex1i) extraRows += '<tr><td>1</td><td>' + (ex1d||'Adicional 1') + '</td><td style="text-align:right">' + ex1i.toFixed(2) + ' \u20ac</td></tr>';
+  if (ex2i) extraRows += '<tr><td>1</td><td>' + (ex2d||'Adicional 2') + '</td><td style="text-align:right">' + ex2i.toFixed(2) + ' \u20ac</td></tr>';
+
+  var html = '<table style="width:100%;border-collapse:collapse;margin-bottom:20pt">' +
+    '<tr style="background:#2c3340">' +
+    '<td style="padding:10pt 14pt;color:#e87722;font-size:13pt;font-weight:bold;width:60%">' + emp.nombre + '</td>' +
+    '<td style="padding:10pt 14pt;color:#e87722;font-size:14pt;font-weight:bold;text-align:right">LIQUIDACI\xd3N INICIAL<br><span style="font-size:9pt;color:#c8d0d8">DEL ARRENDAMIENTO</span></td>' +
+    '</tr>' +
+    '<tr style="background:#3d4758"><td colspan="2" style="padding:6pt 14pt;color:#c8d0d8;font-size:8pt">' +
+    'CIF ' + emp.cif + ' &nbsp;\xb7&nbsp; ' + emp.dir + ' &nbsp;\xb7&nbsp; ' + emp.tel + ' &nbsp;\xb7&nbsp; ' + emp.email + '</td></tr>' +
     '</table>' +
-    '<p style="margin-top:10pt;">El presente documento tiene car\xe1cter informativo del desglose de cantidades a abonar en concepto de liquidaci\xf3n inicial del arrendamiento referido, sin perjuicio de la documentaci\xf3n contractual suscrita entre las partes.</p>';
+    '<table style="width:100%;border-collapse:collapse;margin-bottom:16pt;background:#f5f6f8">' +
+    '<tr style="background:#e8eaed"><th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">EDIFICIO</th>' +
+    '<th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">PISO</th>' +
+    '<th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">INQUILINO</th>' +
+    '<th style="padding:5pt 10pt;text-align:left;font-size:7pt;color:#888;font-weight:600">FECHA FIRMA</th></tr>' +
+    '<tr><td style="padding:7pt 10pt;font-weight:bold">' + g('liq_edificio') + '</td>' +
+    '<td style="padding:7pt 10pt;font-weight:bold">' + g('liq_piso') + '</td>' +
+    '<td style="padding:7pt 10pt;font-weight:bold">' + g('liq_inquilino') + '</td>' +
+    '<td style="padding:7pt 10pt;font-weight:bold">' + fmtDate(g('liq_fecha')) + '</td></tr>' +
+    '</table>' +
+    '<table style="width:100%;border-collapse:collapse;margin-bottom:8pt">' +
+    '<tr style="background:#2c3340"><th style="padding:7pt 10pt;color:white;text-align:left;font-size:8pt;width:12%">CANT.</th>' +
+    '<th style="padding:7pt 10pt;color:white;text-align:left;font-size:8pt">DESCRIPCI\xd3N</th>' +
+    '<th style="padding:7pt 10pt;color:white;text-align:right;font-size:8pt;width:20%">IMPORTE</th></tr>' +
+    '<tr style="background:white"><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">1</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">ALQUILER + IBI + LIMP proporcional</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8;text-align:right;font-weight:bold">' + alq.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr style="background:#f8f9fb"><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">1</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">Fianza</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8;text-align:right;font-weight:bold">' + fian.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr style="background:white"><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">1</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8">Impuesto Transmisiones Patrimoniales</td><td style="padding:7pt 10pt;border-bottom:1pt solid #e8e8e8;text-align:right;font-weight:bold">' + itp.toFixed(2) + ' \u20ac</td></tr>' +
+    extraRows +
+    '<tr><td colspan="2" style="padding:6pt 10pt;text-align:right;background:#f5f6f8;border-top:1pt solid #ddd">Subtotal</td><td style="padding:6pt 10pt;text-align:right;background:#f5f6f8;border-top:1pt solid #ddd">' + sub.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr><td colspan="2" style="padding:6pt 10pt;text-align:right;background:#f5f6f8;color:#999">Reserva</td><td style="padding:6pt 10pt;text-align:right;background:#f5f6f8;color:#999">' + res.toFixed(2) + ' \u20ac</td></tr>' +
+    '<tr style="background:#2c3340"><td colspan="2" style="padding:8pt 10pt;text-align:right;color:#e87722;font-weight:bold;font-size:11pt">TOTAL</td><td style="padding:8pt 10pt;text-align:right;color:white;font-weight:bold;font-size:11pt">' + tot.toFixed(2) + ' \u20ac</td></tr>' +
+    '</table>' +
+    '<table style="width:100%;border-collapse:collapse;margin-top:20pt">' +
+    '<tr style="background:#e87722"><td style="padding:10pt 14pt;text-align:center;color:white">' +
+    '<div style="font-size:8pt;margin-bottom:4pt">El pago se realiza en la cuenta:</div>' +
+    '<div style="font-size:14pt;font-weight:bold;letter-spacing:2pt">' + g('liq_cuenta') + '</div>' +
+    '<div style="font-size:8pt;margin-top:2pt;opacity:.85">TRANSFERENCIA INMEDIATA</div>' +
+    '</td></tr>' +
+    '<tr style="background:#2c3340"><td style="padding:8pt 14pt;text-align:center;color:#c8d0d8;font-style:italic;font-size:9pt">\xa1Gracias por su confianza!</td></tr>' +
+    '</table>';
 
-  downloadDoc(html, 'Liquidacion_' + g('liq_arrendatario').replace(/\s+/g,'_'));
+  downloadDoc(html, 'Liquidacion_' + g('liq_inquilino').replace(/\s+/g,'_'));
 }
+
+// ── PLANTILLA ──────────────────────────────────────────────────────
+function tplLiquidacion(fmt) {
+  var savedData = {};
+  Object.keys(DATA).forEach(function(k) { savedData[k] = DATA[k]; });
+  var savedDosDos = dosDos;
+  var fake = {
+    liq_empresa: 'cv',
+    liq_edificio: 'BORDETA 23',
+    liq_piso: '3-1',
+    liq_inquilino: 'INQUILINO EJEMPLO',
+    liq_fecha: '2026-06-01',
+    liq_cuenta: 'ES11 0128 0500 1501 0016 8995',
+    liq_alquiler: '517.64',
+    liq_fianza: '1617.36',
+    liq_itp: '32.35',
+    liq_extra1_desc: '',
+    liq_extra1_importe: '',
+    liq_extra2_desc: '',
+    liq_extra2_importe: '',
+    liq_reserva: ''
+  };
+  Object.keys(fake).forEach(function(k) { DATA[k] = fake[k]; });
+  var origGetEl = document.getElementById.bind(document);
+  document.getElementById = function(id) {
+    var el = origGetEl(id);
+    if (el) return el;
+    if (fake[id] !== undefined) return { value: fake[id], id: id };
+    return null;
+  };
+  try {
+    if (fmt === 'pdf') pdfLiquidacion();
+    else docLiquidacion();
+  } catch(e) { alert('Error: ' + e.message); }
+  document.getElementById = origGetEl;
+  Object.keys(DATA).forEach(function(k) { delete DATA[k]; });
+  Object.keys(savedData).forEach(function(k) { DATA[k] = savedData[k]; });
+  dosDos = savedDosDos;
+}
+
 </script>
 </body>
 </html>
