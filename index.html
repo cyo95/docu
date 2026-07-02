@@ -1561,6 +1561,8 @@ function pdfSubItems(doc, items, y) {
 function pdfTemporada() {
   var doc = makePDFBase();
   var ard = getArrendadorData();
+  var ardTipoV = g('t_arrendador_tipo');
+  var ardEmail = ardTipoV === 'cv' ? 'capitalvalue@capitalvalue.com' : ardTipoV === 'col' ? 'colsonsl@outlook.com' : '___________________________';
   var r   = parseFloat(g('t_renta')) || 0;
   var ibi = parseFloat(g('t_ibi'))   || 0;
   var bas = parseFloat(g('t_bas'))   || 0;
@@ -1731,10 +1733,10 @@ function pdfTemporada() {
   y += 1;
 
   // ── Cláusula 19 ──
-  y = pdfClausula(doc, '19.', 'Capital Value Real Estate S.L es el Responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos ser\xe1n tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org\xe1nica 3/2018, de 5 de diciembre (LOPDGDD). Dicho tratamiento se realizar\xe1 exclusivamente para la ejecuci\xf3n del contrato y los datos se conservar\xe1n durante no m\xe1s tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia. Est\xe1 prevista la cesi\xf3n de datos al administrador de fincas Guinot Prunera por ser necesarios para lograr la finalidad del tratamiento, o por obligaci\xf3n legal', y);
+  y = pdfClausula(doc, '19.', ard.sl + ' es el Responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos ser\xe1n tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org\xe1nica 3/2018, de 5 de diciembre (LOPDGDD). Dicho tratamiento se realizar\xe1 exclusivamente para la ejecuci\xf3n del contrato y los datos se conservar\xe1n durante no m\xe1s tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia.', y);
 
   // ── Cláusula 20 ──
-  y = pdfClausula(doc, '20.', 'Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a Capital Value Real Estate Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: capitalvalue@capitalvalue.com y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().', y);
+  y = pdfClausula(doc, '20.', 'Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a ' + ard.sl + ' Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: ' + ardEmail + ' y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().', y);
 
   // ── Cláusula 21 ──
   y = pdfClausula(doc, '21.', 'Las partes contratantes podr\xe1n someter a la resoluci\xf3n por \xe1rbitros nombrados por el Colegio de Administradores de Fincas de Barcelona o por arbitraje institucional de este, con arreglo a su Reglamento, todo litigio, discrepancia, cuesti\xf3n o reclamaci\xf3n que surja en la interpretaci\xf3n o ejecuci\xf3n del presente contrato; y en cuyo caso har\xe1n constar expresamente su compromiso de cumplir el laudo arbitral que se dicte.', y);
@@ -1779,6 +1781,8 @@ function pdfTemporada() {
 // ═══════════════
 function docTemporada() {
   var ard = getArrendadorData();
+  var ardTipoV = g('t_arrendador_tipo');
+  var ardEmail = ardTipoV === 'cv' ? 'capitalvalue@capitalvalue.com' : ardTipoV === 'col' ? 'colsonsl@outlook.com' : '___________________________';
   var r   = parseFloat(g('t_renta')) || 0;
   var ibi = parseFloat(g('t_ibi'))   || 0;
   var bas = parseFloat(g('t_bas'))   || 0;
@@ -1878,8 +1882,8 @@ function docTemporada() {
     '<p><b>18.</b> A efectos de recibir cualquier notificaci\xf3n vinculada con los derechos y obligaciones reconocidos en este contrato, se designa como tel\xe9fono: <b>93 4878700</b> y correo electr\xf3nico: <b>iaranda@guinotprunera.com</b> del administrador de fincas del arrendador, y el del arrendatario,</p>' +
     '<p>Tel\xe9fono_____________________________</p>' +
     '<p>de la vivienda arrendada.</p>' +
-    '<p><b>19.</b> Capital Value Real Estate S.L es el Responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos ser\xe1n tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org\xe1nica 3/2018, de 5 de diciembre (LOPDGDD). Dicho tratamiento se realizar\xe1 exclusivamente para la ejecuci\xf3n del contrato y los datos se conservar\xe1n durante no m\xe1s tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia. Est\xe1 prevista la cesi\xf3n de datos al administrador de fincas Guinot Prunera por ser necesarios para lograr la finalidad del tratamiento, o por obligaci\xf3n legal</p>' +
-    '<p><b>20.</b> Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a Capital Value Real Estate Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: capitalvalue@capitalvalue.com y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().</p>' +
+    '<p><b>19.</b> ' + ard.sl + ' es el Responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos ser\xe1n tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org\xe1nica 3/2018, de 5 de diciembre (LOPDGDD). Dicho tratamiento se realizar\xe1 exclusivamente para la ejecuci\xf3n del contrato y los datos se conservar\xe1n durante no m\xe1s tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia.</p>' +
+    '<p><b>20.</b> Se informa al Interesado de que podr\xe1 ejercer los derechos de acceso, rectificaci\xf3n, supresi\xf3n y portabilidad de sus datos, y los de limitaci\xf3n u oposici\xf3n al tratamiento dirigi\xe9ndose a ' + ard.sl + ' Avda. Pau Casals, 4 2 2 - 08021 Barcelona (Barcelona). E-mail: ' + ardEmail + ' y si considera que el tratamiento de datos personales no se ajusta a la normativa vigente, tambi\xe9n tiene derecho a presentar una reclamaci\xf3n ante la Autoridad de control ().</p>' +
     '<p><b>21.</b> Las partes contratantes podr\xe1n someter a la resoluci\xf3n por \xe1rbitros nombrados por el Colegio de Administradores de Fincas de Barcelona-L\xe9rida o por arbitraje institucional de este, con arreglo a su Reglamento, todo litigio, discrepancia, cuesti\xf3n o reclamaci\xf3n que surja en la interpretaci\xf3n o ejecuci\xf3n del presente contrato; y en cuyo caso har\xe1n constar expresamente su compromiso de cumplir el laudo arbitral que se dicte.</p>' +
     '<p><b>22.</b> La finca ARRENDADA est\xe1 dotada de los muebles y enseres necesarios para una habitabilidad correcta, encontr\xe1ndose los mismos en buen estado de conservaci\xf3n. Cualquier anomal\xeda al respecto se ha de poner en conocimiento del arrendador en un plazo m\xe1ximo de 48 horas. Se adjunta inventario fotogr\xe1fico del mobiliario, electrodom\xe9sticos y enseres. El ARRENDATARIO ser\xe1 responsable de su mal uso, rotura, deterioro o p\xe9rdida, y deber\xe1 proceder, en su caso, a reponerlos, repararlos y abonarlos.</p>' +
     '<p>Estas condiciones complementarias del contrato referenciado en el encabezamiento, y previo ratificarse las partes en su contenido, se firman en el mismo lugar y fecha de dicho contrato al que corresponden.</p>' +
